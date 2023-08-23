@@ -4,7 +4,6 @@ namespace App\DTO\Fornecedor;
 
 use App\DTO\BaseDTO;
 use App\Http\Requests\App\Fornecedor\FornecedorShowRequest;
-use Illuminate\Http\Request;
 
 class FornecedorShowDTO extends BaseDTO
 {
