@@ -16,7 +16,7 @@
                 <td>{{$fornecedor->created_at}}</td>
                 <td>{{$fornecedor->updated_at}}</td>
                 <td>
-                    <a href="">ver</a>
+                    <a href="{{route('fornecedor.show', ["uuid" => $fornecedor->uuid])}}">ver</a>
                     <a href="">editar</a>
                 </td>
             </tr>

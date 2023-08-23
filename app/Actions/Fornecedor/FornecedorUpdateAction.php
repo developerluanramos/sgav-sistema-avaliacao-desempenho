@@ -2,18 +2,18 @@
 
 namespace App\Actions\Fornecedor;
 
-use App\DTO\Fornecedor\FornecedorStoreDTO;
+use App\DTO\Fornecedor\FornecedorUpdateDTO;
 use App\Models\Fornecedor;
 use App\Repositories\Fornecedor\FornecedorRepositoryInterface;
 
-class FornecedorStoreAction
+class FornecedorUpdateAction
 {
     public function __construct(
         protected FornecedorRepositoryInterface $repository
     ) { }
 
-    public function exec(FornecedorStoreDTO $dto): Fornecedor
+    public function exec(FornecedorUpdateDTO $dto): Fornecedor
     {
-        return $this->repository->new($dto);
+        return $this->repository->update($dto);
     }
 }

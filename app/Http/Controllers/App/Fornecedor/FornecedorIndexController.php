@@ -19,6 +19,7 @@ class FornecedorIndexController extends Controller
             totalPerPage:  $fornecedorIndexRequest->get('totalPerPage', 10),
             filter: $fornecedorIndexRequest->get('filter', null),
         );
+        
         $filters = ['filter' => $fornecedorIndexRequest->get('filter', null)];
 
         return view('app.fornecedor.index', compact('fornecedores', 'filters'));

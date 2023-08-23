@@ -4,7 +4,7 @@ namespace App\Http\Requests\App\Fornecedor;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class FornecedorUpdateRequest extends FormRequest
+class FornecedorShowRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,13 +22,7 @@ class FornecedorUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "uuid" => ["uuid", "exists:fornecedores,uuid"],
-            "nome_fantasia" => [
-                "required", "min:5", "max:254"
-            ],
-            "razao_social" => [
-                "required", "min:5", "max:254"
-            ],
+           
         ];
     }
 }

@@ -2,7 +2,8 @@
 
 namespace App\Repositories\Fornecedor;
 
-use App\DTO\Fornecedor\FornecedorCreateDTO;
+use App\DTO\Fornecedor\FornecedorStoreDTO;
+use App\DTO\Fornecedor\FornecedorUpdateDTO;
 use App\Models\Fornecedor;
 use App\Repositories\Interfaces\PaginationInterface;
 use App\Repositories\Presenters\PaginationPresenter;
@@ -18,14 +19,14 @@ class FornecedorEloquentRepository implements FornecedorRepositoryInterface
         return $this->model->all()->toArray();
     }
 
-    public function find(): \stdClass
+    public function find(string $uuid): Fornecedor
     {
-        return new \stdClass();
+        return $this->model->where("uuid", $uuid)->first();
     }
 
-    public function new(FornecedorCreateDTO $fornecedorCreateDTO): Fornecedor
+    public function new(FornecedorStoreDTO $fornecedorStoreDTO): Fornecedor
     {
-        return $this->model->create((array)$fornecedorCreateDTO);
+        return $this->model->create((array)$fornecedorStoreDTO);
     }
 
     public function paginate(int $page = 1, int $totalPerPage = 15, string $filter = null): PaginationInterface
@@ -40,5 +41,10 @@ class FornecedorEloquentRepository implements FornecedorRepositoryInterface
         $result = $query->paginate($totalPerPage, ['*'], 'page', $page);
 
         return new PaginationPresenter($result);
+    }
+
+    public function update(FornecedorUpdateDTO $fornecedorUpdateDTO): Fornecedor 
+    {
+        return new Fornecedor();
     }
 }
