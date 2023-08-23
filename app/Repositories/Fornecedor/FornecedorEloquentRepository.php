@@ -30,7 +30,14 @@ class FornecedorEloquentRepository implements FornecedorRepositoryInterface
 
     public function paginate(int $page = 1, int $totalPerPage = 15, string $filter = null): PaginationInterface
     {
-        $result = $this->model->paginate($totalPerPage, ['*'], 'page', $page);
+        $query = $this->model->query();
+
+        if(!is_null($filter)) {
+            $query->where("razao_social", "like", "%".$filter."%");
+            $query->orWhere("nome_fantasia", "like", "%".$filter."%");
+        }
+
+        $result = $query->paginate($totalPerPage, ['*'], 'page', $page);
 
         return new PaginationPresenter($result);
     }
