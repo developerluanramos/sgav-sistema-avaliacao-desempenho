@@ -20,8 +20,8 @@
                             <td>{{$fornecedor->created_at}}</td>
                             <td>{{$fornecedor->updated_at}}</td>
                             <td>
-                                <a class="font-medium text-blue-600 dark:text-blue-500 hover:underline" href="{{route('fornecedor.show', $fornecedor->uuid)}}">ver</a>
-                                <a class="font-medium text-brown-600 dark:text-brown-500 hover:underline" href="{{route('fornecedor.edit', $fornecedor->uuid)}}">editar</a>
+                                <x-layouts.buttons.link-button  label="Ver" :route="route('fornecedor.show', $fornecedor->uuid)"/>
+                                <x-layouts.buttons.link-button  label="Editar" :route="route('fornecedor.edit', $fornecedor->uuid)"/>
                             </td>
                         </tr>
                     @empty
