@@ -1,10 +1,12 @@
 @extends('app.layouts.app')
 
-@section('title', 'Lista de Fornecedores')
+@section('title', 'Fornecedores')
 
 @section('content')
 
-<x-layouts.headers.list-header :title="'lista de fornecedores'" :route="'fornecedor/create'"/>
+<x-layouts.headers.list-header :count="$fornecedores->total()" :title="'fornecedores'" :route="'fornecedor/create'"/>
+
+@include('components.alerts.form-success')
 
 @include('app.fornecedor.partials.filters', [
     "fornecedores" => $fornecedores,

@@ -10,13 +10,13 @@ use App\Http\Requests\App\Fornecedor\FornecedorUpdateRequest;
 class FornecedorUpdateController extends Controller
 {
     public function __construct(
-        protected FornecedorUpdateAction $storeAction
+        protected FornecedorUpdateAction $updateAction
     ) {}
 
-    public function update(FornecedorUpdateRequest $storeRequest)
+    public function update(FornecedorUpdateRequest $updateRequest)
     {
-        $this->storeAction->exec(FornecedorUpdateDTO::makeFromRequest($storeRequest));
+        $this->updateAction->exec(FornecedorUpdateDTO::makeFromRequest($updateRequest));
 
-        return redirect()->route('fornecedor.index');
+        return redirect()->route('fornecedor.index')->with('message', 'Registro atualizado');
     }
 }

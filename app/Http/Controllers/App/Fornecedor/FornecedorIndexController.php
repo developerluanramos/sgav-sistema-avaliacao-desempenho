@@ -16,10 +16,10 @@ class FornecedorIndexController extends Controller
     {
         $fornecedores = $this->indexAction->exec(
             page: $fornecedorIndexRequest->get('page', 1),
-            totalPerPage:  $fornecedorIndexRequest->get('totalPerPage', 10),
+            totalPerPage:  $fornecedorIndexRequest->get('totalPerPage', 20),
             filter: $fornecedorIndexRequest->get('filter', null),
         );
-        
+
         $filters = ['filter' => $fornecedorIndexRequest->get('filter', null)];
 
         return view('app.fornecedor.index', compact('fornecedores', 'filters'));

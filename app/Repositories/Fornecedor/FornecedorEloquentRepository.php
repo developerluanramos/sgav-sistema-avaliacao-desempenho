@@ -45,6 +45,8 @@ class FornecedorEloquentRepository implements FornecedorRepositoryInterface
 
     public function update(FornecedorUpdateDTO $fornecedorUpdateDTO): Fornecedor 
     {
-        return new Fornecedor();
+        $this->model->where("uuid", $fornecedorUpdateDTO->uuid)->update((array)$fornecedorUpdateDTO);
+        
+        return $this->find($fornecedorUpdateDTO->uuid);
     }
 }

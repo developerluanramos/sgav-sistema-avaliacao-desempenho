@@ -17,6 +17,6 @@ class FornecedorStoreController extends Controller
     {
         $this->storeAction->exec(FornecedorStoreDTO::makeFromRequest($storeRequest));
 
-        return redirect()->route('fornecedor.index');
+        return redirect()->route('fornecedor.index')->with('message', 'Registro criado');
     }
 }
