@@ -36,6 +36,9 @@ class FornecedorEloquentRepository implements FornecedorRepositoryInterface
         if(!is_null($filter)) {
             $query->where("razao_social", "like", "%".$filter."%");
             $query->orWhere("nome_fantasia", "like", "%".$filter."%");
+            $query->orWhere("porte", "like", "%".$filter."%");
+            $query->orWhere("tipo_documento", "like", "%".$filter."%");
+            $query->orWhere("documento", "like", "%".$filter."%");
         }
 
         $result = $query->paginate($totalPerPage, ['*'], 'page', $page);
@@ -43,10 +46,10 @@ class FornecedorEloquentRepository implements FornecedorRepositoryInterface
         return new PaginationPresenter($result);
     }
 
-    public function update(FornecedorUpdateDTO $fornecedorUpdateDTO): Fornecedor 
+    public function update(FornecedorUpdateDTO $fornecedorUpdateDTO): Fornecedor
     {
         $this->model->where("uuid", $fornecedorUpdateDTO->uuid)->update((array)$fornecedorUpdateDTO);
-        
+
         return $this->find($fornecedorUpdateDTO->uuid);
     }
 }

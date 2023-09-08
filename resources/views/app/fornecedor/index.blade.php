@@ -4,7 +4,7 @@
 
 @section('content')
 
-<x-layouts.headers.list-header :count="$fornecedores->total()" :title="'fornecedores'" :route="'fornecedor/create'"/>
+<x-layouts.headers.list-header :count="$fornecedores->total()" :title="'Fornecedores'" :route="'fornecedor/create'"/>
 
 @include('components.alerts.form-success')
 

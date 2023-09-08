@@ -1,38 +1,38 @@
-<div class="flex flex-col">
-    <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
-      <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
-        <div class="overflow-hidden">
-            <table style="width: 100%;" class="table-auto min-w-full text-left text-sm font-light">
-                <thead>
-                    <tr>
-                        <th>Razão Social</th>
-                        <th>Nome Fantasia</th>
-                        <th>Data cadastro</th>
-                        <th>Última atualização</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @forelse($fornecedores->items() as $index => $fornecedor)
-                        <tr>
-                            <td>{{$fornecedor->razao_social}}</td>
-                            <td>{{$fornecedor->nome_fantasia}}</td>
-                            <td>{{$fornecedor->created_at}}</td>
-                            <td>{{$fornecedor->updated_at}}</td>
-                            <td>
-                                <x-layouts.buttons.link-button  label="Ver" :route="route('fornecedor.show', $fornecedor->uuid)"/>
-                                <x-layouts.buttons.link-button  label="Editar" :route="route('fornecedor.edit', $fornecedor->uuid)"/>
-                            </td>
-                        </tr>
-                    @empty
-                        <tr>
-                            <td colspan="4">vazio</td>
-                        </tr>
-                    @endforelse
-                </tbody>
-            </table>
-            <x-pagination.simple-pagination :paginator="$fornecedores" :appends="$filters" />
-        </div>
-      </div>
-    </div>
-</div>
+<x-layouts.tables.simple-table
+    :headers="[
+        'Documento',
+        'Razão Social',
+        'Nome Fantasia',
+        'Porte',
+        'Data cadastro',
+        'Última atualização',
+        'Opções'
+    ]"
+    :paginator="$fornecedores"
+    :appends="$filters"
+>
+@section('table-content')
+    @foreach($fornecedores->items() as $index => $fornecedor)
+        <tr>
+            <td>{{$fornecedor->documento}}</td>
+            <td>{{$fornecedor->razao_social}}</td>
+            <td>{{$fornecedor->nome_fantasia}}</td>
+            <td>{{$fornecedor->porte}}</td>
+            <td>{{$fornecedor->created_at}}</td>
+            <td>{{$fornecedor->updated_at}}</td>
+            <td class="text-right">
+                <x-layouts.buttons.action-button
+                    text="Ver"
+                    action="ver"
+                    color="secondary"
+                    :route="route('fornecedor.show', $fornecedor->uuid)"/>
+                <x-layouts.buttons.action-button
+                    text="Editar"
+                    action="editar"
+                    color="primary"
+                    :route="route('fornecedor.edit', $fornecedor->uuid)"/>
+            </td>
+        </tr>
+    @endforeach
+@endsection
+</x-layouts.tables.simple-table>

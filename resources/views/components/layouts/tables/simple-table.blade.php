@@ -14,7 +14,7 @@
                     @yield('table-content')
                 </tbody>
             </table>
-            {{-- <x-pagination.simple-pagination :paginator="$fornecedores" :appends="$filters" /> --}}
+            <x-pagination.simple-pagination :paginator="$paginator" :appends="$appends" />
         </div>
        </div>
     </div>

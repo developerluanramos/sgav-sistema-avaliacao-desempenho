@@ -9,7 +9,7 @@
 @include('components.alerts.form-errors')
 
 <form action="{{route('fornecedor.store')}}" method="POST">
-    @include('app.fornecedor.partials.form')
+    @include('app.fornecedor.partials.form', compact('formData'))
 </form>
 
 @endsection

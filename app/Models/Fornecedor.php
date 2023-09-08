@@ -14,6 +14,9 @@ class Fornecedor extends Model
     protected $fillable = [
         "uuid",
         "razao_social",
-        "nome_fantasia"
+        "nome_fantasia",
+        "porte",
+        "tipo_documento",
+        "documento"
     ];
 }
