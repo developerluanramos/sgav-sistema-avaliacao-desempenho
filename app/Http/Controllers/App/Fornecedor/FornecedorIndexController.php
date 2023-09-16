@@ -16,7 +16,7 @@ class FornecedorIndexController extends Controller
     {
         $fornecedores = $this->indexAction->exec(
             page: $fornecedorIndexRequest->get('page', 1),
-            totalPerPage:  $fornecedorIndexRequest->get('totalPerPage', 20),
+            totalPerPage:  $fornecedorIndexRequest->get('totalPerPage', 15),
             filter: $fornecedorIndexRequest->get('filter', null),
         );
 

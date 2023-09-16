@@ -74,7 +74,7 @@ data-te-navbar-ref>
         loading="lazy" />
     </a>
     <!-- Left navigation links -->
-    
+
     <ul
       class="list-style-none mr-auto flex flex-col pl-0 lg:flex-row"
       data-te-navbar-nav-ref>
@@ -245,12 +245,14 @@ data-te-navbar-ref>
 
 <section class="container px-4 mx-auto">
     <head>
-        @yield('breadcrumb')
-    </head>    
+        <div class="mt-2" class="text-end align-content-end">
+            @yield('breadcrumb')
+        </div>
+    </head>
     <head>
         <div class="mt-2">
             @yield('header')
-            <hr>
+
         </div>
     </head>
     <div>

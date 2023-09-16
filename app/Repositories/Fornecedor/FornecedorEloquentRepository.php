@@ -41,6 +41,8 @@ class FornecedorEloquentRepository implements FornecedorRepositoryInterface
             $query->orWhere("documento", "like", "%".$filter."%");
         }
 
+        $query->orderBy('updated_at', 'desc');
+
         $result = $query->paginate($totalPerPage, ['*'], 'page', $page);
 
         return new PaginationPresenter($result);

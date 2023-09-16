@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('app.home');
-});
+})->name('dashboard');
 
 Route::get("/test-01", function () {
    function playGame(array $gameFormation): int {

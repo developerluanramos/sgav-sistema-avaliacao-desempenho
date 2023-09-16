@@ -1,5 +1,9 @@
 @extends('app.layouts.app')
 
+@section('breadcrumb')
+    {{ Breadcrumbs::render('fornecedor.create') }}
+@endsection
+
 @section('title', 'Novo Fornecedor')
 
 <x-layouts.headers.create-header :title="'Novo Fornecedor'"/>

@@ -18,8 +18,8 @@
             <td>{{$fornecedor->razao_social}}</td>
             <td>{{$fornecedor->nome_fantasia}}</td>
             <td>{{$fornecedor->porte}}</td>
-            <td>{{$fornecedor->created_at}}</td>
-            <td>{{$fornecedor->updated_at}}</td>
+            <td>{{$fornecedor->created_at_for_humans}}</td>
+            <td>{{$fornecedor->updated_at_for_humans}}</td>
             <td class="text-right">
                 <x-layouts.buttons.action-button
                     text="Ver"
