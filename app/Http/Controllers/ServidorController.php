@@ -23,7 +23,7 @@ class ServidorController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'nome' => 'required',
+            'name' => 'required',
             'email' => 'required|email|unique:servidores',
             'data_nascimento' => 'required|date',
             'data_admissao' => 'required|date',
@@ -48,7 +48,7 @@ class ServidorController extends Controller
         $servidor = Servidor::findOrFail($id);
 
         $validatedData = $request->validate([
-            'nome' => 'required',
+            'name' => 'required',
             'email' => 'required|email|unique:servidores,email,' . $servidor->id,
             'data_nascimento' => 'required|date',
             'data_admissao' => 'required|date',
