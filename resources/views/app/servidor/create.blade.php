@@ -2,7 +2,7 @@
 
 @section('content')
     <h1 class="text-2xl font-semibold">Criar Servidor Público</h1>
-    <form action="{{ route('servidores-publicos.store') }}" method="POST" class="mt-4">
+    <form action="{{ route('servidor.store') }}" method="POST" class="mt-4">
         @csrf
         <div class="mb-4">
             <label for="nome" class="block text-gray-600">Nome:</label>
@@ -22,7 +22,7 @@
         </div>
         <div class="mb-4">
             <label for="cargo_uuid" class="block text-gray-600">Cargo:</label>
-            <select name="cargo_uuid" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring focus:ring-blue-200">
+            <select name="cargo_uuid" required class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring focus:ring-blue-200">
                 <option value="">Selecione um cargo</option>
                 @foreach($cargos as $cargo)
                     <option value="{{ $cargo->uuid }}">{{ $cargo->nome }}</option>

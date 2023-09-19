@@ -18,6 +18,6 @@ class Cargo extends Model
 
     public function servidores()
     {
-        return $this->hasMany(ServidorPublico::class, 'cargo_uuid', 'uuid');
+        return $this->hasMany(Servidor::class, 'cargo_uuid', 'uuid');
     }
 }

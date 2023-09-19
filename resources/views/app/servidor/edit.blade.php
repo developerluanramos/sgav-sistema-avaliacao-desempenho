@@ -2,7 +2,7 @@
 
 @section('content')
     <h1 class="text-2xl font-semibold">Editar Servidor Público</h1>
-    <form action="{{ route('servidores-publicos.update', $servidor->id) }}" method="POST" class="mt-4">
+    <form action="{{ route('servidor.update', $servidor->id) }}" method="POST" class="mt-4">
         @csrf
         @method('PUT')
         <div class="mb-4">

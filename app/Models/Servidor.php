@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ServidorPublico extends Model
+class Servidor extends Model
 {
     use HasFactory;
 
-    protected $table = 'servidores_publicos';
+    protected $table = 'servidores';
 
     protected $fillable = [
         'nome',

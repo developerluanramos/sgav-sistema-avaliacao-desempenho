@@ -2,14 +2,14 @@
 
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ServidorPublicoController;
+use App\Http\Controllers\ServidorController;
 
-Route::get('/servidores-publicos', [ServidorPublicoController::class, 'index'])->name('servidores-publicos.index');
-Route::get('/servidores-publicos/create', [ServidorPublicoController::class, 'create'])->name('servidores-publicos.create');
-Route::post('/servidores-publicos', [ServidorPublicoController::class, 'store'])->name('servidores-publicos.store');
-Route::get('/servidores-publicos/{servidor}/edit', [ServidorPublicoController::class, 'edit'])->name('servidores-publicos.edit');
-Route::put('/servidores-publicos/{servidor}', [ServidorPublicoController::class, 'update'])->name('servidores-publicos.update');
-Route::delete('/servidores-publicos/{servidor}', [ServidorPublicoController::class, 'destroy'])->name('servidores-publicos.destroy');
+Route::get('/servidor', [ServidorController::class, 'index'])->name('servidor.index');
+Route::get('/servidor/create', [ServidorController::class, 'create'])->name('servidor.create');
+Route::post('/servidor', [ServidorPublicoController::class, 'store'])->name('servidor.store');
+Route::get('/servidor/{servidor}/edit', [ServidorController::class, 'edit'])->name('servidor.edit');
+Route::put('/servidor/{servidor}', [ServidorController::class, 'update'])->name('servidor.update');
+Route::delete('/servidor/{servidor}', [ServidorController::class, 'destroy'])->name('servidor.destroy');
 
 Route::get('/', function () {
     return view('app.home');

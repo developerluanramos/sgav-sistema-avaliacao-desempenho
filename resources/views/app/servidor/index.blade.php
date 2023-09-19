@@ -24,8 +24,8 @@
                     <td class="px-4 py-2">{{ $servidor->cargo }}</td>
                     <td class="px-4 py-2">{{ $servidor->matricula }}</td>
                     <td class="px-4 py-2">
-                        <a href="{{ route('servidores-publicos.edit', $servidor->id) }}" class="text-blue-500 hover:underline">Editar</a>
-                        <form action="{{ route('servidores-publicos.destroy', $servidor->id) }}" method="POST" class="inline">
+                        <a href="{{ route('servidor.edit', $servidor->id) }}" class="text-blue-500 hover:underline">Editar</a>
+                        <form action="{{ route('servidor.destroy', $servidor->id) }}" method="POST" class="inline">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="text-red-500 hover:underline">Excluir</button>
@@ -35,5 +35,5 @@
             @endforeach
         </tbody>
     </table>
-    <a href="{{ route('servidores-publicos.create') }}" class="mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Adicionar Servidor</a>
+    <a href="{{ route('servidor.create') }}" class="mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Adicionar Servidor</a>
 @endsection
