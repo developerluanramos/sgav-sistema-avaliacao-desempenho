@@ -1,17 +1,15 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ServidorPublicoController;
+
+Route::get('/servidores-publicos', [ServidorPublicoController::class, 'index'])->name('servidores-publicos.index');
+Route::get('/servidores-publicos/create', [ServidorPublicoController::class, 'create'])->name('servidores-publicos.create');
+Route::post('/servidores-publicos', [ServidorPublicoController::class, 'store'])->name('servidores-publicos.store');
+Route::get('/servidores-publicos/{servidor}/edit', [ServidorPublicoController::class, 'edit'])->name('servidores-publicos.edit');
+Route::put('/servidores-publicos/{servidor}', [ServidorPublicoController::class, 'update'])->name('servidores-publicos.update');
+Route::delete('/servidores-publicos/{servidor}', [ServidorPublicoController::class, 'destroy'])->name('servidores-publicos.destroy');
 
 Route::get('/', function () {
     return view('app.home');
