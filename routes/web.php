@@ -2,11 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\App\Servidor\ServidorCreateController;
+use App\Http\Controllers\App\Servidor\ServidorStoreController;
 use App\Models\Servidor;
 
 Route::get('/servidor', [ServidorController::class, 'index'])->name('servidor.index');
 Route::get('/servidor/create', [ServidorCreateController::class, 'create'])->name('servidor.create');
-Route::post('/servidor', [ServidorController::class, 'store'])->name('servidor.store');
+Route::post('/servidor', [ServidorStoreController::class, 'store'])->name('servidor.store');
 Route::get('/servidor/{servidor}/edit', [ServidorController::class, 'edit'])->name('servidor.edit');
 Route::put('/servidor/{servidor}', [ServidorController::class, 'update'])->name('servidor.update');
 Route::delete('/servidor/{servidor}', [ServidorController::class, 'destroy'])->name('servidor.destroy');
