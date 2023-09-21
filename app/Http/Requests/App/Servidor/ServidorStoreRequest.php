@@ -6,20 +6,23 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class ServidorStoreRequest extends FormRequest
 {
-    public function authorize()
+    /**
+     * Determine if the user is authorized to make this request.
+     */
+    public function authorize(): bool
     {
         return true;
     }
 
-    public function rules()
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array|string>
+     */
+    public function rules(): array
     {
         return [
-            'name' => 'required',
-            'email' => 'required|email|unique:servidores',
-            'data_nascimento' => 'required|date',
-            'data_admissao' => 'required|date',
-            'cargo_uuid' => 'required|exists:cargos,uuid',
-            'matricula' => 'required|unique:servidores',
+            // Defina as regras de validação aqui, com base nos campos do Servidor
         ];
     }
 }

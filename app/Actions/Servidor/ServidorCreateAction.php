@@ -2,19 +2,21 @@
 
 namespace App\Actions\Servidor;
 
-use App\Repositories\Servidor\ServidorRepository;
+use App\Enums\CargoEnum;
+use App\Models\Cargo;
 
 class ServidorCreateAction
 {
-    private $repository;
+    public function __construct()
+    { }
 
-    public function __construct(ServidorRepository $repository)
+    public function exec(): array
     {
-        $this->repository = $repository;
-    }
+        $cargos = Cargo::all();
 
-    public function execute(array $data)
-    {
-        return $this->repository->create($data);
+        return [
+            "cargos" => $cargos,
+        ];
     }
 }
+

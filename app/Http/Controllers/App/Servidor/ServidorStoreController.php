@@ -9,26 +9,14 @@ use App\Http\Requests\App\Servidor\ServidorStoreRequest;
 
 class ServidorStoreController extends Controller
 {
-    private $action;
+    public function __construct(
+        protected ServidorStoreAction $storeAction
+    ) { }
 
-    public function __construct(ServidorStoreAction $action)
+    public function store(ServidorStoreRequest $storeRequest)
     {
-        $this->action = $action;
-    }
+        $this->storeAction->exec(ServidorStoreDTO::makeFromRequest($storeRequest));
 
-    public function store(ServidorStoreRequest $request)
-    {
-        $data = new ServidorStoreDTO(
-            $request->input('name'),
-            $request->input('email'),
-            $request->input('data_nascimento'),
-            $request->input('data_admissao'),
-            $request->input('cargo_uuid'),
-            $request->input('matricula')
-        );
-
-        $this->action->execute($data);
-
-        return redirect()->route('servidor.index')->with('success', 'Servidor público criado com sucesso.');
+        return redirect()->route('servidor.index')->with('message', 'Registro criado');
     }
 }

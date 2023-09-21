@@ -9,24 +9,18 @@ use App\Models\Cargo;
 
 class ServidorCreateController extends Controller
 {
-    private $action;
+    public function __construct(
+        protected ServidorCreateAction $createAction
+    ) { }
 
-    public function __construct(ServidorCreateAction $action)
+
+
+    public function create(ServidorCreateRequest $servidorCreateRequest)
     {
-        $this->action = $action;
-    }
+        $cargos = Cargo::all();
 
-    public function create()
-    {
-    $cargos = Cargo::all();
-    return view('app.servidor.create', compact('cargos'));
-    }
+        $formData = $this->createAction->exec();
 
-    public function store(ServidorCreateRequest $request)
-    {
-        $data = $request->validated();
-        $this->action->execute($data);
-
-        return redirect()->route('servidor.index')->with('success', 'Servidor público criado com sucesso.');
+        return view('app.servidor.create', compact('cargos', 'formData'));
     }
 }
