@@ -8,6 +8,15 @@ use Diglactic\Breadcrumbs\Breadcrumbs;
 //  with `$trail`. This is nice for IDE type checking and completion.
 use Diglactic\Breadcrumbs\Generator as BreadcrumbTrail;
 
+Breadcrumbs::for('servidor', function (BreadcrumbTrail $trail) {
+    $trail->push('Servidores', route('servidor.index'));
+});
+
+
+Breadcrumbs::for('servidor.create', function ($trail) {
+    $trail->parent('servidor');
+    $trail->push('Novo Servidor', route('servidor.create'));
+});
 
 Breadcrumbs::for('dashboard', function (BreadcrumbTrail $trail) {
     $trail->push('Dashboard', route('dashboard'));

@@ -18,9 +18,11 @@ class ServidorCreateController extends Controller
     public function create(ServidorCreateRequest $servidorCreateRequest)
     {
         $cargos = Cargo::all();
-
         $formData = $this->createAction->exec();
 
-        return view('app.servidor.create', compact('cargos', 'formData'));
+        $formData['cargos'] = $cargos;
+
+        return view('app.servidor.create', compact('formData'));
     }
+
 }
