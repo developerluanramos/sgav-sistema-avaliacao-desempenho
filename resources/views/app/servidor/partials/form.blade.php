@@ -27,13 +27,13 @@
     />
 </div>
 
-<x-app.input-normal-select
-        label="Cargo"
-        name="cargos"
-        origin="cargos"
-        lenght="4/12"
-        :data="$formData['cargos']"
-        :selected="$servidor->cargos ?? old('cargos')"
+<x-layouts.inputs.input-normal-select
+    label="Cargo"
+    name="cargo_uuid"
+    origin="cargo_uuid"
+    lenght="4/12"
+    :data="$formData['cargos']"
+    :selected="$servidor->cargo_uuid ?? old('cargo_uuid')"
     />
     <x-layouts.inputs.input-normal-text
         label="Matrícula"
