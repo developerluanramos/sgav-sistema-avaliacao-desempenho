@@ -4,6 +4,8 @@ namespace App\Http\Requests\App\Servidor;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+use function PHPSTORM_META\map;
+
 class ServidorStoreRequest extends FormRequest
 {
     /**
@@ -22,7 +24,24 @@ class ServidorStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            // Defina as regras de validação aqui, com base nos campos do Servidor
+            "nome" => [
+                "required", "min:5", "max:254"
+            ],
+            "email" => [
+                "required", "min:5", "max:254", "email"
+            ],
+            "data_nascimento" => [
+                "required", "date"
+            ],
+            "data_admissao" => [
+                "required", "date"
+            ],
+            "cargo_uuid" => [
+                "required", "exists:cargos,uuid"
+            ],
+            "matricula" => [
+                "required", "min:5", "max:50"
+            ],
         ];
     }
 }

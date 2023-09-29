@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use App\Models\Fornecedor;
 use App\Observers\FornecedorObserver;
+use App\Repositories\Cargo\CargoEloquentRepository;
+use App\Repositories\Cargo\CargoRepositoryInterface;
 use App\Repositories\Fornecedor\FornecedorEloquentRepository;
 use App\Repositories\Fornecedor\FornecedorRepositoryInterface;
 use App\Repositories\Servidor\ServidorEloquentRepository;
@@ -24,7 +26,12 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(
             FornecedorRepositoryInterface::class, FornecedorEloquentRepository::class
         );
+
+        $this->app->bind(
+            CargoRepositoryInterface::class, CargoEloquentRepository::class
+        );
     }
+
 
     /**
      * Bootstrap any application services.
