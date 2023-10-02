@@ -12,7 +12,7 @@ class Servidor extends Model
     protected $table = 'servidores';
 
     protected $fillable = [
-        'name',
+        'nome',
         'email',
         'data_nascimento',
         'data_admissao',

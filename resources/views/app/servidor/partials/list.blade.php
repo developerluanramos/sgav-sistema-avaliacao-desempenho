@@ -13,7 +13,7 @@
 @section('table-content')
     @foreach($servidores as $servidor)
         <tr>
-            <td>{{ $servidor->name }}</td>
+            <td>{{ $servidor->nome }}</td>
             <td>{{ $servidor->email }}</td>
             <td>{{ $servidor->data_nascimento }}</td>
             <td>{{ $servidor->data_admissao }}</td>

@@ -9,7 +9,7 @@ use App\Http\Requests\App\Servidor\ServidorStoreRequest;
 class ServidorStoreDTO extends BaseDTO
 {
     public function __construct(
-        public string $name,
+        public string $nome,
         public string $email,
         public string $data_nascimento,
         public string $data_admissao,
@@ -20,7 +20,7 @@ class ServidorStoreDTO extends BaseDTO
     public static function makeFromRequest(ServidorStoreRequest $request)
     {
         return new self(
-            $request->input('name', ''), // Garante que $name nunca seja nulo
+            $request->input('nome', ''), // Garante que $name nunca seja nulo
             $request->input('email', ''),
             $request->input('data_nascimento', ''),
             $request->input('data_admissao', ''),
