@@ -26,19 +26,27 @@ class InputNormalSelect extends Component
      */
     public function render(): View|Closure|string
     {
-        $data = [];
 
         switch ($this->origin) {
             case 'fornecedores':
-                # code...
+                // Lógica para buscar dados de fornecedores.
+                $data = [
+                    ['value' => 'fornecedor1', 'text' => 'Fornecedor 1'],
+                    ['value' => 'fornecedor2', 'text' => 'Fornecedor 2'],
+                ];
                 break;
 
             case 'portes':
-                # code...
+                // Lógica para buscar dados de portes.
+                $data = [
+                    ['value' => 'porte1', 'text' => 'Porte 1'],
+                    ['value' => 'porte2', 'text' => 'Porte 2'],
+                ];
                 break;
 
             default:
-                # code...
+                // Lógica padrão se a origem não for reconhecida.
+                $data = $this->data;
                 break;
         }
 
