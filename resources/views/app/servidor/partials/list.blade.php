@@ -10,24 +10,28 @@
     ]"
     :paginator="$servidores"
 >
-@section('table-content')
-    @foreach($servidores as $servidor)
-        <tr>
-            <td>{{ $servidor->nome }}</td>
-            <td>{{ $servidor->email }}</td>
-            <td>{{ $servidor->data_nascimento }}</td>
-            <td>{{ $servidor->data_admissao }}</td>
-            <td>{{ $servidor->cargo }}</td>
-            <td>{{ $servidor->matricula }}</td>
-            <td>
-                <a href="{{ route('servidor.edit', $servidor->id) }}" class="text-blue-500 hover:underline">Editar</a>
-                <form action="{{ route('servidor.destroy', $servidor->id) }}" method="POST" class="inline">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="text-red-500 hover:underline">Excluir</button>
-                </form>
-            </td>
-        </tr>
-    @endforeach
-@endsection
+    @section('table-content')
+        @foreach($servidores->items() as $index => $servidor)
+            <tr>
+                <td>{{ $servidor->nome }}</td>
+                <td>{{ $servidor->email }}</td>
+                <td>{{ $servidor->data_nascimento }}</td>
+                <td>{{ $servidor->data_admissao }}</td>
+                <td>{{ $servidor->cargo->nome }}</td>
+                <td>{{ $servidor->matricula }}</td>
+                <td class="text-center">
+                    <x-layouts.buttons.action-button
+                        text="Editar"
+                        action="editar"
+                        color="primary"
+                        :route="'#'"/>
+                    <x-layouts.buttons.action-button
+                        text="Excluir"
+                        action="excluir"
+                        color="danger"
+                        :route="'#'"/>
+                </td>
+            </tr>
+        @endforeach
+    @endsection
 </x-layouts.tables.simple-table>
