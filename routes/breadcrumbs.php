@@ -12,7 +12,6 @@ Breadcrumbs::for('servidor', function (BreadcrumbTrail $trail) {
     $trail->push('Servidores', route('servidor.index'));
 });
 
-
 Breadcrumbs::for('servidor.create', function ($trail) {
     $trail->parent('servidor');
     $trail->push('Novo Servidor', route('servidor.create'));
