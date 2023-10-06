@@ -11,8 +11,8 @@ class ServidorIndexAction
         protected ServidorRepositoryInterface $repository
     ) { }
 
-    public function exec(int $page = 1, int $totalPerPage = 10): PaginationInterface
+    public function exec(int $page = 1, int $totalPerPage = 10, string $filter = null): PaginationInterface
     {
-        return $this->repository->paginate(page: $page, totalPerPage: $totalPerPage);
+        return $this->repository->paginate($page, $totalPerPage, $filter);
     }
 }

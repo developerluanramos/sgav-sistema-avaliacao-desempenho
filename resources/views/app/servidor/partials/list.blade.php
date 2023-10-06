@@ -9,6 +9,7 @@
         'Ações'
     ]"
     :paginator="$servidores"
+    :appends="[]"
 >
     @section('table-content')
         @foreach($servidores->items() as $index => $servidor)
@@ -17,7 +18,7 @@
                 <td>{{ $servidor->email }}</td>
                 <td>{{ $servidor->data_nascimento }}</td>
                 <td>{{ $servidor->data_admissao }}</td>
-                <td>{{ $servidor->cargo->nome }}</td>
+                <td>{{ $servidor->cargo['nome'] }}</td>
                 <td>{{ $servidor->matricula }}</td>
                 <td class="text-center">
                     <x-layouts.buttons.action-button

@@ -24,6 +24,4 @@ class Servidor extends Model
     {
         return $this->belongsTo(Cargo::class, 'cargo_uuid', 'uuid');
     }
-
-
 }

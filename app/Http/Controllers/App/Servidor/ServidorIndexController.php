@@ -4,6 +4,8 @@ namespace App\Http\Controllers\App\Servidor;
 
 use App\Actions\Servidor\ServidorIndexAction;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\App\Servidor\ServidorIndexRequest;
+use App\Models\Cargo;
 use App\Models\Servidor;
 use Illuminate\Http\Request;
 
@@ -13,11 +15,16 @@ class ServidorIndexController extends Controller
         protected ServidorIndexAction $indexAction
     ) {}
 
-    public function index(Request $request)
+    public function index(ServidorIndexRequest $servidorIndexRequest)
     {
-        $servidores = Servidor::with('cargo')
-            ->paginate($request->get('totalPerPage', 15));
+        $servidores = $this->indexAction->exec(
+            page: $servidorIndexRequest->get('page', 1),
+            totalPerPage: $servidorIndexRequest->get('totalPerPage', 15),
+            filter: $servidorIndexRequest->get('filter', null),
+        );
 
-        return view('app.servidor.index', compact('servidores'));
+        $filters = ['filter' => $servidorIndexRequest->get('filter', null)];
+
+        return view('app.servidor.index', compact('servidores', 'filters'));
     }
 }
