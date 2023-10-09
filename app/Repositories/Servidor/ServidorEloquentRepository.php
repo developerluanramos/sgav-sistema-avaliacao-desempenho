@@ -36,7 +36,16 @@ class ServidorEloquentRepository implements ServidorRepositoryInterface
 
 
         if (!is_null($filter)) {
-            $query->where("nome", "like", "%{$filter}%");
+            $query->where(function ($subquery) use ($filter) {
+                $subquery->where("nome", "like", "%{$filter}%")
+                        ->orWhere("email", "like", "%{$filter}%")
+                        ->orWhereHas('cargo', function ($cargoQuery) use ($filter) {
+                            $cargoQuery->where("nome", "like", "%{$filter}%");
+                        })
+                        ->orWhere("data_nascimento", "like", "%{$filter}%")
+                        ->orWhere("data_admissao", "like", "%{$filter}%")
+                        ->orWhere("matricula", "like", "%{$filter}%");
+            });
         }
 
         $query->orderBy('updated_at', 'desc');
