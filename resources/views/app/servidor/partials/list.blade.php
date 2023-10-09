@@ -9,7 +9,7 @@
         'Ações'
     ]"
     :paginator="$servidores"
-    :appends="[]"
+    :appends="$filters"
 >
     @section('table-content')
         @foreach($servidores->items() as $index => $servidor)
