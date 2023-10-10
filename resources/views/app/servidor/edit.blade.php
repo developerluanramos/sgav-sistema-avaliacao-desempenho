@@ -13,12 +13,11 @@
 @include('components.alerts.form-errors')
 
 
-<form action="{{ route('servidor.store') }}" method="POST" class="mt-4">
+<form action="{{ route('servidor.update', $servidor->uuid) }}" method="POST" class="mt-4">
     @csrf
     @method('PUT')
     @include('app.servidor.partials.form')
 </form>
 
-@include('components.alerts.form-errors')
 
 @endsection

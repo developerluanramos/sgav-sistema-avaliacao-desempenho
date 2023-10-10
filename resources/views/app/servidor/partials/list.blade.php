@@ -25,13 +25,13 @@
                         text="Editar"
                         action="editar"
                         color="primary"
-                        :route="route('servidor.edit', ['servidor' => $servidor->id])"/>
+                        :route="route('servidor.edit', ['servidor' => $servidor->uuid])"/>
 
                     <x-layouts.buttons.action-button
                         text="Excluir"
                         action="excluir"
                         color="danger"
-                        :route="route('servidor.destroy', ['servidor' => $servidor->id])"/>
+                        :route="route('servidor.destroy', ['servidor' => $servidor->uuid])"/>
                 </td>
             </tr>
         @endforeach

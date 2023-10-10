@@ -8,7 +8,7 @@ use App\Http\Requests\App\Servidor\ServidorUpdateRequest;
 class ServidorUpdateDTO extends BaseDTO
 {
     public function __construct(
-        public string $id,
+        public string $uuid,
         public string $nome,
         public string $email,
         public string $data_nascimento,
@@ -20,7 +20,7 @@ class ServidorUpdateDTO extends BaseDTO
     public static function makeFromRequest(ServidorUpdateRequest $request)
     {
         return new self(
-            $request->id,
+            $request->uuid,
             $request->nome,
             $request->email,
             $request->data_nascimento,

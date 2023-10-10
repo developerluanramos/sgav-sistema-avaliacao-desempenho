@@ -8,13 +8,13 @@ use App\Http\Requests\App\Servidor\ServidorEditRequest;
 class ServidorEditDTO extends BaseDTO
 {
     public function __construct(
-        public string $id
+        public string $uuid
     ){ }
 
     public static function makeFromRequest(ServidorEditRequest $request)
     {
         return new self(
-            $request->id
+            $request->uuid
         );
     }
 }

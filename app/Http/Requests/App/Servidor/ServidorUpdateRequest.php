@@ -14,7 +14,7 @@ class ServidorUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'id' => 'required|exists:servidores,id',
+            "uuid" => ["uuid", "exists:servidores,uuid"],
             'nome' => 'required|min:5|max:254',
             'email' => 'required|email|min:5|max:254',
             'data_nascimento' => 'required|date',

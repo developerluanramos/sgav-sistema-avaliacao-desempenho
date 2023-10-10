@@ -13,8 +13,11 @@ class ServidorUpdateController extends Controller
         protected ServidorUpdateAction $updateAction
     ) { }
 
-    public function update(ServidorUpdateRequest $updateRequest)
+    public function update(string $uuid, ServidorUpdateRequest $updateRequest)
     {
+        $updateRequest = $updateRequest->merge([
+            'uuid' => $uuid,
+        ]);
         $this->updateAction->exec(ServidorUpdateDTO::makeFromRequest($updateRequest));
 
         return redirect()->route('servidor.index')->with('message', 'Registro atualizado com sucesso');

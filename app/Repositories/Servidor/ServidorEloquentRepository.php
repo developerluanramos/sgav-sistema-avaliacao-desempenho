@@ -57,9 +57,9 @@ class ServidorEloquentRepository implements ServidorRepositoryInterface
 
     public function update(ServidorUpdateDTO $servidorUpdateDTO): Servidor
     {
-        $this->model->where("id", $servidorUpdateDTO->id)->update((array)$servidorUpdateDTO);
+        $this->model->where("uuid", $servidorUpdateDTO->uuid)->update((array)$servidorUpdateDTO);
 
-        return $this->find($servidorUpdateDTO->id);
+        return $this->find($servidorUpdateDTO->uuid);
     }
 
 

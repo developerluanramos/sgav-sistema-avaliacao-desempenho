@@ -14,6 +14,6 @@ class ServidorEditAction
 
     public function exec(ServidorEditDTO $dto): Servidor
     {
-        return $this->repository->find($dto->id);
+        return $this->repository->find($dto->uuid);
     }
 }

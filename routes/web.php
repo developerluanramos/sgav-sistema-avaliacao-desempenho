@@ -5,6 +5,7 @@ use App\Http\Controllers\App\Servidor\ServidorCreateController;
 use App\Http\Controllers\App\Servidor\ServidorEditController;
 use App\Http\Controllers\App\Servidor\ServidorIndexController;
 use App\Http\Controllers\App\Servidor\ServidorStoreController;
+use App\Http\Controllers\App\Servidor\ServidorUpdateController;
 use App\Models\Servidor;
 
 Route::get('/servidor/create', [ServidorCreateController::class, 'create'])->name('servidor.create');

@@ -14,7 +14,7 @@ class ServidorEditRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'uuid' => 'required|exists:servidores,uuid',
+            //
         ];
     }
 }
