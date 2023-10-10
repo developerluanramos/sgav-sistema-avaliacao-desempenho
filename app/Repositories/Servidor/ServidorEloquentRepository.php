@@ -51,8 +51,15 @@ class ServidorEloquentRepository implements ServidorRepositoryInterface
         $query->orderBy('updated_at', 'desc');
 
         $result = $query->paginate($totalPerPage, ['*'], 'page', $page);
-        // dd($result);
+
         return new PaginationPresenter($result);
+    }
+
+    public function update(ServidorUpdateDTO $servidorUpdateDTO): Servidor
+    {
+        $this->model->where("id", $servidorUpdateDTO->id)->update((array)$servidorUpdateDTO);
+
+        return $this->find($servidorUpdateDTO->id);
     }
 
 
