@@ -13,4 +13,5 @@ interface ServidorRepositoryInterface
     public function paginate(int $page = 1, int $totalPerPage = 10, string $filter = null): PaginationInterface;
     public function find(string $uuid): Servidor;
     public function new(ServidorStoreDTO $servidorStoreDTO): Servidor;
+    public function update(ServidorUpdateDTO $servidorUpdateDTO): Servidor;
 }

@@ -11,6 +11,7 @@ class ServidorCreateAction
     public function __construct(
         protected CargoRepositoryInterface $cargoRepository
     ) { }
+    
     public function exec(): array
     {
         $cargos = $this->cargoRepository->all();

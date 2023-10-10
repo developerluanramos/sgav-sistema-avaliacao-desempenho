@@ -13,8 +13,6 @@ class ServidorCreateController extends Controller
         protected ServidorCreateAction $createAction
     ) { }
 
-
-
     public function create(ServidorCreateRequest $servidorCreateRequest)
     {
         $cargos = Cargo::all();
