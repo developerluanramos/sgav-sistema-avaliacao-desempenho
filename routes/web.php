@@ -10,7 +10,7 @@ use App\Http\Controllers\App\Servidor\ServidorUpdateController;
 use App\Models\Servidor;
 
 
-Route::get('fornecedor/show/{uuid}', [ServidorShowController::class, 'show'])->name('servidor.show');
+Route::get('servidor/show/{uuid}', [ServidorShowController::class, 'show'])->name('servidor.show');
 Route::get('/servidor/create', [ServidorCreateController::class, 'create'])->name('servidor.create');
 Route::put('/servidor/{servidor}', [ServidorUpdateController::class, 'update'])->name('servidor.update');
 Route::get('/servidor', [ServidorIndexController::class, 'index'])->name('servidor.index');
