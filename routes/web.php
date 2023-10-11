@@ -4,10 +4,13 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\App\Servidor\ServidorCreateController;
 use App\Http\Controllers\App\Servidor\ServidorEditController;
 use App\Http\Controllers\App\Servidor\ServidorIndexController;
+use App\Http\Controllers\App\Servidor\ServidorShowController;
 use App\Http\Controllers\App\Servidor\ServidorStoreController;
 use App\Http\Controllers\App\Servidor\ServidorUpdateController;
 use App\Models\Servidor;
 
+
+Route::get('servidor/show/{uuid}', [ServidorShowController::class, 'show'])->name('servidor.show');
 Route::get('/servidor/create', [ServidorCreateController::class, 'create'])->name('servidor.create');
 Route::put('/servidor/{servidor}', [ServidorUpdateController::class, 'update'])->name('servidor.update');
 Route::get('/servidor', [ServidorIndexController::class, 'index'])->name('servidor.index');
