@@ -2,18 +2,18 @@
 
 namespace App\Actions\Servidor;
 
-use App\DTO\Servidor\ServidorStoreDTO;
+use App\DTO\Servidor\ServidorEditDTO;
 use App\Models\Servidor;
 use App\Repositories\Servidor\ServidorRepositoryInterface;
 
-class ServidorStoreAction
+class ServidorEditAction
 {
     public function __construct(
         protected ServidorRepositoryInterface $repository
     ) { }
 
-    public function exec(ServidorStoreDTO $dto): Servidor
+    public function exec(ServidorEditDTO $dto): Servidor
     {
-        return $this->repository->new($dto);
+        return $this->repository->find($dto->uuid);
     }
 }

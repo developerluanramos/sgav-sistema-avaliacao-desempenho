@@ -1,17 +1,22 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\App\Servidor\ServidorCreateController;
+use App\Http\Controllers\App\Servidor\ServidorEditController;
+use App\Http\Controllers\App\Servidor\ServidorIndexController;
+use App\Http\Controllers\App\Servidor\ServidorShowController;
+use App\Http\Controllers\App\Servidor\ServidorStoreController;
+use App\Http\Controllers\App\Servidor\ServidorUpdateController;
+use App\Models\Servidor;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+
+Route::get('servidor/show/{uuid}', [ServidorShowController::class, 'show'])->name('servidor.show');
+Route::get('/servidor/create', [ServidorCreateController::class, 'create'])->name('servidor.create');
+Route::put('/servidor/{servidor}', [ServidorUpdateController::class, 'update'])->name('servidor.update');
+Route::get('/servidor', [ServidorIndexController::class, 'index'])->name('servidor.index');
+Route::get('/servidor/edit/{servidor}', [ServidorEditController::class, 'edit'])->name('servidor.edit');
+Route::post('/servidor', [ServidorStoreController::class, 'store'])->name('servidor.store');
+Route::delete('/servidor/{servidor}', [ServidorController::class, 'destroy'])->name('servidor.destroy');
 
 Route::get('/', function () {
     return view('app.home');

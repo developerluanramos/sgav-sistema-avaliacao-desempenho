@@ -17,6 +17,10 @@
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4">
                     <path d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z" />
                 </svg>
+            @elseif($action == "excluir")
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 22 22" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17.293 6.293a1 1 0 00-1.414 0L11 10.586l-4.293-4.293a1 1 0 10-1.414 1.414L9.586 12l-4.293 4.293a1 1 0 101.414 1.414L11 13.414l4.293 4.293a1 1 0 001.414-1.414L12.414 12l4.293-4.293a1 1 0 000-1.414z"/>
+            </svg>
             @else
                 {{$text}}
             @endif
