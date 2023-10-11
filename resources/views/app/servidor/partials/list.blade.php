@@ -16,8 +16,8 @@
             <tr>
                 <td>{{ $servidor->nome }}</td>
                 <td>{{ $servidor->email }}</td>
-                <td>{{ \Carbon\Carbon::parse($servidor->data_nascimento)->format('d-m-Y') }}</td>
-                <td>{{ \Carbon\Carbon::parse($servidor->data_admissao)->format('d-m-Y') }}</td>
+                <td>{{ $servidor->formatted_data_nascimento }}</td>
+                <td>{{ $servidor->formatted_data_admissao }}</td>
                 <td>{{ $servidor->cargo['nome'] }}</td>
                 <td>{{ $servidor->matricula }}</td>
                 <td class="text-center">

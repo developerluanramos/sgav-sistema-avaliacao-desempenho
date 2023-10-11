@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon; 
 
 class Servidor extends Model
 {
@@ -21,8 +22,20 @@ class Servidor extends Model
         'matricula',
     ];
 
+    protected $appends = ['formatted_data_nascimento', 'formatted_data_admissao'];
+
     public function cargo()
     {
         return $this->belongsTo(Cargo::class, 'cargo_uuid', 'uuid');
+    }
+
+    public function getFormattedDataNascimentoAttribute()
+    {
+        return Carbon::parse($this->attributes['data_nascimento'])->format('d-m-Y');
+    }
+
+    public function getFormattedDataAdmissaoAttribute()
+    {
+        return Carbon::parse($this->attributes['data_admissao'])->format('d-m-Y');
     }
 }
