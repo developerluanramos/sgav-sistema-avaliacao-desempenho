@@ -25,12 +25,12 @@
                     text="Ver"
                     action="ver"
                     color="secondary"
-                    :route="'#'"/>
+                    :route="route('servidor.show', $servidor->uuid)"/>
                 <x-layouts.buttons.action-button
                     text="Editar"
                     action="editar"
                     color="primary"
-                    :route="route('servidor.edit', ['servidor' => $servidor->uuid])"/>
+                    :route="route('servidor.edit', $servidor->uuid)"/>
                 </td>
             </tr>
         @endforeach
