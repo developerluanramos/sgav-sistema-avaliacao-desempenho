@@ -16,22 +16,21 @@
             <tr>
                 <td>{{ $servidor->nome }}</td>
                 <td>{{ $servidor->email }}</td>
-                <td>{{ $servidor->data_nascimento }}</td>
-                <td>{{ $servidor->data_admissao }}</td>
+                <td>{{ $servidor->formatted_data_nascimento }}</td>
+                <td>{{ $servidor->formatted_data_admissao }}</td>
                 <td>{{ $servidor->cargo['nome'] }}</td>
                 <td>{{ $servidor->matricula }}</td>
                 <td class="text-center">
                     <x-layouts.buttons.action-button
-                        text="Editar"
-                        action="editar"
-                        color="primary"
-                        :route="route('servidor.edit', ['servidor' => $servidor->uuid])"/>
-
-                    <x-layouts.buttons.action-button
-                        text="Excluir"
-                        action="excluir"
-                        color="danger"
-                        :route="route('servidor.destroy', ['servidor' => $servidor->uuid])"/>
+                    text="Ver"
+                    action="ver"
+                    color="secondary"
+                    :route="'#'"/>
+                <x-layouts.buttons.action-button
+                    text="Editar"
+                    action="editar"
+                    color="primary"
+                    :route="route('servidor.edit', ['servidor' => $servidor->uuid])"/>
                 </td>
             </tr>
         @endforeach
