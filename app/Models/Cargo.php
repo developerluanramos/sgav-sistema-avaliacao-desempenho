@@ -14,6 +14,7 @@ class Cargo extends Model
     protected $fillable = [
         'uuid',
         'nome',
+        'situacao',
     ];
 
     public function servidores()
