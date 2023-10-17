@@ -5,7 +5,7 @@ namespace App\Http\Controllers\App\Usuario;
 use App\Actions\Usuario\UsuarioCreateAction;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\App\Usuario\UsuarioCreateRequest;
-Use App\Models\Usuario;
+Use App\Models\User;
 
 class UsuarioCreateController extends Controller
 {

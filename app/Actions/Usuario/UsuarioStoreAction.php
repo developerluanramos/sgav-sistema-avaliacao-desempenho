@@ -3,7 +3,7 @@
 namespace App\Actions\Usuario;
 
 use App\DTO\Usuario\UsuarioStoreDTO;
-use App\Models\Usuario;
+use App\Models\User;
 use App\Repositories\Usuario\UsuarioRepositoryInterface;
 
 class UsuarioStoreAction
@@ -12,8 +12,8 @@ class UsuarioStoreAction
         protected UsuarioRepositoryInterface $repository
     ) { }
 
-    public function exec(UsuarioStoreDTO $dto): Usuario
+    public function exec(UsuarioStoreDTO $dto): User
     {
-        return $this->repository->create($dto);
+        return $this->repository->new($dto);
     }
 }

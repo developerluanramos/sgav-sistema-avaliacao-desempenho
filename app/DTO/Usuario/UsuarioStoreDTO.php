@@ -3,13 +3,13 @@
 namespace App\DTO\Usuario;
 
 use App\DTO\BaseDTO;
-use App\Http\Requests\Usuario\UsuarioStoreRequest;
+use App\Enums\SituacaoUsuarioEnum;
+use App\Http\Requests\App\Usuario\UsuarioStoreRequest;
 
 class UsuarioStoreDTO extends BaseDTO
 {
     public function __construct(
-        public string $uuid,
-        public string $nome,
+        public string $name,
         public string $email,
         public bool $situacao
     ) { }
@@ -17,10 +17,9 @@ class UsuarioStoreDTO extends BaseDTO
     public static function makeFromRequest(UsuarioStoreRequest $request)
     {
         return new self(
-            $request->uuid,
-            $request->nome,
+            $request->name,
             $request->email,
-            $request->situacao
+            SituacaoUsuarioEnum::getValue($request->situacao)
         );
     }
 }

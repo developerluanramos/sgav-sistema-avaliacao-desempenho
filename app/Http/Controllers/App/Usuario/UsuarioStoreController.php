@@ -5,7 +5,7 @@ namespace App\Http\Controllers\App\Usuario;
 use App\Actions\Usuario\UsuarioStoreAction;
 use App\DTO\Usuario\UsuarioStoreDTO;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Usuario\UsuarioStoreRequest;
+use App\Http\Requests\App\Usuario\UsuarioStoreRequest;
 
 class UsuarioStoreController extends Controller
 {
@@ -15,6 +15,8 @@ class UsuarioStoreController extends Controller
 
     public function store(UsuarioStoreRequest $usuarioStoreRequest)
     {
+        dd($usuarioStoreRequest->all());
+
         $this->storeAction->exec(UsuarioStoreDTO::makeFromRequest($usuarioStoreRequest));
 
         return redirect()->route('usuario.index')->with('message', 'Usuário criado');
