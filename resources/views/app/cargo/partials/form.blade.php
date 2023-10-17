@@ -10,7 +10,7 @@
 </div>
 
 <div class="form-check mb-2">
-    <input type="hidden" name="situacao" value="0" />
+    <input type="hidden" name="situacao" value="0" >
     <input class="form-check-input"
            name="situacao" 
            type="checkbox"

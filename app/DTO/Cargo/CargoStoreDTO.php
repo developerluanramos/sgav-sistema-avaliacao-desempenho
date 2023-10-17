@@ -12,7 +12,6 @@ class CargoStoreDTO {
 
     public static function makeFromRequest(CargoStoreRequest $request): self
     {
-        
         return new self(
             $request->nome,
             $request->situacao,

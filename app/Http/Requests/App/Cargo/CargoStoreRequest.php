@@ -24,7 +24,7 @@ class CargoStoreRequest extends FormRequest
         return [
             // Defina as regras de validação aqui
             "nome" => [
-                "required", "min:5", "max:254"
+                "required", "min:5", "max:254", "unique"
             ],
         ];
     }

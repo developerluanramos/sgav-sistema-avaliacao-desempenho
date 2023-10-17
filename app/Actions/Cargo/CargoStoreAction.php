@@ -14,6 +14,8 @@ class CargoStoreAction {
 
     public function new(CargoStoreDTO $dto): array
     {
+        dd($dto);   
+        
         return $this->repository->new($dto);
     }
 }
