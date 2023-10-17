@@ -19,7 +19,7 @@ class UsuarioStoreDTO extends BaseDTO
         return new self(
             $request->name,
             $request->email,
-            SituacaoUsuarioEnum::getValue($request->situacao)
+            SituacaoUsuarioEnum::getKey((boolval($request->situacao)))
         );
     }
 }
