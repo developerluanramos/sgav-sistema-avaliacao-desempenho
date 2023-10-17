@@ -15,7 +15,8 @@
 </div>
     <x-layouts.inputs.input-switch
         label="Situação"
+        name="situacao"
     />
-
+<br>
 <x-layouts.buttons.submit-button text="Salvar" />
 

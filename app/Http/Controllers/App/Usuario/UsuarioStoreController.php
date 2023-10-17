@@ -15,8 +15,6 @@ class UsuarioStoreController extends Controller
 
     public function store(UsuarioStoreRequest $usuarioStoreRequest)
     {
-        dd($usuarioStoreRequest->all());
-
         $this->storeAction->exec(UsuarioStoreDTO::makeFromRequest($usuarioStoreRequest));
 
         return redirect()->route('usuario.index')->with('message', 'Usuário criado');

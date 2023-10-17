@@ -11,7 +11,7 @@ class UsuarioStoreDTO extends BaseDTO
     public function __construct(
         public string $name,
         public string $email,
-        public bool $situacao
+        public string $situacao
     ) { }
 
     public static function makeFromRequest(UsuarioStoreRequest $request)
@@ -19,7 +19,7 @@ class UsuarioStoreDTO extends BaseDTO
         return new self(
             $request->name,
             $request->email,
-            SituacaoUsuarioEnum::getKey((boolval($request->situacao)))
+            SituacaoUsuarioEnum::getValue(SituacaoUsuarioEnum::getKey((int)$request->situacao))
         );
     }
 }

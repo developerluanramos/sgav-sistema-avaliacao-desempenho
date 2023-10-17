@@ -14,15 +14,15 @@ class UsuarioStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            // "name" => [
-            //     "required", "min:5", "max:254"
-            // ],
-            // "email" => [
-            //     "required", "min:5", "max:254", "email", "unique:users,email"
-            // ],
-            // "situacao" => [
-            //     "required",
-            // ]
+            "name" => [
+                "required", "min:5", "max:254"
+            ],
+            "email" => [
+                "required", "min:5", "max:254", "email", "unique:users,email"
+            ],
+            "situacao" => [
+                "required"
+            ]
         ];
     }
 }
