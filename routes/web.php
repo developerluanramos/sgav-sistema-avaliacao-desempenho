@@ -7,8 +7,14 @@ use App\Http\Controllers\App\Servidor\ServidorIndexController;
 use App\Http\Controllers\App\Servidor\ServidorShowController;
 use App\Http\Controllers\App\Servidor\ServidorStoreController;
 use App\Http\Controllers\App\Servidor\ServidorUpdateController;
+use App\Http\Controllers\App\Usuario\UsuarioCreateController;
+use App\Http\Controllers\App\Usuario\UsuarioIndexController;
+use App\Http\Controllers\App\Usuario\UsuarioStoreController;
 use App\Models\Servidor;
 
+Route::get('/usuario/create', [UsuarioCreateController::class, 'create'])->name('usuario.create');
+Route::get('/usuario', [UsuarioIndexController::class, 'index'])->name('usuario.index');
+Route::post('/usuario', [UsuarioStoreController::class, 'store'])->name('usuario.store');
 
 Route::get('servidor/show/{uuid}', [ServidorShowController::class, 'show'])->name('servidor.show');
 Route::get('/servidor/create', [ServidorCreateController::class, 'create'])->name('servidor.create');
