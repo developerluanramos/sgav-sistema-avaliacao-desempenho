@@ -26,15 +26,4 @@ class UsuarioEloquentRepository implements UsuarioRepositoryInterface
     {
         return $this->model->where("uuid", $uuid)->first();
     }
-
-    // public function delete(int $id): bool
-    // {
-    //     $usuario = $this->find($id);
-
-    //     if (!$usuario) {
-    //         return false;
-    //     }
-
-    //     return $usuario->delete();
-    // }
 }

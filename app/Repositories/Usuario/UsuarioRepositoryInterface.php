@@ -13,8 +13,4 @@ interface UsuarioRepositoryInterface
     public function find(string $uuid): User;
 
     public function new(UsuarioStoreDTO $usuarioStoreDTO): User;
-
-    // public function update(Usuario $usuario, UsuarioStoreDTO $usuarioStoreDTO): Usuario;
-
-    // public function paginate(int $page = 1, int $totalPerPage = 10, string $filter = null): PaginationInterface;
 }
