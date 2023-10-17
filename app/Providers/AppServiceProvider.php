@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
+use App\Models\Cargo;
 use App\Models\Fornecedor;
 use App\Models\Servidor;
+use App\Observers\CargoObserver;
 use App\Observers\FornecedorObserver;
 use App\Observers\ServidorObserver;
 use App\Repositories\Cargo\CargoEloquentRepository;
@@ -40,6 +42,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        Cargo::observe(CargoObserver::class);
         Fornecedor::observe(FornecedorObserver::class);
         Servidor::observe(ServidorObserver::class);
     }

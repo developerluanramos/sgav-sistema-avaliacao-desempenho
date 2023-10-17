@@ -13,11 +13,9 @@ class CargoCreateController extends Controller
         protected CargoCreateAction $createAction
     ) { }
 
-    public function create(CargoCreateRequest $cargoCreateRequest)
+    public function create()
     {
-        $formData = $this->createAction->exec();
-        
-        return view('app.cargo.create', compact('formData'));
+        return view('app.cargo.create');
     }
 
 }
