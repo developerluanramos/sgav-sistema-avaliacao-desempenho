@@ -28,6 +28,7 @@ class User extends Authenticatable
         'situacao',
     ];
 
+
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -46,5 +47,17 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
+        'situacao' => 'integer',
     ];
+
+    public function getSituacaoTextAttribute()
+    {
+        if ($this->situacao === 1) {
+            return 'ATIVO';
+        } elseif ($this->situacao === 0) {
+            return 'INATIVO';
+        } else {
+            return 'Desconhecido';
+        }
+    }
 }
