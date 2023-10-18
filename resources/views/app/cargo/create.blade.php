@@ -10,6 +10,8 @@
 
 @section('content')
 
+@include('components.alerts.form-errors')
+
 <form action="{{ route('cargo.store') }}" method="POST" class="mt-4">
     @csrf
     @include('app.cargo.partials.form')
