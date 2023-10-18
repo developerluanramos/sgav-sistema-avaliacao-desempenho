@@ -2,6 +2,7 @@
 
 namespace App\DTO\Cargo;
 
+use App\Enums\SituacaoCargoEnum;
 use App\Http\Requests\App\Cargo\CargoStoreRequest;
 
 class CargoStoreDTO {
@@ -14,7 +15,7 @@ class CargoStoreDTO {
     {
         return new self(
             $request->nome,
-            $request->situacao,
+            SituacaoCargoEnum::getValue(SituacaoCargoEnum::getKey((int)$request->situacao))
         );
     }
 }

@@ -10,6 +10,6 @@ use BenSampo\Enum\Enum;
  */
 final class SituacaoCargoEnum extends Enum
 {
-    const ATIVO = true;
-    const INATIVO = false;
+    const ATIVO = 1;
+    const INATIVO = 0;
 }
