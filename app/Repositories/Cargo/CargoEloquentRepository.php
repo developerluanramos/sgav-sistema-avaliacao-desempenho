@@ -26,9 +26,7 @@ class CargoEloquentRepository implements CargoRepositoryInterface
 
     public function new(CargoStoreDTO $dto): array
     {
-        
-        $cargo = $this->model->create((array) $dto);
-        
+        $cargo = $this->model->create((array) $dto);   
         return $cargo->toArray();
     }
 }

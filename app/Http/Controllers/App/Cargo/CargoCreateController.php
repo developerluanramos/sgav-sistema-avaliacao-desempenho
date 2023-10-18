@@ -5,7 +5,6 @@ namespace App\Http\Controllers\App\Cargo;
 use App\Actions\Cargo\CargoCreateAction;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\App\Cargo\CargoCreateRequest;
-use App\Models\Cargo;
 
 class CargoCreateController extends Controller
 {
@@ -13,9 +12,10 @@ class CargoCreateController extends Controller
         protected CargoCreateAction $createAction
     ) { }
 
-    public function create()
+    public function create(CargoCreateRequest $cargoCreateRequest)
     {
-        return view('app.cargo.create');
+        $formData = $this->createAction->exec();
+        return view('app.cargo.create', compact('formData'));
     }
 
 }
