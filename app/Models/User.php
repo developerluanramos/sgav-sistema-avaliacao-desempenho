@@ -49,15 +49,4 @@ class User extends Authenticatable
         'password' => 'hashed',
         'situacao' => 'integer',
     ];
-
-    public function getSituacaoTextAttribute()
-    {
-        if ($this->situacao === 1) {
-            return 'ATIVO';
-        } elseif ($this->situacao === 0) {
-            return 'INATIVO';
-        } else {
-            return 'Desconhecido';
-        }
-    }
 }
