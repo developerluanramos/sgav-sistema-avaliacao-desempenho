@@ -5,9 +5,6 @@ namespace App\Http\Controllers\App\Servidor;
 use App\Actions\Servidor\ServidorIndexAction;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\App\Servidor\ServidorIndexRequest;
-use App\Models\Cargo;
-use App\Models\Servidor;
-use Illuminate\Http\Request;
 
 class ServidorIndexController extends Controller
 {
