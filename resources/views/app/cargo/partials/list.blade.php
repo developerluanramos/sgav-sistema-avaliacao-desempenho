@@ -1,36 +1,28 @@
 <x-layouts.tables.simple-table
     :headers="[
         'Nome',
-        'Email',
-        'Data de Nascimento',
-        'Data de Admissão',
-        'Cargo',
-        'Matrícula',
+        'Situação',
         'Ações'
     ]"
-    :paginator="$servidores"
+    :paginator="$cargos"
     :appends="$filters"
 >
     @section('table-content')
-        @foreach($servidores->items() as $index => $servidor)
+        @foreach($cargos->items() as $index => $cargo)
             <tr>
-                <td>{{ $servidor->nome }}</td>
-                <td>{{ $servidor->email }}</td>
-                <td>{{ $servidor->formatted_data_nascimento }}</td>
-                <td>{{ $servidor->formatted_data_admissao }}</td>
-                <td>{{ $servidor->cargo['nome'] }}</td>
-                <td>{{ $servidor->matricula }}</td>
+                <td>{{ $cargo->nome }}</td>
+                <td>{{ $cargo->situacao }}</td>
                 <td class="text-center">
                     <x-layouts.buttons.action-button
                     text="Ver"
                     action="ver"
                     color="secondary"
-                    :route="route('servidor.show', $servidor->uuid)"/>
+                    :route="route('cargo.create', $cargo->uuid)"/>
                 <x-layouts.buttons.action-button
                     text="Editar"
                     action="editar"
                     color="primary"
-                    :route="route('servidor.edit', $servidor->uuid)"/>
+                    :route="route('cargo.create', $cargo->uuid)"/>
                 </td>
             </tr>
         @endforeach

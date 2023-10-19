@@ -3,6 +3,7 @@
 namespace App\Repositories\Cargo;
 
 use App\DTO\Cargo\CargoStoreDTO;
+use App\Repositories\Interfaces\PaginationInterface;
 
 interface CargoRepositoryInterface
 {
@@ -11,4 +12,7 @@ interface CargoRepositoryInterface
     public function find($uuid);
 
     public function new(CargoStoreDTO $dto): array;
+
+    public function paginate(int $page = 1, int $totalPerPage = 10, string $filter = null): PaginationInterface;
+    
 }

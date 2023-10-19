@@ -19,11 +19,11 @@ class CargoStoreController extends Controller
 
     public function store(CargoStoreRequest $cargoStoreRequest)
     {
-        $this->action->new(
+        $this->action->exec(
             CargoStoreDTO::makeFromRequest($cargoStoreRequest)
         );
         
-        return redirect()->route('servidor.index');
+        return redirect()->route('cargo.index');
     }
 
 }

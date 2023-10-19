@@ -12,7 +12,7 @@ class CargoStoreAction {
         protected CargoRepositoryInterface $repository
     ) { }
 
-    public function new(CargoStoreDTO $dto): array
+    public function exec(CargoStoreDTO $dto): array
     {
         return $this->repository->new($dto);
     }
