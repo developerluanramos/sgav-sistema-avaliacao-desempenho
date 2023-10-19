@@ -8,6 +8,11 @@
 
 @include('components.alerts.form-success')
 
+@include('app.usuario.partials.filters', [
+    "users" => $user,
+    "filters" => $filters
+])
+
 @include('app.usuario.partials.list', [
     "users" => $user,
     "filters" => $filters

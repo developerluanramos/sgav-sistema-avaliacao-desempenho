@@ -33,8 +33,9 @@ class UsuarioEloquentRepository implements UsuarioRepositoryInterface
     {
         $query = $this->model->query();
 
-        if(!is_null($filter)) {
+        if (!is_null($filter)) {
             $query->where("name", "like", "%".$filter."%");
+            $query->orWhere("email", "like", "%".$filter."%");
         }
 
         $query->orderBy('updated_at', 'desc');
