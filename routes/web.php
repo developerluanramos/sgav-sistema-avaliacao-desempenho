@@ -10,10 +10,12 @@ use App\Http\Controllers\App\Servidor\ServidorUpdateController;
 use App\Http\Controllers\App\Usuario\UsuarioCreateController;
 use App\Http\Controllers\App\Usuario\UsuarioEditController;
 use App\Http\Controllers\App\Usuario\UsuarioIndexController;
+use App\Http\Controllers\App\Usuario\UsuarioShowController;
 use App\Http\Controllers\App\Usuario\UsuarioStoreController;
 use App\Http\Controllers\App\Usuario\UsuarioUpdateController;
 use App\Models\Servidor;
 
+Route::get('usuario/show/{uuid}', [UsuarioShowController::class, 'show'])->name('usuario.show');
 Route::get('/usuario/create', [UsuarioCreateController::class, 'create'])->name('usuario.create');
 Route::put('/usuario/{user}', [UsuarioUpdateController::class, 'update'])->name('usuario.update');
 Route::get('/usuario', [UsuarioIndexController::class, 'index'])->name('usuario.index');
