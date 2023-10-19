@@ -13,13 +13,13 @@ class UsuarioShowController extends Controller
         protected UsuarioShowAction $showAction
     ) {}
 
-    public function show(string $uuid, UsuarioShowRequest $storeRequest)
+    public function show(string $uuid, UsuarioShowRequest $showRequest)
     {
-        $storeRequest->merge([
+        $showRequest->merge([
             "uuid" => $uuid
         ]);
 
-        $user = $this->showAction->exec(UsuarioShowDTO::makeFromRequest($storeRequest));
+        $user = $this->showAction->exec(UsuarioShowDTO::makeFromRequest($showRequest));
 
         return view('app.usuario.show', [
             "user" => $user
