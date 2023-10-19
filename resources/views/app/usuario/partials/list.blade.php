@@ -13,7 +13,9 @@
         <tr>
             <td>{{$users->name}}</td>
             <td>{{$users->email}}</td>
-            <td>{{$users->situacao == 1 ? 'ATIVO' : 'INATIVO' }}</td>
+            <td><x-layouts.badges.situacao-usuario
+                :situacao="$users->situacao"
+                /></td>
             <td class="text-right">
                 <x-layouts.buttons.action-button
                     text="Ver"
@@ -24,7 +26,7 @@
                     text="Editar"
                     action="editar"
                     color="primary"
-                    :route="'#'"/>
+                    :route="route('usuario.edit', $users->uuid)"/>
             </td>
         </tr>
     @endforeach

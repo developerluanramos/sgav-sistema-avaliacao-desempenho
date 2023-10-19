@@ -61,6 +61,4 @@ class ServidorEloquentRepository implements ServidorRepositoryInterface
 
         return $this->find($servidorUpdateDTO->uuid);
     }
-
-
 }
