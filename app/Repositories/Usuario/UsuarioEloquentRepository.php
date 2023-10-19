@@ -3,6 +3,7 @@
 namespace App\Repositories\Usuario;
 
 use App\DTO\Usuario\UsuarioStoreDTO;
+use App\DTO\Usuario\UsuarioUpdateDTO;
 use App\Models\User;
 use App\Repositories\Interfaces\PaginationInterface;
 use App\Repositories\Presenters\PaginationPresenter;
@@ -45,4 +46,10 @@ class UsuarioEloquentRepository implements UsuarioRepositoryInterface
         return new PaginationPresenter($result);
     }
 
+    public function update(UsuarioUpdateDTO $usuarioUpdateDTO): User
+    {
+        $this->model->where("uuid", $usuarioUpdateDTO->uuid)->update((array)$usuarioUpdateDTO);
+
+        return $this->find($usuarioUpdateDTO->uuid);
+    }
 }

@@ -11,10 +11,11 @@ use App\Http\Controllers\App\Usuario\UsuarioCreateController;
 use App\Http\Controllers\App\Usuario\UsuarioEditController;
 use App\Http\Controllers\App\Usuario\UsuarioIndexController;
 use App\Http\Controllers\App\Usuario\UsuarioStoreController;
+use App\Http\Controllers\App\Usuario\UsuarioUpdateController;
 use App\Models\Servidor;
 
 Route::get('/usuario/create', [UsuarioCreateController::class, 'create'])->name('usuario.create');
-Route::put('/usuario/{user}', [ServidorUpdateController::class, 'update'])->name('usuario.update');
+Route::put('/usuario/{user}', [UsuarioUpdateController::class, 'update'])->name('usuario.update');
 Route::get('/usuario', [UsuarioIndexController::class, 'index'])->name('usuario.index');
 Route::get('/usuario/edit/{user}', [UsuarioEditController::class, 'edit'])->name('usuario.edit');
 Route::post('/usuario', [UsuarioStoreController::class, 'store'])->name('usuario.store');
