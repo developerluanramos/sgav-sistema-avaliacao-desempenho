@@ -34,20 +34,8 @@ class UsuarioEloquentRepository implements UsuarioRepositoryInterface
         $query = $this->model->query();
 
         if (!is_null($filter)) {
-            $query->where(function ($q) use ($filter) {
-                $q->where("name", "like", "%".$filter."%")
-                  ->orWhere("email", "like", "%".$filter."%")
-                  ->orWhere(function ($subq) use ($filter) {
-                      $subq->where("situacao", "like", "%".$filter."%")
-                           ->orWhere(function ($caseq) use ($filter) {
-                               $caseq->whereRaw("CASE
-                                    WHEN situacao = '0' THEN 'INATIVO'
-                                    WHEN situacao = 1 THEN 'ATIVO'
-                                    ELSE situacao
-                                    END LIKE ?", ["%".$filter."%"]);
-                           });
-                  });
-            });
+            $query->where("name", "like", "%".$filter."%");
+            $query->orWhere("email", "like", "%".$filter."%");
         }
 
         $query->orderBy('updated_at', 'desc');
