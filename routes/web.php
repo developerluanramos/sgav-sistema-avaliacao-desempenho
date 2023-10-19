@@ -8,12 +8,15 @@ use App\Http\Controllers\App\Servidor\ServidorShowController;
 use App\Http\Controllers\App\Servidor\ServidorStoreController;
 use App\Http\Controllers\App\Servidor\ServidorUpdateController;
 use App\Http\Controllers\App\Usuario\UsuarioCreateController;
+use App\Http\Controllers\App\Usuario\UsuarioEditController;
 use App\Http\Controllers\App\Usuario\UsuarioIndexController;
 use App\Http\Controllers\App\Usuario\UsuarioStoreController;
 use App\Models\Servidor;
 
 Route::get('/usuario/create', [UsuarioCreateController::class, 'create'])->name('usuario.create');
+Route::put('/usuario/{user}', [ServidorUpdateController::class, 'update'])->name('usuario.update');
 Route::get('/usuario', [UsuarioIndexController::class, 'index'])->name('usuario.index');
+Route::get('/usuario/edit/{user}', [UsuarioEditController::class, 'edit'])->name('usuario.edit');
 Route::post('/usuario', [UsuarioStoreController::class, 'store'])->name('usuario.store');
 
 Route::get('servidor/show/{uuid}', [ServidorShowController::class, 'show'])->name('servidor.show');
@@ -22,7 +25,6 @@ Route::put('/servidor/{servidor}', [ServidorUpdateController::class, 'update'])-
 Route::get('/servidor', [ServidorIndexController::class, 'index'])->name('servidor.index');
 Route::get('/servidor/edit/{servidor}', [ServidorEditController::class, 'edit'])->name('servidor.edit');
 Route::post('/servidor', [ServidorStoreController::class, 'store'])->name('servidor.store');
-Route::delete('/servidor/{servidor}', [ServidorController::class, 'destroy'])->name('servidor.destroy');
 
 Route::get('/', function () {
     return view('app.home');

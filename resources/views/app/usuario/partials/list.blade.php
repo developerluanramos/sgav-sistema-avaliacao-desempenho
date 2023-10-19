@@ -24,7 +24,7 @@
                     text="Editar"
                     action="editar"
                     color="primary"
-                    :route="'#'"/>
+                    :route="route('usuario.edit', $users->uuid)"/>
             </td>
         </tr>
     @endforeach
