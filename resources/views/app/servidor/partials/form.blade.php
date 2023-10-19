@@ -33,7 +33,7 @@
         origin="cargo_uuid"
         lenght="3/12"
         :data="$formData['cargos']"
-        :selected="$servidor->cargo_uuid ?? old('cargo_uuid')"
+        :value="$servidor->cargo_uuid ?? old('cargo_uuid')"
     />
     <x-layouts.inputs.input-normal-text
         label="Matrícula"

@@ -14,7 +14,7 @@
     />
 </div>
 <div class="flex flex-wrap -mx-3 mb-2">
-    <x-input-normal-select
+    <x-layouts.inputs.input-normal-select-enum
         label="Porte"
         name="porte"
         origin="porte"
@@ -22,7 +22,7 @@
         :data="$formData['porte']"
         :value="$fornecedor->porte ?? old('porte')"
     />
-    <x-input-normal-select
+    <x-layouts.inputs.input-normal-select-enum
         label="Tipo Documento"
         name="tipo_documento"
         origin="tipo_documento"
