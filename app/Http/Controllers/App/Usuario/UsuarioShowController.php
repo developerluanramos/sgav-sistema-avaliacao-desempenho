@@ -10,7 +10,7 @@ use App\Http\Requests\App\Usuario\UsuarioShowRequest;
 class UsuarioShowController extends Controller
 {
     public function __construct(
-        protected UsuarioShowAction $storeAction
+        protected UsuarioShowAction $showAction
     ) {}
 
     public function show(string $uuid, UsuarioShowRequest $storeRequest)
@@ -19,7 +19,7 @@ class UsuarioShowController extends Controller
             "uuid" => $uuid
         ]);
 
-        $user = $this->storeAction->exec(UsuarioShowDTO::makeFromRequest($storeRequest));
+        $user = $this->showAction->exec(UsuarioShowDTO::makeFromRequest($storeRequest));
 
         return view('app.usuario.show', [
             "user" => $user
