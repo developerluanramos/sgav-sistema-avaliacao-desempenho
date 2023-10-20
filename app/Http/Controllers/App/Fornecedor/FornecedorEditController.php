@@ -22,6 +22,8 @@ class FornecedorEditController extends Controller
 
         $formData = (new FornecedorCreateAction())->exec();
 
+        dd($formData);
+
         $fornecedor = $this->storeAction->exec(FornecedorEditDTO::makeFromRequest($storeRequest));
 
         return view('app.fornecedor.edit', [

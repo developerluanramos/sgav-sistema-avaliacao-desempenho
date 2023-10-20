@@ -5,12 +5,13 @@
         label="Cargo"
         name="nome"
         lenght="8/12"
-        :value="$servidor->nome ?? old('nome')"
+        :value="$cargo->nome ?? old('nome')"
     />    
 </div>
     <x-layouts.inputs.input-switch
     label="Situação"
     name="situacao"
+    :value="$cargo->situacao ?? old('situcao')"
 />
 
 <x-layouts.buttons.submit-button text="Salvar"/>

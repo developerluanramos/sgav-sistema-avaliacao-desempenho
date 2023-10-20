@@ -24,6 +24,8 @@ class ServidorEditController extends Controller
 
         $formData = $this->createAction->exec();
 
+        dd($formData);
+
         $servidor = $this->editAction->exec(ServidorEditDTO::makeFromRequest($editRequest));
 
         return view('app.servidor.edit', [

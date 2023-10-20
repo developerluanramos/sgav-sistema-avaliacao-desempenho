@@ -21,15 +21,14 @@ class CargoEloquentRepository implements CargoRepositoryInterface
         return $this->model->all();
     }
 
-    public function find($uuid)
+    public function find($uuid): Cargo
     {
         return $this->model->where('uuid', $uuid)->first();
     }
 
-    public function new(CargoStoreDTO $dto): array
+    public function new(CargoStoreDTO $dto): Cargo
     {
-        $cargo = $this->model->create((array) $dto);   
-        return $cargo->toArray();
+        return $this->model->create((array) $dto);   
     }
 
     public function paginate(int $page = 1, int $totalPerPage = 10, string $filter = null): PaginationInterface
