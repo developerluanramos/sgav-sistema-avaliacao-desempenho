@@ -8,8 +8,24 @@ use Diglactic\Breadcrumbs\Breadcrumbs;
 //  with `$trail`. This is nice for IDE type checking and completion.
 use Diglactic\Breadcrumbs\Generator as BreadcrumbTrail;
 
+Breadcrumbs::for('usuario', function (BreadcrumbTrail $trail) {
+    $trail->parent('dashboard');
+    $trail->push('Usuarios', route('usuario.index'));
+});
+
+Breadcrumbs::for('usuario.create', function ($trail) {
+    $trail->parent('usuario');
+    $trail->push('Novo Usuario', route('usuario.create'));
+});
+
+Breadcrumbs::for('usuario.edit', function ($trail, $user) {
+    $trail->parent('usuario');
+    $trail->push('Edição de Usuario', route('usuario.edit', $user));
+});
+
+
 Breadcrumbs::for('servidor', function (BreadcrumbTrail $trail) {
-    $trail->parent('dashboard'); 
+    $trail->parent('dashboard');
     $trail->push('Servidores', route('servidor.index'));
 });
 
