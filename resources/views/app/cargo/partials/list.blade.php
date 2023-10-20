@@ -17,7 +17,7 @@
                     text="Ver"
                     action="ver"
                     color="secondary"
-                    :route="route('cargo.create', $cargo->uuid)"/>
+                    :route="route('cargo.show', $cargo->uuid)"/>
                 <x-layouts.buttons.action-button
                     text="Editar"
                     action="editar"
