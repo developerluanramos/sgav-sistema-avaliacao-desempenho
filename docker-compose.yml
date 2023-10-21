@@ -18,12 +18,12 @@ services:
         networks:
             - sgp_network
 
-    npm_sgp:
-        image: node:20.x
+    npm:
+        image: node:current-alpine
         volumes:
-        - .:/var/www
-        working_dir: /var/www
-        entrypoint: ['npm']
+            - ./:/var/www/
+        entrypoint: ["npm"]
+        working_dir: /var/www/
         networks:
             - sgp_network
 
