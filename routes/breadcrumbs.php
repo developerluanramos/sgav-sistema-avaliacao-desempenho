@@ -9,7 +9,7 @@ use Diglactic\Breadcrumbs\Breadcrumbs;
 use Diglactic\Breadcrumbs\Generator as BreadcrumbTrail;
 
 Breadcrumbs::for('usuario', function (BreadcrumbTrail $trail) {
-    $trail->parent('dashboard');
+    $trail->parent('Dashboard' , route('dashboard.index'));
     $trail->push('Usuarios', route('usuario.index'));
 });
 
@@ -25,7 +25,7 @@ Breadcrumbs::for('usuario.edit', function ($trail, $user) {
 
 
 Breadcrumbs::for('servidor', function (BreadcrumbTrail $trail) {
-    $trail->parent('dashboard');
+    $trail->parent('Dashboard' , route('dashboard.index'));
     $trail->push('Servidores', route('servidor.index'));
 });
 
@@ -39,12 +39,12 @@ Breadcrumbs::for('servidor.edit', function ($trail, $servidor) {
     $trail->push('Edição de Servidor', route('servidor.edit', $servidor));
 });
 
-Breadcrumbs::for('dashboard', function (BreadcrumbTrail $trail) {
-    $trail->push('Dashboard', route('dashboard'));
+Breadcrumbs::for('Dashboard', function (BreadcrumbTrail $trail) {
+    $trail->push('Dashboard', route('dashboard.index'));
 });
 
 Breadcrumbs::for('fornecedor', function (BreadcrumbTrail $trail) {
-    $trail->parent('dashboard');
+    $trail->parent('Dashboard' , route('dashboard.index'));
     $trail->push('Fornecedores', route('fornecedor.index'));
 });
 Breadcrumbs::for('fornecedor.create', function (BreadcrumbTrail $trail) {
@@ -58,4 +58,21 @@ Breadcrumbs::for('fornecedor.edit', function (BreadcrumbTrail $trail, $fornecedo
 Breadcrumbs::for('fornecedor.show', function (BreadcrumbTrail $trail) {
     $trail->parent('fornecedor');
     $trail->push('Fornecedor', route('fornecedor.show'));
+});
+
+Breadcrumbs::for('cargo', function (BreadcrumbTrail $trail) {
+    $trail->parent('Dashboard' , route('dashboard.index'));
+    $trail->push('Cargos', route('cargo.index'));
+});
+Breadcrumbs::for('cargo.create', function (BreadcrumbTrail $trail) {
+    $trail->parent('cargo');
+    $trail->push('Novo Cargo', route('cargo.create'));
+});
+Breadcrumbs::for('cargo.edit', function (BreadcrumbTrail $trail, $fornecedor) {
+    $trail->parent('cargo');
+    $trail->push('Edição de Cargo', route('cargo.edit', $fornecedor));
+});
+Breadcrumbs::for('cargo.show', function (BreadcrumbTrail $trail) {
+    $trail->parent('cargo');
+    $trail->push('Cargo', route('cargo.show'));
 });

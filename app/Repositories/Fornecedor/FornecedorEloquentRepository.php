@@ -19,6 +19,10 @@ class FornecedorEloquentRepository implements FornecedorRepositoryInterface
         return $this->model->all()->toArray();
     }
 
+    public function totalQuantity() : int {
+        return $this->model->count();
+    }
+
     public function find(string $uuid): Fornecedor
     {
         return $this->model->where("uuid", $uuid)->first();

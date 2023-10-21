@@ -12,6 +12,6 @@ class ServidorSeeder extends Seeder
      */
     public function run(): void
     {
-        \App\Models\Servidor::factory(200)->create();
+        \App\Models\Servidor::factory(263)->create();
     }
 }

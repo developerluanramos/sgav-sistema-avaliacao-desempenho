@@ -10,10 +10,12 @@ interface CargoRepositoryInterface
 {
     public function all();
 
+    public function totalQuantity() : int;
+
     public function find($uuid): Cargo;
 
     public function new(CargoStoreDTO $dto): Cargo;
 
     public function paginate(int $page = 1, int $totalPerPage = 10, string $filter = null): PaginationInterface;
-    
+
 }

@@ -19,6 +19,10 @@ class ServidorEloquentRepository implements ServidorRepositoryInterface
         return $this->model->all()->toArray();
     }
 
+    public function totalQuantity() : int {
+        return $this->model->count();
+    }
+
     public function find(string $uuid): Servidor
     {
         return $this->model->where("uuid", $uuid)->first();
