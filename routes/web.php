@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\App\Dashboard\DashboardIndexController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\App\Servidor\ServidorCreateController;
 use App\Http\Controllers\App\Servidor\ServidorEditController;
@@ -29,40 +30,7 @@ Route::get('/servidor', [ServidorIndexController::class, 'index'])->name('servid
 Route::get('/servidor/edit/{servidor}', [ServidorEditController::class, 'edit'])->name('servidor.edit');
 Route::post('/servidor', [ServidorStoreController::class, 'store'])->name('servidor.store');
 
-Route::get('/', function () {
-    return view('app.home');
-})->name('dashboard');
-
-Route::get("/test-01", function () {
-   function playGame(array $gameFormation): int {
-       $score = [];
-
-       foreach ($gameFormation as $index => $gameCaracter ) {
-           echo ("<pre>".json_encode($score)."</pre>");
-           switch ($gameCaracter) {
-               case '+':
-                   $score[] = $score[$index-1] + $score[$index-2];
-                   break;
-
-               case 'C':
-                   unset($score[count($score)-1]);
-                   break;
-
-               case 'D':
-                   //$score[] = $score[$index-1] * 2;
-                   break;
-
-               default:
-                   $score[] = $gameCaracter;
-                   break;
-           }
-       }
-        //dd($score);
-       return array_sum($score);
-   }
-
-   echo playGame(explode(" ", "5 2 C D +"));
-});
+Route::get('/', [DashboardIndexController::class, 'index'])->name('dashboard.index');
 
 Route::get('fornecedor', [\App\Http\Controllers\App\Fornecedor\FornecedorIndexController::class, 'index'])->name('fornecedor.index');
 Route::get('fornecedor/create', [\App\Http\Controllers\App\Fornecedor\FornecedorCreateController::class, 'create'])->name('fornecedor.create');

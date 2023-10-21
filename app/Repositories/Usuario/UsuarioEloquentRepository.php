@@ -20,6 +20,10 @@ class UsuarioEloquentRepository implements UsuarioRepositoryInterface
         return $this->model->all()->toArray();
     }
 
+    public function totalQuantity() : int {
+        return $this->model->count();
+    }
+
     public function new(UsuarioStoreDTO $usuarioStoreDTO): User
     {
         return $this->model->create((array)$usuarioStoreDTO);

@@ -1,5 +1,5 @@
 <!-- resources/views/components/layouts/tables/simple-table.blade.php -->
-
+{{--
 <style>
     .styled-table {
         border-collapse: collapse;
@@ -37,7 +37,7 @@
         font-weight: bold;
         color: rgb(59, 113, 202);
     }
-</style>
+</style> --}}
 
 <div class="flex flex-col">
     <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">

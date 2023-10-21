@@ -18,24 +18,12 @@ services:
         networks:
             - sgp_network
 
-    composer:
-        image: composer:latest
-        container_name: composer
-        volumes:
-            - ./:/var/www
-        working_dir: /var/www/html
-        depends_on:
-            - app_sgp
-        networks:
-            - sgp_network
-
     npm:
-        image: node:latest
-        container_name: npm
+        image: node:current-alpine
         volumes:
-            - ./:/var/www
-        working_dir: /var/www/html
-        entrypoint: ['npm', '--no-bin-links']
+            - ./:/var/www/
+        entrypoint: ["npm"]
+        working_dir: /var/www/
         networks:
             - sgp_network
 

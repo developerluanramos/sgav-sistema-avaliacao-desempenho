@@ -1,8 +1,8 @@
 @extends('app.layouts.app')
 
-@section('title', 'Dashboard')
+@section('title', 'Home')
 
-@section('header', 'Dashboard')
+<x-layouts.headers.create-header :title="'Home'"/>
 
 @section('content')
 
