@@ -1,8 +1,8 @@
 @extends('app.layouts.app')
 
-{{-- @section('breadcrumb')
+@section('breadcrumb')
     {{ Breadcrumbs::render('cargo.edit', $cargo) }}
-@endsection --}}
+@endsection
 
 @section('title', 'Edição Cargo')
 
@@ -12,11 +12,9 @@
 
 @include('components.alerts.form-errors')
 
-<form  method="POST">
+<form action="{{route('cargo.update', $cargo->uuid)}}" method="POST">
     @method('PUT')
     @include('app.cargo.partials.form', ["cargo" => $cargo])
 </form>
 
 @endsection
-
-{{-- action="{{route('fornecedor.update', $fornecedor->uuid)}}" --}}
