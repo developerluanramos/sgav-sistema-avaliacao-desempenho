@@ -3,6 +3,7 @@
 namespace App\Repositories\Cargo;
 
 use App\DTO\Cargo\CargoStoreDTO;
+use App\DTO\Cargo\CargoUpdateDTO;
 use App\Models\Cargo;
 use App\Repositories\Interfaces\PaginationInterface;
 use App\Repositories\Presenters\PaginationPresenter;
@@ -45,5 +46,12 @@ class CargoEloquentRepository implements CargoRepositoryInterface
         $result = $query->paginate($totalPerPage, ['*'], 'page', $page);
 
         return new PaginationPresenter($result);
+    }
+
+    public function update(CargoUpdateDTO $dto): Cargo
+    {
+        $this->model->where("uuid", $dto->uuid)->update((array)$dto);
+
+        return $this->find($dto->uuid);
     }
 }
