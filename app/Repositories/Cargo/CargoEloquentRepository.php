@@ -22,6 +22,10 @@ class CargoEloquentRepository implements CargoRepositoryInterface
         return $this->model->all();
     }
 
+    public function totalQuantity() : int {
+        return $this->model->count();
+    }
+
     public function find($uuid): Cargo
     {
         return $this->model->where('uuid', $uuid)->first();
@@ -29,7 +33,7 @@ class CargoEloquentRepository implements CargoRepositoryInterface
 
     public function new(CargoStoreDTO $dto): Cargo
     {
-        return $this->model->create((array) $dto);   
+        return $this->model->create((array) $dto);
     }
 
     public function paginate(int $page = 1, int $totalPerPage = 10, string $filter = null): PaginationInterface

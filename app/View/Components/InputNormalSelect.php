@@ -16,7 +16,8 @@ class InputNormalSelect extends Component
         protected string $name,
         protected string $label,
         protected string $origin,
-        protected array $data
+        protected array $data,
+        protected string $value
     ) {
 
     }
@@ -56,6 +57,7 @@ class InputNormalSelect extends Component
             "label" => $this->label,
             "origin" => $this->origin,
             "data" => $this->data,
+            "value" => $this->value
         ]);
     }
 }

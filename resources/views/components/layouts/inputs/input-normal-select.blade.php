@@ -1,12 +1,22 @@
 <div class="w-full md:w-{{$lenght}} px-3 mb-6 md:mb-0">
-    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="{{$name}}">
+    <label class="block uppercase tracking-wide text-xs font-bold mb-2" for="{{$name}}">
         {{$label}}
     </label>
     <div class="relative">
         <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-black py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="{{$name}}" name="{{$name}}">
             <option value=""></option>
             @foreach($data as $cargo)
-                <option value="{{ $cargo->uuid }}">{{ $cargo->nome }}</option>
+                @if (isset($value) && !is_null($value))
+                 @php
+                 $selected= '';
+                     if ($cargo->uuid == $value) {
+                        $selected = "selected";
+                     }
+                 @endphp
+                    <option {{$selected}} value="{{ $cargo->uuid }}">{{ $cargo->nome }}</option>
+                @else
+                    <option value="{{ $cargo->uuid }}">{{ $cargo->nome }}</option>
+                @endif
             @endforeach
         </select>
         <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
