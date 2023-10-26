@@ -13,10 +13,10 @@
     name="situacao"
     :value="$formData->situacao ?? old('situacao')"
 />
-    {{-- <x-layouts.inputs.input-switch
+    <x-layouts.inputs.input-switch-goal
     label="Finalidade"
     name="finalidade"
     :value="$formData->finalidade ?? old('finalidade')"
-/> --}}
+/>
 
 <x-layouts.buttons.submit-button text="Salvar"/>
