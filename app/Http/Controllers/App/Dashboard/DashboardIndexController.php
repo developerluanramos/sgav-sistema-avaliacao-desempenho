@@ -16,6 +16,6 @@ class DashboardIndexController extends Controller
     {
         $dashboardData = $this->indexAction->exec();
 
-        return view('app.Dashboard.index', compact('dashboardData'));
+        return view('app.dashboard.index', compact('dashboardData'));
     }
 }
