@@ -14,7 +14,6 @@ use App\Http\Controllers\App\Usuario\UsuarioIndexController;
 use App\Http\Controllers\App\Usuario\UsuarioShowController;
 use App\Http\Controllers\App\Usuario\UsuarioStoreController;
 use App\Http\Controllers\App\Usuario\UsuarioUpdateController;
-use App\Models\Servidor;
 
 Route::get('usuario/show/{uuid}', [UsuarioShowController::class, 'show'])->name('usuario.show');
 Route::get('/usuario/create', [UsuarioCreateController::class, 'create'])->name('usuario.create');
@@ -46,3 +45,7 @@ Route::get('cargo', [\App\Http\Controllers\App\Cargo\CargoIndexController::class
 Route::get('cargo/{uuid}/show', [\App\Http\Controllers\App\Cargo\CargoShowController::class, 'show'])->name('cargo.show');
 Route::get('cargo/{uuid}/edit', [\App\Http\Controllers\App\Cargo\CargoEditController::class, 'edit'])->name('cargo.edit');
 Route::put('cargo/{uuid}/update', [\App\Http\Controllers\App\Cargo\CargoUpdateController::class, 'update'])->name('cargo.update');
+
+
+Route::get('modelo-avaliacao/create', [\App\Http\Controllers\App\ModeloAvaliacao\ModeloAvaliacaoCreateController::class, 'create'])->name('modelo-avaliacao.create');
+Route::post('modelo-avaliacao', [\App\Http\Controllers\App\ModeloAvaliacao\ModeloAvaliacaoStoreController::class, 'store'])->name('modelo-avaliacao.store');
