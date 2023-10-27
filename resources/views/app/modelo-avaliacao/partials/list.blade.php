@@ -19,12 +19,12 @@
                     text="Ver"
                     action="ver"
                     color="secondary"
-                    :route="route('modelo.show', $modeloAvaliacao->uuid)"/>
+                    :route="route('modelo-avaliacao.show', $modeloAvaliacao->uuid)"/>
                 <x-layouts.buttons.action-button
                     text="Editar"
                     action="editar"
                     color="primary"
-                    :route="route('modelo.edit', $modeloAvaliacao->uuid)"/>
+                    :route="route('modelo-avaliacao.edit', $modeloAvaliacao->uuid)"/>
                 </td>
             </tr>
         @endforeach
