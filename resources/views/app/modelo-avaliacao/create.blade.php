@@ -14,7 +14,7 @@
 
 <form action="{{ route('modelo.store') }}" method="POST" class="mt-4">
     @csrf
-    @include('app.modelo.partials.form')
+    @include('app.modelo-avaliacao.partials.form')
 </form>
 
 @endsection

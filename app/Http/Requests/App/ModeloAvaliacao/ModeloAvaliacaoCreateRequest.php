@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\App\Modelo;
+namespace App\Http\Requests\App\ModeloAvaliacao;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ModeloCreateRequest extends FormRequest
+class ModeloAvaliacaoCreateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

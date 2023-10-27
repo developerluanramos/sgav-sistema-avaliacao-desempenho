@@ -1,19 +1,19 @@
 <?php
 
-namespace App\DTO\Modelo;
+namespace App\DTO\ModeloAvaliacao;
 
 use App\Enums\FinalidadeModeloEnum;
 use App\Enums\SituacaoModeloEnum;
-use App\Http\Requests\App\Modelo\ModeloStoreRequest;
+use App\Http\Requests\App\ModeloAvaliacao\ModeloAvaliacaoStoreRequest;
 
-class ModeloStoreDTO {
+class ModeloAvaliacaoStoreDTO {
     public function __construct(
         public string $nome,
         public string $situacao,
         public string $finalidade
     ) {}
 
-    public static function makeFromRequest(ModeloStoreRequest $request): self
+    public static function makeFromRequest(ModeloAvaliacaoStoreRequest $request): self
     {
         return new self(
             $request->nome,

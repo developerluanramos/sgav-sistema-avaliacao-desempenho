@@ -2,23 +2,23 @@
 
 namespace App\Observers;
 
-use App\Models\Modelo;
+use App\Models\ModeloAvaliacao;
 use Illuminate\Support\Str;
 
-class ModeloObserver
+class ModeloAvaliacaoObserver
 {
     /**
      * Handle the Modelo "created" event.
      */
-    public function creating(Modelo $modelo): void
+    public function creating(ModeloAvaliacao $modeloAvaliacao): void
     {
-        $modelo->uuid = Str::uuid();
+        $modeloAvaliacao->uuid = Str::uuid();
     }
 
     /**
      * Handle the Modelo "created" event.
      */
-    public function created(Modelo $modelo): void
+    public function created(ModeloAvaliacao $modeloAvaliacao): void
     {
         //
     }
@@ -26,7 +26,7 @@ class ModeloObserver
     /**
      * Handle the Modelo "updated" event.
      */
-    public function updated(Modelo $modelo): void
+    public function updated(ModeloAvaliacao $modeloAvaliacao): void
     {
         //
     }
@@ -34,7 +34,7 @@ class ModeloObserver
     /**
      * Handle the Modelo "deleted" event.
      */
-    public function deleted(Modelo $modelo): void
+    public function deleted(ModeloAvaliacao $modeloAvaliacao): void
     {
         //
     }
@@ -42,7 +42,7 @@ class ModeloObserver
     /**
      * Handle the Modelo "restored" event.
      */
-    public function restored(Modelo $modelo): void
+    public function restored(ModeloAvaliacao $modeloAvaliacao): void
     {
         //
     }
@@ -50,7 +50,7 @@ class ModeloObserver
     /**
      * Handle the Modelo "force deleted" event.
      */
-    public function forceDeleted(Modelo $modelo): void
+    public function forceDeleted(ModeloAvaliacao $modeloAvaliacao): void
     {
         //
     }

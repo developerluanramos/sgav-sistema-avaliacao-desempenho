@@ -4,20 +4,20 @@ namespace App\Providers;
 
 use App\Models\Cargo;
 use App\Models\Fornecedor;
-use App\Models\Modelo;
+use App\Models\ModeloAvaliacao;
 use App\Models\Servidor;
 use App\Observers\CargoObserver;
 use App\Models\User;
 use App\Observers\FornecedorObserver;
-use App\Observers\ModeloObserver;
+use App\Observers\ModeloAvaliacaoObserver;
 use App\Observers\ServidorObserver;
 use App\Observers\UsuarioObserver;
 use App\Repositories\Cargo\CargoEloquentRepository;
 use App\Repositories\Cargo\CargoRepositoryInterface;
 use App\Repositories\Fornecedor\FornecedorEloquentRepository;
 use App\Repositories\Fornecedor\FornecedorRepositoryInterface;
-use App\Repositories\Modelo\ModeloEloquentRepository;
-use App\Repositories\Modelo\ModeloRepositoryInterface;
+use App\Repositories\ModeloAvaliacao\ModeloAvaliacaoEloquentRepository;
+use App\Repositories\ModeloAvaliacao\ModeloAvaliacaoRepositoryInterface;
 use App\Repositories\Servidor\ServidorEloquentRepository;
 use App\Repositories\Servidor\ServidorRepositoryInterface;
 use App\Repositories\Usuario\UsuarioEloquentRepository;
@@ -48,7 +48,7 @@ class AppServiceProvider extends ServiceProvider
         );
         
         $this->app->bind(
-            ModeloRepositoryInterface::class, ModeloEloquentRepository::class
+            ModeloAvaliacaoRepositoryInterface::class, ModeloAvaliacaoEloquentRepository::class
         );
 
     }
@@ -63,6 +63,6 @@ class AppServiceProvider extends ServiceProvider
         Fornecedor::observe(FornecedorObserver::class);
         Servidor::observe(ServidorObserver::class);
         User::observe(UsuarioObserver::class);
-        Modelo::observe(ModeloObserver::class);
+        ModeloAvaliacao::observe(ModeloAvaliacaoObserver::class);
     }
 }

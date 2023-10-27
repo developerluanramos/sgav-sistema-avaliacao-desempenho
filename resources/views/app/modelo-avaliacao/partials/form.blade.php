@@ -5,13 +5,13 @@
         label="Modelo"
         name="nome"
         lenght="8/12"
-        :value="$cargo->nome ?? old('nome')"
+        :value="$modeloAvaliacao->nome ?? old('nome')"
     />    
 </div>
     <x-layouts.inputs.input-switch
     label="Situação"
     name="situacao"
-    :value="$formData->situacao ?? old('situacao')"
+    :value="$modeloAvaliacao->situacao ?? old('situacao')"
 />
 <div class="-mx-3 mt-2">
     <x-layouts.inputs.input-normal-select-enum
@@ -20,7 +20,7 @@
         origin="finalidade"
         lenght="4/12"
         :data="$formData['finalidade']"
-        :value="$modelo->finalidade ?? old('finalidade')"
+        :value="$modeloAvaliacao->finalidade ?? old('finalidade')"
     />
 </div>
 

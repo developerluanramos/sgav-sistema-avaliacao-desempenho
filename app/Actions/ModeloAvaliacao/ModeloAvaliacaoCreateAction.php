@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Actions\Modelo;
+namespace App\Actions\ModeloAvaliacao;
 
 use App\Enums\FinalidadeModeloEnum;
 
-class ModeloCreateAction
+class ModeloAvaliacaoCreateAction
 {
     public function __construct(
     ) { }
