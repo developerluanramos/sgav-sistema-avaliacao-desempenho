@@ -2,6 +2,7 @@
 
 namespace App\Repositories\Equipe;
 
+use App\DTO\Equipe\EquipeStoreDTO;
 use App\Models\Equipe;
 
 class EquipeEloquentRepository implements EquipeRepositoryInterface
@@ -16,5 +17,10 @@ class EquipeEloquentRepository implements EquipeRepositoryInterface
     public function all()
     {
         return $this->model->all();
+    }
+
+    public function new(EquipeStoreDTO $dto): Equipe
+    {
+        return $this->model->create((array) $dto);
     }
 }
