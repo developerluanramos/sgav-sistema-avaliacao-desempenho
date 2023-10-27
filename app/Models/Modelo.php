@@ -15,7 +15,7 @@ class Modelo extends Model
         'uuid',
         'nome',
         'situacao',
-        'finalidade'
+        'finalidade',
     ];
 
 }

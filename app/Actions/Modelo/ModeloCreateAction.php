@@ -2,6 +2,8 @@
 
 namespace App\Actions\Modelo;
 
+use App\Enums\FinalidadeModeloEnum;
+
 class ModeloCreateAction
 {
     public function __construct(
@@ -9,6 +11,8 @@ class ModeloCreateAction
 
     public function exec(): array
     {
-        return [];
+        return [
+            "finalidade" => FinalidadeModeloEnum::asArray()
+        ];
     }
 }

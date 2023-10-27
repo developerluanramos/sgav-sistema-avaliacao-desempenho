@@ -4,7 +4,7 @@
     {{ Breadcrumbs::render('cargo.create') }}
 @endsection --}}
 
-@section('title', 'Modelo Cargo')
+@section('title', 'Novo Modelo')
 
 <x-layouts.headers.create-header :title="'Novo Modelo'"/>
 
@@ -12,11 +12,10 @@
 
 @include('components.alerts.form-errors')
 
-<form method="POST" class="mt-4">
+<form action="{{ route('modelo.store') }}" method="POST" class="mt-4">
     @csrf
     @include('app.modelo.partials.form')
 </form>
 
 @endsection
 
-{{-- action="{{ route('cargo.store') }}" --}}

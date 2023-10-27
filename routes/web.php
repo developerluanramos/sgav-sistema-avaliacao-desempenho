@@ -14,7 +14,6 @@ use App\Http\Controllers\App\Usuario\UsuarioIndexController;
 use App\Http\Controllers\App\Usuario\UsuarioShowController;
 use App\Http\Controllers\App\Usuario\UsuarioStoreController;
 use App\Http\Controllers\App\Usuario\UsuarioUpdateController;
-use App\Models\Servidor;
 
 Route::get('usuario/show/{uuid}', [UsuarioShowController::class, 'show'])->name('usuario.show');
 Route::get('/usuario/create', [UsuarioCreateController::class, 'create'])->name('usuario.create');
@@ -49,3 +48,4 @@ Route::put('cargo/{uuid}/update', [\App\Http\Controllers\App\Cargo\CargoUpdateCo
 
 
 Route::get('modelo/create', [\App\Http\Controllers\App\Modelo\ModeloCreateController::class, 'create'])->name('modelo.create');
+Route::post('modelo', [\App\Http\Controllers\App\Modelo\ModeloStoreController::class, 'store'])->name('modelo.store');

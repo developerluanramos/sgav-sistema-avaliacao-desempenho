@@ -12,7 +12,7 @@ class ModeloCreateController extends Controller
         protected ModeloCreateAction $createAction
     ) { }
 
-    public function create(ModeloCreateRequest $usuarioCreateRequest)
+    public function create(ModeloCreateRequest $createRequest)
     {
         $formData = $this->createAction->exec();
 
