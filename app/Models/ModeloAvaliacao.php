@@ -9,7 +9,7 @@ class ModeloAvaliacao extends Model
 {
     use HasFactory;
 
-    protected $table = 'modelos';
+    protected $table = 'modelos_avaliacao';
 
     protected $fillable = [
         'uuid',

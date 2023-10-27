@@ -47,5 +47,5 @@ Route::get('cargo/{uuid}/edit', [\App\Http\Controllers\App\Cargo\CargoEditContro
 Route::put('cargo/{uuid}/update', [\App\Http\Controllers\App\Cargo\CargoUpdateController::class, 'update'])->name('cargo.update');
 
 
-Route::get('modelo/create', [\App\Http\Controllers\App\ModeloAvaliacao\ModeloAvaliacaoCreateController::class, 'create'])->name('modelo.create');
-Route::post('modelo', [\App\Http\Controllers\App\ModeloAvaliacao\ModeloAvaliacaoStoreController::class, 'store'])->name('modelo.store');
+Route::get('modelo-avaliacao/create', [\App\Http\Controllers\App\ModeloAvaliacao\ModeloAvaliacaoCreateController::class, 'create'])->name('modelo-avaliacao.create');
+Route::post('modelo-avaliacao', [\App\Http\Controllers\App\ModeloAvaliacao\ModeloAvaliacaoStoreController::class, 'store'])->name('modelo-avaliacao.store');

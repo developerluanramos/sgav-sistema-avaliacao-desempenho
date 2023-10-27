@@ -1,4 +1,4 @@
-<form class="mt-2" action="{{ route('cargo.index') }}">
+<form class="mt-2" action="{{ route('modelo-avaliacao.index') }}">
     <div class="mb-3">
         <div class="relative mb-4 flex w-full flex-wrap items-stretch">
             <input
