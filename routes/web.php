@@ -4,6 +4,7 @@ use App\Http\Controllers\App\Dashboard\DashboardIndexController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/equipe/create', [\App\Http\Controllers\App\Equipe\EquipeCreateController::class, 'create'])->name('equipe.create');
+Route::post('/equipe', [\App\Http\Controllers\App\Equipe\EquipeStoreController::class, 'store'])->name('equipe.store');
 
 Route::get('usuario/show/{uuid}', [\App\Http\Controllers\App\Usuario\UsuarioShowController::class, 'show'])->name('usuario.show');
 Route::get('/usuario/create', [\App\Http\Controllers\App\Usuario\UsuarioCreateController::class, 'create'])->name('usuario.create');
