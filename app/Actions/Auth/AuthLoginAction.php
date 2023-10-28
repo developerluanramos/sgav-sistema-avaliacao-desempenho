@@ -16,12 +16,16 @@ class AuthLoginAction {
     public function exec(
         AuthLoginDTO $dto,
         AuthLoginRequest $authLoginRequest
-        ): bool | Exception
+        ): bool
     {
-        if (Auth::attempt($$dto)) {
+        if(Auth::check()) {
+            return true;
+        }
+
+        if (Auth::attempt((array)$dto)) {
             return $authLoginRequest->session()->regenerate();
         }
 
-        return new Exception("As Credenciais fornecidas são inválidas");
+        return false;
     }
 }

@@ -14,7 +14,9 @@ use App\Http\Controllers\App\Usuario\UsuarioIndexController;
 use App\Http\Controllers\App\Usuario\UsuarioShowController;
 use App\Http\Controllers\App\Usuario\UsuarioStoreController;
 use App\Http\Controllers\App\Usuario\UsuarioUpdateController;
+use App\Http\Controllers\Auth\AuthLoginController;
 use App\Models\Servidor;
+use Illuminate\Support\Facades\Auth;
 
 Route::get('usuario/show/{uuid}', [UsuarioShowController::class, 'show'])->name('usuario.show');
 Route::get('/usuario/create', [UsuarioCreateController::class, 'create'])->name('usuario.create');
@@ -30,7 +32,16 @@ Route::get('/servidor', [ServidorIndexController::class, 'index'])->name('servid
 Route::get('/servidor/edit/{servidor}', [ServidorEditController::class, 'edit'])->name('servidor.edit');
 Route::post('/servidor', [ServidorStoreController::class, 'store'])->name('servidor.store');
 
-Route::get('/', [DashboardIndexController::class, 'index'])->name('dashboard.index');
+Route::get('/dashboard', [DashboardIndexController::class, 'index'])->name('dashboard.index');
+
+// Route::get('/', function(){
+//     if(Auth::check()) {
+//         return redirect()->route('dashboard.index');
+//     }
+//     return view('auth.login');
+// })->name('auth');
+Route::get('/', [AuthLoginController::class, 'index'])->name('auth.index');
+Route::post('/auth/login', [AuthLoginController::class, 'login'])->name('auth.login');
 
 Route::get('fornecedor', [\App\Http\Controllers\App\Fornecedor\FornecedorIndexController::class, 'index'])->name('fornecedor.index');
 Route::get('fornecedor/create', [\App\Http\Controllers\App\Fornecedor\FornecedorCreateController::class, 'create'])->name('fornecedor.create');
