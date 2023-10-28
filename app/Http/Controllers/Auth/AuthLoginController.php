@@ -2,28 +2,26 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Actions\Fornecedor\FornecedorIndexAction;
+use App\Actions\Auth\AuthLoginAction;
+use App\DTO\Auth\AuthLoginDTO;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\App\Fornecedor\FornecedorIndexRequest;
+use App\Http\Requests\Auth\AuthLoginRequest;
 
-class FornecedorIndexController extends Controller
+class AuthLoginController extends Controller
 {
     public function __construct(
-        protected FornecedorIndexAction $indexAction
+        protected  AuthLoginAction $authLoginAction
     ) {
 
     }
 
-    public function index(FornecedorIndexRequest $fornecedorIndexRequest)
+    public function login(AuthLoginRequest $authLoginRequest)
     {
-        $fornecedores = $this->indexAction->exec(
-            page: $fornecedorIndexRequest->get('page', 1),
-            totalPerPage:  $fornecedorIndexRequest->get('totalPerPage', 20),
-            filter: $fornecedorIndexRequest->get('filter', null),
+        $this->authLoginAction->exec(
+            AuthLoginDTO::makeFromRequest($authLoginRequest),
+            $authLoginRequest
         );
 
-        $filters = ['filter' => $fornecedorIndexRequest->get('filter', null)];
-
-        return view('app.fornecedor.index', compact('fornecedores', 'filters'));
+        return redirect()->route('dashboard.index');
     }
 }
