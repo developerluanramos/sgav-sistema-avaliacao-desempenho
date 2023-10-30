@@ -20,7 +20,7 @@
                     text="Ver"
                     action="ver"
                     color="secondary"
-                    :route="'#'"/>
+                    :route="route('equipe.show', $equipe->uuid)"/>
                 <x-layouts.buttons.action-button
                     text="Editar"
                     action="editar"

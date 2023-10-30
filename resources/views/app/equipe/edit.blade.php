@@ -1,5 +1,9 @@
 @extends('app.layouts.app')
 
+@section('breadcrumb')
+    {{ Breadcrumbs::render('equipe.edit', $equipe) }}
+@endsection
+
 @section('title', 'Edição Equipe')
 
 <x-layouts.headers.edit-header :title="$equipe->uuid.' - '.$equipe->nome"/>
