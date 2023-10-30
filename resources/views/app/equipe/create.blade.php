@@ -8,7 +8,7 @@
 
 @include('components.alerts.form-errors')
 
-<form action="{{ route('equipe.store') }}" method="POST" class="mt-4">
+<form action="{{ route('equipe.store') }}" method="POST">
     @csrf
     @include('app.equipe.partials.form')
 </form>
