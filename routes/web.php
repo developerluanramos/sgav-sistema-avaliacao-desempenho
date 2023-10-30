@@ -3,6 +3,7 @@
 use App\Http\Controllers\App\Dashboard\DashboardIndexController;
 use Illuminate\Support\Facades\Route;
 
+Route::get('/equipe/show/{uuid}', [\App\Http\Controllers\App\Equipe\EquipeShowController::class, 'show'])->name('equipe.show');
 Route::get('/equipe/create', [\App\Http\Controllers\App\Equipe\EquipeCreateController::class, 'create'])->name('equipe.create');
 Route::put('/equipe/{equipe}', [\App\Http\Controllers\App\Equipe\EquipeUpdateController::class, 'update'])->name('equipe.update');
 Route::get('/equipe', [\App\Http\Controllers\App\Equipe\EquipeIndexController::class, 'index'])->name('equipe.index');
