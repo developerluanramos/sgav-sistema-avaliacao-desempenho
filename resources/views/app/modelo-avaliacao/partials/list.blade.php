@@ -12,7 +12,9 @@
         @foreach($modeloAvaliacao->items() as $index => $modeloAvaliacao)
             <tr>
                 <td>{{ $modeloAvaliacao->nome }}</td>
-                <td>{{ $modeloAvaliacao->situacao }}</td>
+                <td><x-layouts.badges.situacao-modelo-avaliacao
+                    :situacao="$modeloAvaliacao->situacao"
+                    /></td>
                 <td>{{ $modeloAvaliacao->finalidade }}</td>
                 <td class="text-left">
                     <x-layouts.buttons.action-button

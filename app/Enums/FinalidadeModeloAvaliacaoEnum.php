@@ -8,7 +8,7 @@ use BenSampo\Enum\Enum;
  * @method static static ESTAGIO_PROBATORIO()
  * @method static static EVOLUCAO_FUNCIONAL()
  */
-final class FinalidadeModeloEnum extends Enum
+final class FinalidadeModeloAvaliacaoEnum extends Enum
 {
     const ESTAGIO_PROBATORIO = 'Estágio Probatório';
     const EVOLUCAO_FUNCIONAL = 'Evolução Funcional';

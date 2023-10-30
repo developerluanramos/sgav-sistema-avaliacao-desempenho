@@ -2,8 +2,8 @@
 
 namespace App\DTO\ModeloAvaliacao;
 
-use App\Enums\FinalidadeModeloEnum;
-use App\Enums\SituacaoModeloEnum;
+use App\Enums\FinalidadeModeloAvaliacaoEnum;
+use App\Enums\SituacaoModeloAvaliacaoEnum;
 use App\Http\Requests\App\ModeloAvaliacao\ModeloAvaliacaoStoreRequest;
 
 class ModeloAvaliacaoStoreDTO {
@@ -17,8 +17,8 @@ class ModeloAvaliacaoStoreDTO {
     {
         return new self(
             $request->nome,
-            SituacaoModeloEnum::getValue(SituacaoModeloEnum::getKey((int)$request->situacao)),
-            FinalidadeModeloEnum::getValue($request->finalidade),
+            SituacaoModeloAvaliacaoEnum::getValue(SituacaoModeloAvaliacaoEnum::getKey((int)$request->situacao)),
+            FinalidadeModeloAvaliacaoEnum::getValue($request->finalidade),
         );
     }
 }

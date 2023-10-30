@@ -17,6 +17,6 @@ class ModeloAvaliacaoStoreController extends Controller
     {
         $this->storeAction->exec(ModeloAvaliacaoStoreDTO::makeFromRequest($storeRequest));
 
-        return redirect()->route('cargo.index')->with('message', 'Modelo criado');
+        return redirect()->route('modelo-avaliacao.index')->with('message', 'Modelo criado');
     }
 }
