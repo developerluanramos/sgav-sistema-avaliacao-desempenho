@@ -20,7 +20,7 @@ class EquipeStoreController extends Controller
             EquipeStoreDTO::makeFromRequest($equipeStoreRequest)
         );
 
-        return redirect()->route('cargo.index');
+        return redirect()->route('equipe.index');
     }
 
 }
