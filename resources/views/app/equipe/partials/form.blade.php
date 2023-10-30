@@ -6,7 +6,7 @@
         :value="$equipe->nome ?? old('nome')"
     />
 </div>
-    <x-layouts.inputs.input-switch-equipe
+    <x-layouts.inputs.input-switch
         label="Situação"
         name="situacao"
         :value="$equipe->situacao ?? old('situacao')"
