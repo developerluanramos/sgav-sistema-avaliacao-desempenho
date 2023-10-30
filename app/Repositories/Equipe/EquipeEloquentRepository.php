@@ -3,6 +3,7 @@
 namespace App\Repositories\Equipe;
 
 use App\DTO\Equipe\EquipeStoreDTO;
+use App\DTO\Equipe\EquipeUpdateDTO;
 use App\Models\Equipe;
 use App\Repositories\Interfaces\PaginationInterface;
 use App\Repositories\Presenters\PaginationPresenter;
@@ -48,5 +49,12 @@ class EquipeEloquentRepository implements EquipeRepositoryInterface
         $result = $query->paginate($totalPerPage, ['*'], 'page', $page);
 
         return new PaginationPresenter($result);
+    }
+
+    public function update(EquipeUpdateDTO $dto): Equipe
+    {
+        $this->model->where("uuid", $dto->uuid)->update((array)$dto);
+
+        return $this->find($dto->uuid);
     }
 }
