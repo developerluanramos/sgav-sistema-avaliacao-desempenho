@@ -6,10 +6,10 @@
         :value="$equipe->nome ?? old('nome')"
     />
 </div>
-    <x-layouts.inputs.input-switch
-    label="Situação"
-    name="situacao"
-    :value="$formData->situacao ?? old('situacao')"
-/>
+    <x-layouts.inputs.input-switch-equipe
+        label="Situação"
+        name="situacao"
+        :value="$equipe->situacao ?? old('situacao')"
+    />
 
 <x-layouts.buttons.submit-button text="Salvar"/>
