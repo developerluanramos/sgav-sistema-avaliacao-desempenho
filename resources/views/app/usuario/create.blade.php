@@ -12,7 +12,7 @@
 
 @include('components.alerts.form-errors')
 
-<form action="{{ route('usuario.store') }}" method="POST" class="mt-4">
+<form action="{{ route('usuario.store') }}" method="POST">
     @include('app.usuario.partials.form')
 </form>
 @endsection

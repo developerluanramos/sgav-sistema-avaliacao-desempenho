@@ -16,7 +16,8 @@ class DatabaseSeeder extends Seeder
             FornecedorSeeder::class,
             CargoSeeder::class,
             ServidorSeeder::class,
-            UserSeeder::class
+            UserSeeder::class,
+            EquipeSeeder::class
         ]);
     }
 }
