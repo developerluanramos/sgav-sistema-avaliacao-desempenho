@@ -16,4 +16,8 @@ class Equipe extends Model
         'nome',
         'situacao',
     ];
+
+    protected $casts = [
+        'situacao' => 'integer',
+    ];
 }
