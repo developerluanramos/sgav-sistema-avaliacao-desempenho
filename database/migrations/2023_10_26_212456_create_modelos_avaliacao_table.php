@@ -1,7 +1,7 @@
 <?php
 
-use App\Enums\FinalidadeModeloEnum;
-use App\Enums\SituacaoModeloEnum;
+use App\Enums\FinalidadeModeloAvaliacaoEnum;
+use App\Enums\SituacaoModeloAvaliacaoEnum;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -17,10 +17,10 @@ return new class extends Migration
             $table->id();
             $table->uuid('uuid')->unique();
             $table->string('nome');
-            $table->enum('situacao', SituacaoModeloEnum::getValues())
-                ->default(SituacaoModeloEnum::ATIVO());
-            $table->enum('finalidade', FinalidadeModeloEnum::getValues())
-                ->default(FinalidadeModeloEnum::EVOLUCAO_FUNCIONAL());;
+            $table->enum('situacao', SituacaoModeloAvaliacaoEnum::getValues())
+                ->default(SituacaoModeloAvaliacaoEnum::ATIVO());
+            $table->enum('finalidade', FinalidadeModeloAvaliacaoEnum::getValues())
+                ->default(FinalidadeModeloAvaliacaoEnum::EVOLUCAO_FUNCIONAL());;
             $table->timestamps();
         });
     }

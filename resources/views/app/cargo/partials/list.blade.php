@@ -11,8 +11,10 @@
         @foreach($cargos->items() as $index => $cargo)
             <tr>
                 <td>{{ $cargo->nome }}</td>
-                <td>{{ $cargo->situacao }}</td>
-                <td class="text-center">
+                <td><x-layouts.badges.situacao-cargo
+                    :situacao="$cargo->situacao"
+                    /></td>
+                <td class="text-left">
                     <x-layouts.buttons.action-button
                     text="Ver"
                     action="ver"

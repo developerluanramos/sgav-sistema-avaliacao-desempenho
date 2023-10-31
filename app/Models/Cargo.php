@@ -17,6 +17,15 @@ class Cargo extends Model
         'situacao',
     ];
 
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array<string, string>
+     */
+    protected $casts = [
+        'situacao' => 'integer',
+    ];
+
     public function servidores()
     {
         return $this->hasMany(Servidor::class, 'cargo_uuid', 'uuid');

@@ -49,3 +49,4 @@ Route::put('cargo/{uuid}/update', [\App\Http\Controllers\App\Cargo\CargoUpdateCo
 
 Route::get('modelo-avaliacao/create', [\App\Http\Controllers\App\ModeloAvaliacao\ModeloAvaliacaoCreateController::class, 'create'])->name('modelo-avaliacao.create');
 Route::post('modelo-avaliacao', [\App\Http\Controllers\App\ModeloAvaliacao\ModeloAvaliacaoStoreController::class, 'store'])->name('modelo-avaliacao.store');
+Route::get('modelo-avaliacao', [\App\Http\Controllers\App\ModeloAvaliacao\ModeloAvaliacaoIndexController::class, 'index'])->name('modelo-avaliacao.index');

@@ -2,7 +2,7 @@
 
 namespace App\Actions\ModeloAvaliacao;
 
-use App\Enums\FinalidadeModeloEnum;
+use App\Enums\FinalidadeModeloAvaliacaoEnum;
 
 class ModeloAvaliacaoCreateAction
 {
@@ -12,7 +12,7 @@ class ModeloAvaliacaoCreateAction
     public function exec(): array
     {
         return [
-            "finalidade" => FinalidadeModeloEnum::asArray()
+            "finalidade" => FinalidadeModeloAvaliacaoEnum::asArray()
         ];
     }
 }
