@@ -21,7 +21,7 @@ class ModeloAvaliacaoShowController extends Controller
 
         $modeloAvaliacao = $this->storeAction->exec(ModeloAvaliacaoShowDTO::makeFromRequest($storeRequest));
         
-        return view('app.modeloAvaliacao.show', [
+        return view('app.modelo-avaliacao.show', [
             "modeloAvaliacao" => $modeloAvaliacao
         ]);
     }
