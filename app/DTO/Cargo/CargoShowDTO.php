@@ -3,7 +3,6 @@
 namespace App\DTO\Cargo;
 
 use App\Http\Requests\App\Cargo\CargoShowRequest;
-use App\Models\Cargo;
 
 class CargoShowDTO {
     public function __construct(
