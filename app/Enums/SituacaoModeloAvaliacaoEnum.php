@@ -8,7 +8,7 @@ use BenSampo\Enum\Enum;
  * @method static static ATIVO()
  * @method static static INATIVO()
  */
-final class SituacaoModeloEnum extends Enum
+final class SituacaoModeloAvaliacaoEnum extends Enum
 {
     const ATIVO = 1;
     const INATIVO = 0;

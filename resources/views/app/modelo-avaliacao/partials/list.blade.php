@@ -2,29 +2,31 @@
     :headers="[
         'Nome',
         'Situação',
-        'Finalidade'
+        'Finalidade',
         'Ações'
     ]"
-    :paginator="$modelosAvaliacao"
+    :paginator="$modeloAvaliacao"
     :appends="$filters"
 >
     @section('table-content')
-        @foreach($modelosAvaliacao->items() as $index => $modeloAvaliacao)
+        @foreach($modeloAvaliacao->items() as $index => $modeloAvaliacao)
             <tr>
                 <td>{{ $modeloAvaliacao->nome }}</td>
-                <td>{{ $modeloAvaliacao->situacao }}</td>
+                <td><x-layouts.badges.situacao-modelo-avaliacao
+                    :situacao="$modeloAvaliacao->situacao"
+                    /></td>
                 <td>{{ $modeloAvaliacao->finalidade }}</td>
-                <td class="text-center">
+                <td class="text-left">
                     <x-layouts.buttons.action-button
                     text="Ver"
                     action="ver"
                     color="secondary"
-                    :route="route('modelo-avaliacao.show', $modeloAvaliacao->uuid)"/>
+                    :route="route('cargo.show', $modeloAvaliacao->uuid)"/>
                 <x-layouts.buttons.action-button
                     text="Editar"
                     action="editar"
                     color="primary"
-                    :route="route('modelo-avaliacao.edit', $modeloAvaliacao->uuid)"/>
+                    :route="route('cargo.edit', $modeloAvaliacao->uuid)"/>
                 </td>
             </tr>
         @endforeach
