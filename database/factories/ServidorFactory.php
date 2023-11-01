@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Cargo;
+use App\Models\Equipe;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -24,6 +25,7 @@ class ServidorFactory extends Factory
             'data_nascimento' => fake()->date(),
             'data_admissao' => fake()->date(),
             'cargo_uuid' => Cargo::inRandomOrder()->first()->uuid,
+            'equipe_uuid' => Equipe::inRandomOrder()->first()->uuid,
             'matricula' => fake()->numberBetween(1147483647, 2147483647),
         ];
     }
