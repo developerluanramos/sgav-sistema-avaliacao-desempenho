@@ -11,4 +11,7 @@ interface ModeloAvaliacaoRepositoryInterface
     public function new(ModeloAvaliacaoStoreDTO $dto): ModeloAvaliacao;
     
     public function paginate(int $page = 1, int $totalPerPage = 10, string $filter = null): PaginationInterface;
+
+    public function find($uuid): ModeloAvaliacao;
+
 }
