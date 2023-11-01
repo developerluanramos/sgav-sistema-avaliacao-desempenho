@@ -12,11 +12,9 @@
 
 @include('components.alerts.form-errors')
 
-<form  method="POST">
+<form action="{{route('modelo-avaliacao.update', $modeloAvaliacao->uuid)}}" method="POST">
     @method('PUT')
     @include('app.modelo-avaliacao.partials.form', ["modeloAvaliacao" => $modeloAvaliacao])
 </form>
 
 @endsection
-
-{{-- action="{{route('cargo.update', $cargo->uuid)}}" --}}
