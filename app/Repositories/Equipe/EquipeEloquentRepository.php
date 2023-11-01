@@ -29,7 +29,9 @@ class EquipeEloquentRepository implements EquipeRepositoryInterface
 
     public function find($uuid): Equipe
     {
-        return $this->model->where('uuid', $uuid)->first();
+        return $this->model
+            ->with('servidores.cargo.servidores')
+            ->where('uuid', $uuid)->first();
     }
 
     public function new(EquipeStoreDTO $dto): Equipe
@@ -59,8 +61,10 @@ class EquipeEloquentRepository implements EquipeRepositoryInterface
         return $this->find($dto->uuid);
     }
 
-    public function Ativos()
+    public function ativos()
     {
-        return $this->model->where('situacao', SituacaoEquipeEnum::ATIVO)->get();
+        return $this->model->where('situacao', SituacaoEquipeEnum::ATIVO)
+        ->orderBy('nome', 'asc')
+        ->get();
     }
 }

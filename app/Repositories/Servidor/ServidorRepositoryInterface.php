@@ -15,5 +15,5 @@ interface ServidorRepositoryInterface
     public function find(string $uuid): Servidor;
     public function new(ServidorStoreDTO $servidorStoreDTO): Servidor;
     public function update(ServidorUpdateDTO $servidorUpdateDTO): Servidor;
-    public function Ativos();
+    public function ativos();
 }

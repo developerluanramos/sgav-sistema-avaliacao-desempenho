@@ -37,6 +37,7 @@ class ServidorEloquentRepository implements ServidorRepositoryInterface
     public function paginate(int $page = 1, int $totalPerPage = 10, string $filter = null): PaginationInterface
     {
         $query = $this->model->query()
+            ->with('equipe')
             ->with('cargo');
 
 
@@ -67,8 +68,10 @@ class ServidorEloquentRepository implements ServidorRepositoryInterface
         return $this->find($servidorUpdateDTO->uuid);
     }
 
-    public function Ativos()
+    public function ativos()
     {
-        return $this->model->where('situacao', SituacaoEquipeEnum::ATIVO)->get();
+        return $this->model->where('situacao', SituacaoEquipeEnum::ATIVO)
+        ->orderBy('nome', 'asc')
+        ->get();
     }
 }

@@ -60,8 +60,10 @@ class CargoEloquentRepository implements CargoRepositoryInterface
         return $this->find($dto->uuid);
     }
 
-    public function Ativos()
+    public function ativos()
     {
-        return $this->model->where('situacao', SituacaoCargoEnum::ATIVO)->get();
+        return $this->model->where('situacao', SituacaoCargoEnum::ATIVO)
+        ->orderBy('nome', 'asc')
+        ->get();
     }
 }

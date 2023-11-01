@@ -21,5 +21,5 @@ interface EquipeRepositoryInterface
 
     public function update(EquipeUpdateDTO $dto): Equipe;
 
-    public function Ativos();
+    public function ativos();
 }

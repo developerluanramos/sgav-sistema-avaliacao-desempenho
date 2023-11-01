@@ -21,5 +21,5 @@ interface CargoRepositoryInterface
 
     public function update(CargoUpdateDTO $dto): Cargo;
 
-    public function Ativos();
+    public function ativos();
 }
