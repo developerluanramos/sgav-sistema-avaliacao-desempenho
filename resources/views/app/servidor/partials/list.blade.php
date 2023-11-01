@@ -15,14 +15,13 @@
 
     @section('table-content')
         @foreach($servidores->items() as $index => $servidor)
-
             <tr>
                 <td>{{ $servidor->nome }}</td>
                 <td>{{ $servidor->email }}</td>
                 <td>{{ $servidor->formatted_data_nascimento }}</td>
                 <td>{{ $servidor->formatted_data_admissao }}</td>
                 <td>{{ $servidor->cargo['nome'] }}</td>
-                <td>{{ $servidor->equipe_uuid }}</td>
+                <td>{{ $servidor->equipe['nome'] }}</td>
                 <td>{{ $servidor->matricula }}</td>
                 <td class="text-center">
                     <x-layouts.buttons.action-button
