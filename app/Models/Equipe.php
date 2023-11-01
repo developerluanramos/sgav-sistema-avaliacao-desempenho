@@ -20,4 +20,8 @@ class Equipe extends Model
     protected $casts = [
         'situacao' => 'integer',
     ];
+
+    function servidores() {
+        return $this->hasMany(Servidor::class, 'equipe_uuid', 'uuid');
+    }
 }

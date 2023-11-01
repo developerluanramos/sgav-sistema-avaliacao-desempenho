@@ -14,7 +14,7 @@ return new class extends Migration
     {
         Schema::create('equipes', function (Blueprint $table) {
             $table->id();
-            $table->uuid();
+            $table->uuid('uuid')->unique();
             $table->string('nome');
             $table->enum('situacao', SituacaoEquipeEnum::getValues())->default(SituacaoEquipeEnum::ATIVO());
             $table->timestamps();
