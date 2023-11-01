@@ -31,7 +31,7 @@ class Servidor extends Model
     }
 
     function equipe() {
-        return $this->hasOne(Equipe::class, 'equipe_uuid', 'uuid');
+        return $this->belongsTo(Equipe::class, 'equipe_uuid', 'uuid');
     }
 
     public function getFormattedDataNascimentoAttribute()
