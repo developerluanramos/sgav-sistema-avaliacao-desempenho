@@ -4,6 +4,7 @@ namespace App\Repositories\Equipe;
 
 use App\DTO\Equipe\EquipeStoreDTO;
 use App\DTO\Equipe\EquipeUpdateDTO;
+use App\Enums\SituacaoEquipeEnum;
 use App\Models\Equipe;
 use App\Repositories\Interfaces\PaginationInterface;
 use App\Repositories\Presenters\PaginationPresenter;
@@ -28,7 +29,9 @@ class EquipeEloquentRepository implements EquipeRepositoryInterface
 
     public function find($uuid): Equipe
     {
-        return $this->model->where('uuid', $uuid)->first();
+        return $this->model
+            ->with('servidores.cargo.servidores')
+            ->where('uuid', $uuid)->first();
     }
 
     public function new(EquipeStoreDTO $dto): Equipe
@@ -56,5 +59,12 @@ class EquipeEloquentRepository implements EquipeRepositoryInterface
         $this->model->where("uuid", $dto->uuid)->update((array)$dto);
 
         return $this->find($dto->uuid);
+    }
+
+    public function ativos()
+    {
+        return $this->model->where('situacao', SituacaoEquipeEnum::ATIVO)
+        ->orderBy('nome', 'asc')
+        ->get();
     }
 }

@@ -20,4 +20,6 @@ interface EquipeRepositoryInterface
     public function paginate(int $page = 1, int $totalPerPage = 10, string $filter = null): PaginationInterface;
 
     public function update(EquipeUpdateDTO $dto): Equipe;
+
+    public function ativos();
 }

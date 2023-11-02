@@ -4,6 +4,7 @@ namespace App\Repositories\Cargo;
 
 use App\DTO\Cargo\CargoStoreDTO;
 use App\DTO\Cargo\CargoUpdateDTO;
+use App\Enums\SituacaoCargoEnum;
 use App\Models\Cargo;
 use App\Repositories\Interfaces\PaginationInterface;
 use App\Repositories\Presenters\PaginationPresenter;
@@ -57,5 +58,12 @@ class CargoEloquentRepository implements CargoRepositoryInterface
         $this->model->where("uuid", $dto->uuid)->update((array)$dto);
 
         return $this->find($dto->uuid);
+    }
+
+    public function ativos()
+    {
+        return $this->model->where('situacao', SituacaoCargoEnum::ATIVO)
+        ->orderBy('nome', 'asc')
+        ->get();
     }
 }

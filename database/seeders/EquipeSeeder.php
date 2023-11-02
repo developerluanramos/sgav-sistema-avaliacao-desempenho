@@ -10,6 +10,6 @@ class EquipeSeeder extends Seeder
 {
     public function run()
     {
-        Equipe::factory(50)->create();
+        Equipe::factory(20)->create();
     }
 }

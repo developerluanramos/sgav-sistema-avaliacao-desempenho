@@ -4,14 +4,22 @@
     <x-layouts.inputs.input-normal-text
         label="Nome"
         name="nome"
-        lenght="6/12"
+        lenght="4/12"
         :value="$servidor->nome ?? old('nome')"
     />
     <x-layouts.inputs.input-normal-text
         label="Email"
         name="email"
-        lenght="6/12"
+        lenght="4/12"
         :value="$servidor->email ?? old('email')"
+    />
+    <x-layouts.inputs.input-normal-select
+        label="Equipe"
+        name="equipe_uuid"
+        origin="equipe_uuid"
+        lenght="4/12"
+        :data="$formData['equipes']"
+        :value="$servidor->equipe_uuid ?? old('equipe_uuid')"
     />
 </div>
 <div class="flex flex-wrap -mx-3 mb-2">

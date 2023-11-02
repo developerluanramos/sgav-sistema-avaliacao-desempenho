@@ -11,7 +11,9 @@ class EquipeCreateAction
 
     public function exec(): array
     {
-        return [];
+        return [
+
+        ];
     }
 }
 

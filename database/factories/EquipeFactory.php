@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Enums\SituacaoEquipeEnum;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\Equipe;
 
@@ -11,12 +12,10 @@ class EquipeFactory extends Factory
 
     public function definition()
     {
-        $situacaoValue = rand(0, 1) === 1 ? 1 : "0";
-
         return [
             'uuid' => fake()->uuid(),
-            'nome' => fake()->name(),
-            'situacao' => $situacaoValue,
+            'nome' => fake()->company(),
+            'situacao' => SituacaoEquipeEnum::ATIVO,
         ];
     }
 }
