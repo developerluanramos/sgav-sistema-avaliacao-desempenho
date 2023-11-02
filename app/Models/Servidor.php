@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Carbon\Carbon; 
+use Carbon\Carbon;
 
 class Servidor extends Model
 {
@@ -19,6 +19,7 @@ class Servidor extends Model
         'data_nascimento',
         'data_admissao',
         'cargo_uuid',
+        'equipe_uuid',
         'matricula',
     ];
 
@@ -27,6 +28,10 @@ class Servidor extends Model
     public function cargo()
     {
         return $this->belongsTo(Cargo::class, 'cargo_uuid', 'uuid');
+    }
+
+    function equipe() {
+        return $this->belongsTo(Equipe::class, 'equipe_uuid', 'uuid');
     }
 
     public function getFormattedDataNascimentoAttribute()
