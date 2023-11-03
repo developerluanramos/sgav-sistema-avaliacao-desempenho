@@ -7,7 +7,7 @@ use App\Models\Cargo;
 use App\Repositories\Cargo\CargoRepositoryInterface;
 
 class CargoStoreAction {
-    
+
     public function __construct(
         protected CargoRepositoryInterface $repository
     ) { }

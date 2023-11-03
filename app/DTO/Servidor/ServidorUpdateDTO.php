@@ -14,6 +14,7 @@ class ServidorUpdateDTO extends BaseDTO
         public string $data_nascimento,
         public string $data_admissao,
         public string $cargo_uuid,
+        public string $equipe_uuid,
         public string $matricula
     ) { }
 
@@ -26,6 +27,7 @@ class ServidorUpdateDTO extends BaseDTO
             $request->data_nascimento,
             $request->data_admissao,
             $request->cargo_uuid,
+            $request->equipe_uuid,
             $request->matricula
         );
     }

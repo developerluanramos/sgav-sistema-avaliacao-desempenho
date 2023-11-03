@@ -76,3 +76,18 @@ Breadcrumbs::for('cargo.show', function (BreadcrumbTrail $trail) {
     $trail->parent('cargo');
     $trail->push('Cargo', route('cargo.show'));
 });
+
+Breadcrumbs::for('equipe', function (BreadcrumbTrail $trail) {
+    $trail->parent('Dashboard' , route('dashboard.index'));
+    $trail->push('Equipes', route('equipe.index'));
+});
+
+Breadcrumbs::for('equipe.create', function ($trail) {
+    $trail->parent('equipe');
+    $trail->push('Nova Equipe', route('equipe.create'));
+});
+
+Breadcrumbs::for('equipe.edit', function ($trail, $equipe) {
+    $trail->parent('equipe');
+    $trail->push('Edição de Equipe', route('equipe.edit', $equipe));
+});

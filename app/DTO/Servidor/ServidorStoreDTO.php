@@ -14,6 +14,7 @@ class ServidorStoreDTO extends BaseDTO
         public string $data_nascimento,
         public string $data_admissao,
         public string $cargo_uuid,
+        public string $equipe_uuid,
         public string $matricula
     ){ }
 
@@ -25,6 +26,7 @@ class ServidorStoreDTO extends BaseDTO
             $request->input('data_nascimento', ''),
             $request->input('data_admissao', ''),
             $request->input('cargo_uuid', ''),
+            $request->input('equipe_uuid', ''),
             $request->input('matricula', '')
         );
     }

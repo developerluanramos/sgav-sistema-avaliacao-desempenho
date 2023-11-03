@@ -3,17 +3,21 @@
 namespace App\Providers;
 
 use App\Models\Cargo;
+use App\Models\Equipe;
 use App\Models\Fornecedor;
 use App\Models\ModeloAvaliacao;
 use App\Models\Servidor;
 use App\Observers\CargoObserver;
 use App\Models\User;
+use App\Observers\EquipeObserver;
 use App\Observers\FornecedorObserver;
 use App\Observers\ModeloAvaliacaoObserver;
 use App\Observers\ServidorObserver;
 use App\Observers\UsuarioObserver;
 use App\Repositories\Cargo\CargoEloquentRepository;
 use App\Repositories\Cargo\CargoRepositoryInterface;
+use App\Repositories\Equipe\EquipeEloquentRepository;
+use App\Repositories\Equipe\EquipeRepositoryInterface;
 use App\Repositories\Fornecedor\FornecedorEloquentRepository;
 use App\Repositories\Fornecedor\FornecedorRepositoryInterface;
 use App\Repositories\ModeloAvaliacao\ModeloAvaliacaoEloquentRepository;
@@ -51,6 +55,9 @@ class AppServiceProvider extends ServiceProvider
             ModeloAvaliacaoRepositoryInterface::class, ModeloAvaliacaoEloquentRepository::class
         );
 
+        $this->app->bind(
+            EquipeRepositoryInterface::class, EquipeEloquentRepository::class
+        );
     }
 
 
@@ -64,5 +71,6 @@ class AppServiceProvider extends ServiceProvider
         Servidor::observe(ServidorObserver::class);
         User::observe(UsuarioObserver::class);
         ModeloAvaliacao::observe(ModeloAvaliacaoObserver::class);
+        Equipe::observe(EquipeObserver::class);
     }
 }

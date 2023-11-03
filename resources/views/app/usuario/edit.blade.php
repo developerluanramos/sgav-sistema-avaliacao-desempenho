@@ -12,7 +12,7 @@
 
 @include('components.alerts.form-errors')
 
-<form action="{{ route('usuario.update', $user->uuid) }}" method="POST" class="mt-4">
+<form action="{{ route('usuario.update', $user->uuid) }}" method="POST">
     @csrf
     @method('PUT')
     @include('app.usuario.partials.form')

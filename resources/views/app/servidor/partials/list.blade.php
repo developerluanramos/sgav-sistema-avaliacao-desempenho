@@ -5,12 +5,14 @@
         'Data de Nascimento',
         'Data de Admissão',
         'Cargo',
+        'Equipe',
         'Matrícula',
         'Ações'
     ]"
     :paginator="$servidores"
     :appends="$filters"
 >
+
     @section('table-content')
         @foreach($servidores->items() as $index => $servidor)
             <tr>
@@ -19,6 +21,7 @@
                 <td>{{ $servidor->formatted_data_nascimento }}</td>
                 <td>{{ $servidor->formatted_data_admissao }}</td>
                 <td>{{ $servidor->cargo['nome'] }}</td>
+                <td>{{ $servidor->equipe['nome'] }}</td>
                 <td>{{ $servidor->matricula }}</td>
                 <td class="text-center">
                     <x-layouts.buttons.action-button
