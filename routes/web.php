@@ -39,3 +39,11 @@ Route::get('cargo', [\App\Http\Controllers\App\Cargo\CargoIndexController::class
 Route::get('cargo/{uuid}/show', [\App\Http\Controllers\App\Cargo\CargoShowController::class, 'show'])->name('cargo.show');
 Route::get('cargo/{uuid}/edit', [\App\Http\Controllers\App\Cargo\CargoEditController::class, 'edit'])->name('cargo.edit');
 Route::put('cargo/{uuid}/update', [\App\Http\Controllers\App\Cargo\CargoUpdateController::class, 'update'])->name('cargo.update');
+
+
+Route::get('modelo-avaliacao/create', [\App\Http\Controllers\App\ModeloAvaliacao\ModeloAvaliacaoCreateController::class, 'create'])->name('modelo-avaliacao.create');
+Route::post('modelo-avaliacao', [\App\Http\Controllers\App\ModeloAvaliacao\ModeloAvaliacaoStoreController::class, 'store'])->name('modelo-avaliacao.store');
+Route::get('modelo-avaliacao', [\App\Http\Controllers\App\ModeloAvaliacao\ModeloAvaliacaoIndexController::class, 'index'])->name('modelo-avaliacao.index');
+Route::get('modelo-avaliacao/{uuid}/show', [\App\Http\Controllers\App\ModeloAvaliacao\ModeloAvaliacaoShowController::class, 'show'])->name('modelo-avaliacao.show');
+Route::get('modelo-avaliacao/{uuid}/edit', [\App\Http\Controllers\App\ModeloAvaliacao\ModeloAvaliacaoEditController::class, 'edit'])->name('modelo-avaliacao.edit');
+Route::put('modelo-avaliacao/{uuid}/update', [\App\Http\Controllers\App\ModeloAvaliacao\ModeloAvaliacaoUpdateController::class, 'update'])->name('modelo-avaliacao.update');
