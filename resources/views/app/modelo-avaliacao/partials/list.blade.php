@@ -26,7 +26,7 @@
                     text="Editar"
                     action="editar"
                     color="primary"
-                    :route="route('cargo.edit', $modeloAvaliacao->uuid)"/>
+                    :route="route('modelo-avaliacao.edit', $modeloAvaliacao->uuid)"/>
                 </td>
             </tr>
         @endforeach

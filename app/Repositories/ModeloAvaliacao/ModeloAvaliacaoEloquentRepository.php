@@ -3,6 +3,7 @@
 namespace App\Repositories\ModeloAvaliacao;
 
 use App\DTO\ModeloAvaliacao\ModeloAvaliacaoStoreDTO;
+use App\DTO\ModeloAvaliacao\ModeloAvaliacaoUpdateDTO;
 use App\Models\ModeloAvaliacao;
 use App\Repositories\Interfaces\PaginationInterface;
 use App\Repositories\Presenters\PaginationPresenter;
@@ -38,6 +39,13 @@ class ModeloAvaliacaoEloquentRepository implements ModeloAvaliacaoRepositoryInte
         $result = $query->paginate($totalPerPage, ['*'], 'page', $page);
 
         return new PaginationPresenter($result);
+    }
+
+    public function update(ModeloAvaliacaoUpdateDTO $dto): ModeloAvaliacao
+    {
+        $this->model->where("uuid", $dto->uuid)->update((array) $dto);
+
+        return $this->find($dto->uuid);
     }
 
 }
