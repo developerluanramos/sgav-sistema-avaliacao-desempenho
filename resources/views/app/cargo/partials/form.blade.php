@@ -11,7 +11,7 @@
     <x-layouts.inputs.input-switch
     label="Situação"
     name="situacao"
-    :value="$formData->situacao ?? old('situacao')"
+    :value="$cargo->situacao ?? old('situacao')"
 />
 
 <x-layouts.buttons.submit-button text="Salvar"/>
