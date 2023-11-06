@@ -27,9 +27,11 @@ class CargoEloquentRepository implements CargoRepositoryInterface
         return $this->model->count();
     }
 
-    public function find($uuid): Cargo
+    public function find(string $uuid): Cargo
     {
-        return $this->model->where('uuid', $uuid)->first();
+        return $this->model
+            ->with('servidores')
+            ->where('uuid', $uuid)->first();
     }
 
     public function new(CargoStoreDTO $dto): Cargo

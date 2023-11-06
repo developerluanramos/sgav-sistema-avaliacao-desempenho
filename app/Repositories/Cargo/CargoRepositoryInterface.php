@@ -13,7 +13,7 @@ interface CargoRepositoryInterface
 
     public function totalQuantity() : int;
 
-    public function find($uuid): Cargo;
+    public function find(string $uuid): Cargo;
 
     public function new(CargoStoreDTO $dto): Cargo;
 
