@@ -9,6 +9,10 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class CargoUpdateRequest extends FormRequest
 {
+    public function __construct(
+        protected CargoRepositoryInterface $repository
+    )
+    { }
     /**
      * Determine if the user is authorized to make this request.
      */
@@ -34,11 +38,6 @@ class CargoUpdateRequest extends FormRequest
             ],
         ];
     }
-
-    public function __construct(
-        protected CargoRepositoryInterface $repository
-    )
-    { }
 
     public function passedValidation()
     {
