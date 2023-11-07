@@ -127,6 +127,14 @@ data-te-navbar-ref>
             <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Dark mode</span>
           </label>
       </li>
+      <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
+        <a
+          class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
+          href="{{route('auth.logout')}}"
+          data-te-nav-link-ref
+          >logout</a
+        >
+      </li>
     </ul>
   </div>
 </div>
