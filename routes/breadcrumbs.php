@@ -68,11 +68,43 @@ Breadcrumbs::for('cargo.create', function (BreadcrumbTrail $trail) {
     $trail->parent('cargo');
     $trail->push('Novo Cargo', route('cargo.create'));
 });
-Breadcrumbs::for('cargo.edit', function (BreadcrumbTrail $trail, $fornecedor) {
+Breadcrumbs::for('cargo.edit', function (BreadcrumbTrail $trail, $cargo) {
     $trail->parent('cargo');
-    $trail->push('Edição de Cargo', route('cargo.edit', $fornecedor));
+    $trail->push('Edição de Cargo', route('cargo.edit', $cargo));
 });
 Breadcrumbs::for('cargo.show', function (BreadcrumbTrail $trail) {
     $trail->parent('cargo');
     $trail->push('Cargo', route('cargo.show'));
+});
+
+Breadcrumbs::for('equipe', function (BreadcrumbTrail $trail) {
+    $trail->parent('Dashboard' , route('dashboard.index'));
+    $trail->push('Equipes', route('equipe.index'));
+});
+
+Breadcrumbs::for('equipe.create', function ($trail) {
+    $trail->parent('equipe');
+    $trail->push('Nova Equipe', route('equipe.create'));
+});
+
+Breadcrumbs::for('equipe.edit', function ($trail, $equipe) {
+    $trail->parent('equipe');
+    $trail->push('Edição de Equipe', route('equipe.edit', $equipe));
+});
+
+Breadcrumbs::for('modelo-avaliacao', function (BreadcrumbTrail $trail) {
+    $trail->parent('Dashboard' , route('dashboard.index'));
+    $trail->push('Modelos de Avaliação', route('modelo-avaliacao.index'));
+});
+Breadcrumbs::for('modelo-avaliacao.create', function (BreadcrumbTrail $trail) {
+    $trail->parent('modelo-avaliacao');
+    $trail->push('Novo Modelo Avaliação', route('modelo-avaliacao.create'));
+});
+Breadcrumbs::for('modelo-avaliacao.edit', function (BreadcrumbTrail $trail, $modeloAvaliacao) {
+    $trail->parent('modelo-avaliacao');
+    $trail->push('Edição de Modelo Avaliação', route('modelo-avaliacao.edit', $modeloAvaliacao));
+});
+Breadcrumbs::for('modelo-avaliacao.show', function (BreadcrumbTrail $trail) {
+    $trail->parent('modelo-avaliacao');
+    $trail->push('Modelo Avaliação', route('modelo-avaliacao.show'));
 });

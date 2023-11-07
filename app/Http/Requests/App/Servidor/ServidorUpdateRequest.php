@@ -20,6 +20,7 @@ class ServidorUpdateRequest extends FormRequest
             'data_nascimento' => 'required|date',
             'data_admissao' => 'required|date',
             'cargo_uuid' => 'required|exists:cargos,uuid',
+            'equipe_uuid' => 'required|exists:equipes,uuid',
             'matricula' => 'required|min:5|max:50',
         ];
     }

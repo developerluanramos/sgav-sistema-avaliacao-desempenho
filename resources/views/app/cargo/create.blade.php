@@ -1,8 +1,8 @@
 @extends('app.layouts.app')
 
-{{-- @section('breadcrumb')
+@section('breadcrumb')
     {{ Breadcrumbs::render('cargo.create') }}
-@endsection --}}
+@endsection
 
 @section('title', 'Novo Cargo')
 
@@ -12,7 +12,7 @@
 
 @include('components.alerts.form-errors')
 
-<form action="{{ route('cargo.store') }}" method="POST" class="mt-4">
+<form action="{{ route('cargo.store') }}" method="POST">
     @csrf
     @include('app.cargo.partials.form')
 </form>

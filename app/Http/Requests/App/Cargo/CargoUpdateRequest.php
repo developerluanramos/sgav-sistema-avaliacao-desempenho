@@ -2,10 +2,17 @@
 
 namespace App\Http\Requests\App\Cargo;
 
+use App\Enums\SituacaoCargoEnum;
+use App\Repositories\Cargo\CargoRepositoryInterface;
+use Exception;
 use Illuminate\Foundation\Http\FormRequest;
 
 class CargoUpdateRequest extends FormRequest
 {
+    public function __construct(
+        protected CargoRepositoryInterface $repository
+    )
+    { }
     /**
      * Determine if the user is authorized to make this request.
      */
@@ -22,7 +29,7 @@ class CargoUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "uuid" => ["uuid", "exists:Cargoes,uuid"],
+            "uuid" => ["uuid", "exists:cargos,uuid"],
             "nome" => [
                 "required", "min:5", "max:254"
             ],
@@ -30,5 +37,15 @@ class CargoUpdateRequest extends FormRequest
                 "required"
             ],
         ];
+    }
+
+    public function passedValidation()
+    {
+        if ($this->situacao == SituacaoCargoEnum::INATIVO) {
+            $cargo = $this->repository->find($this->uuid);
+            if ($cargo->servidores->count() > 0) {
+                throw new Exception("Este objeto possui relacionamento ativo, por isso não pode ser inativado");
+            }
+        }
     }
 }

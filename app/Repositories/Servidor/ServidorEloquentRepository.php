@@ -4,6 +4,7 @@ namespace App\Repositories\Servidor;
 
 use App\DTO\Servidor\ServidorStoreDTO;
 use App\DTO\Servidor\ServidorUpdateDTO;
+use App\Enums\SituacaoEquipeEnum;
 use App\Models\Servidor;
 use App\Repositories\Interfaces\PaginationInterface;
 use App\Repositories\Presenters\PaginationPresenter;
@@ -36,7 +37,8 @@ class ServidorEloquentRepository implements ServidorRepositoryInterface
     public function paginate(int $page = 1, int $totalPerPage = 10, string $filter = null): PaginationInterface
     {
         $query = $this->model->query()
-                ->with('cargo');
+            ->with('equipe')
+            ->with('cargo');
 
 
         if (!is_null($filter)) {
@@ -64,5 +66,12 @@ class ServidorEloquentRepository implements ServidorRepositoryInterface
         $this->model->where("uuid", $servidorUpdateDTO->uuid)->update((array)$servidorUpdateDTO);
 
         return $this->find($servidorUpdateDTO->uuid);
+    }
+
+    public function ativos()
+    {
+        return $this->model->where('situacao', SituacaoEquipeEnum::ATIVO)
+        ->orderBy('nome', 'asc')
+        ->get();
     }
 }

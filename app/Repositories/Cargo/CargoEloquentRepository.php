@@ -4,6 +4,7 @@ namespace App\Repositories\Cargo;
 
 use App\DTO\Cargo\CargoStoreDTO;
 use App\DTO\Cargo\CargoUpdateDTO;
+use App\Enums\SituacaoCargoEnum;
 use App\Models\Cargo;
 use App\Repositories\Interfaces\PaginationInterface;
 use App\Repositories\Presenters\PaginationPresenter;
@@ -26,9 +27,11 @@ class CargoEloquentRepository implements CargoRepositoryInterface
         return $this->model->count();
     }
 
-    public function find($uuid): Cargo
+    public function find(string $uuid): Cargo
     {
-        return $this->model->where('uuid', $uuid)->first();
+        return $this->model
+            ->with('servidores')
+            ->where('uuid', $uuid)->first();
     }
 
     public function new(CargoStoreDTO $dto): Cargo
@@ -57,5 +60,12 @@ class CargoEloquentRepository implements CargoRepositoryInterface
         $this->model->where("uuid", $dto->uuid)->update((array)$dto);
 
         return $this->find($dto->uuid);
+    }
+
+    public function ativos()
+    {
+        return $this->model->where('situacao', SituacaoCargoEnum::ATIVO)
+        ->orderBy('nome', 'asc')
+        ->get();
     }
 }
