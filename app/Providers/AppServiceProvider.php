@@ -3,19 +3,27 @@
 namespace App\Providers;
 
 use App\Models\Cargo;
+use App\Models\ConceitoAvaliacao;
 use App\Models\Equipe;
 use App\Models\Fornecedor;
+use App\Models\ItemConceitoAvaliacao;
 use App\Models\ModeloAvaliacao;
 use App\Models\Servidor;
 use App\Observers\CargoObserver;
 use App\Models\User;
+use App\Observers\ConceitoAvaliacaoObserver;
 use App\Observers\EquipeObserver;
 use App\Observers\FornecedorObserver;
+use App\Observers\ItemConceitoAvaliacaoObserver;
 use App\Observers\ModeloAvaliacaoObserver;
 use App\Observers\ServidorObserver;
 use App\Observers\UsuarioObserver;
 use App\Repositories\Cargo\CargoEloquentRepository;
 use App\Repositories\Cargo\CargoRepositoryInterface;
+use App\Repositories\ConceitoAvaliacao\ConceitoAvaliacaoEloquentRepository;
+use App\Repositories\ConceitoAvaliacao\ConceitoAvaliacaoRepositoryInterface;
+use App\Repositories\ItemConceitoAvaliacao\ItemConceitoAvaliacaoEloquentRepository;
+use App\Repositories\ItemConceitoAvaliacao\ItemConceitoAvaliacaoRepositoryInterface;
 use App\Repositories\Equipe\EquipeEloquentRepository;
 use App\Repositories\Equipe\EquipeRepositoryInterface;
 use App\Repositories\Fornecedor\FornecedorEloquentRepository;
@@ -50,13 +58,21 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(
             UsuarioRepositoryInterface::class, UsuarioEloquentRepository::class
         );
-        
+
         $this->app->bind(
             ModeloAvaliacaoRepositoryInterface::class, ModeloAvaliacaoEloquentRepository::class
         );
 
         $this->app->bind(
             EquipeRepositoryInterface::class, EquipeEloquentRepository::class
+        );
+
+        $this->app->bind(
+            ConceitoAvaliacaoRepositoryInterface::class, ConceitoAvaliacaoEloquentRepository::class
+        );
+
+        $this->app->bind(
+            ItemConceitoAvaliacaoRepositoryInterface::class, ItemConceitoAvaliacaoEloquentRepository::class
         );
     }
 
@@ -72,5 +88,7 @@ class AppServiceProvider extends ServiceProvider
         User::observe(UsuarioObserver::class);
         ModeloAvaliacao::observe(ModeloAvaliacaoObserver::class);
         Equipe::observe(EquipeObserver::class);
+        ConceitoAvaliacao::observe(ConceitoAvaliacaoObserver::class);
+        ItemConceitoAvaliacao::observe(ItemConceitoAvaliacaoObserver::class);
     }
 }
