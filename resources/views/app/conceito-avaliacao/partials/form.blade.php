@@ -38,4 +38,5 @@
     </div>
 </div>
 
+<x-layouts.inputs.input-item/>
 <x-layouts.buttons.submit-button text="Salvar"/>
