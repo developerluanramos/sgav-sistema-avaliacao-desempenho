@@ -17,6 +17,6 @@ class ConceitoAvaliacaoStoreController extends Controller
     {
         $this->storeAction->exec(ConceitoAvaliacaoStoreDTO::makeFromRequest($storeRequest));
 
-        return redirect()->route('conceito-avaliacao.create')->with('message', 'Registro criado');
+        return redirect()->route('conceito-avaliacao.index')->with('message', 'Registro criado');
     }
 }

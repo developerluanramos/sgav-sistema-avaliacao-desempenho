@@ -1,15 +1,20 @@
 <x-layouts.tables.simple-table
     :headers="[
         'Descrição',
+        'Data cadastro',
+        'Última atualização',
         'Ações'
     ]"
-    :paginator="$conceitosAvaliacao"
+    :paginator="$conceitoAvaliacao"
     :appends="$filters"
 >
     @section('table-content')
-        @foreach($conceitosAvaliacao->items() as $index => $conceitoAvaliacao)
+        @foreach($conceitoAvaliacao->items() as $index => $conceitoAvaliacao)
             <tr>
                 <td>{{ $conceitoAvaliacao->descricao }}</td>
+                {{-- <td>{{ $conceitoAvaliacao->itens_conceitos_avaliacao }}</td> --}}
+                <td>{{$conceitoAvaliacao->created_at_for_humans}}</td>
+                <td>{{$conceitoAvaliacao->updated_at_for_humans}}</td>
                 <td class="text-left">
                     <x-layouts.buttons.action-button
                     text="Ver"

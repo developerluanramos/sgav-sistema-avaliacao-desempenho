@@ -20,7 +20,7 @@ class ConceitoAvaliacaoEloquentRepository implements ConceitoAvaliacaoRepository
 
     public function paginate(int $page = 1, int $totalPerPage = 10, string $filter = null): PaginationInterface
     {
-        $query = $this->model->query();
+        $query = $this->model->query()->with('itensConceitosAvaliacao');
 
         if(!is_null($filter)) {
             $query->where("descricao", "like", "%".$filter."%");
