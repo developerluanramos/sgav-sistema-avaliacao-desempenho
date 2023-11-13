@@ -23,6 +23,9 @@ class ConceitoAvaliacao extends Model
      * @var array<string, string>
      */
 
+    protected $appends = ['created_at_for_humans', 'updated_at_for_humans'];
+
+
     function itensConceitosAvaliacao() {
         return $this->hasMany(ItemConceitoAvaliacao::class, 'conceito_avaliacao_uuid', 'uuid');
     }

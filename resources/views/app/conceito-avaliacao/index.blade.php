@@ -4,22 +4,22 @@
     {{ Breadcrumbs::render('cargo') }}
 @endsection --}}
 
-@section('title', 'Conceitos De Avaliação')
+@section('title', 'Conceitos de Avaliação')
 
 @section('content')
 
-<x-layouts.headers.list-header :count="$conceitoAvaliacao->total()" :title="'Conceitos De Avaliacao'" :route="'conceito-avaliacao/create'"/>
+<x-layouts.headers.list-header :count="$conceitoAvaliacao->total()" :title="'Conceitos de Avaliação'" :route="'conceito-avaliacao/create'"/>
 
 @include('components.alerts.form-success')
 
 @include('app.conceito-avaliacao.partials.filters', [
-    "conceitosAvaliacao" => $conceitoAvaliacao,
+    "conceitoAvaliacao" => $conceitoAvaliacao,
     "filters" => $filters
 ])
 
 
 @include('app.conceito-avaliacao.partials.list', [
-    "conceitosAvaliacao" => $conceitoAvaliacao,
+    "conceitoAvaliacao" => $conceitoAvaliacao,
     "filters" => $filters
 ])
 

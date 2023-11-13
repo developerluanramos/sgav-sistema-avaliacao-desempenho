@@ -1,6 +1,7 @@
 <x-layouts.tables.simple-table
     :headers="[
         'Descrição',
+        'Quantidade de itens',
         'Data cadastro',
         'Última atualização',
         'Ações'
@@ -12,7 +13,7 @@
         @foreach($conceitoAvaliacao->items() as $index => $conceitoAvaliacao)
             <tr>
                 <td>{{ $conceitoAvaliacao->descricao }}</td>
-                {{-- <td>{{ $conceitoAvaliacao->itens_conceitos_avaliacao }}</td> --}}
+                <td>{{ sizeof($conceitoAvaliacao->itens_conceitos_avaliacao) }}</td>
                 <td>{{$conceitoAvaliacao->created_at_for_humans}}</td>
                 <td>{{$conceitoAvaliacao->updated_at_for_humans}}</td>
                 <td class="text-left">

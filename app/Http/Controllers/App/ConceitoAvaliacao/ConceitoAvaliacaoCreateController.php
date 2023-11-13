@@ -16,6 +16,6 @@ class ConceitoAvaliacaoCreateController extends Controller
     {
         $formData = $this->createAction->exec();
 
-        return view('app.conceito-avaliacao.index', compact('formData'));
+        return view('app.conceito-avaliacao.create', compact('formData'));
     }
 }
