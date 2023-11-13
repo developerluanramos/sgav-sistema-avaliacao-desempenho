@@ -23,14 +23,6 @@ class ConceitoAvaliacaoIndexController extends Controller
 
         $filters = ['filter' => $conceitoAvaliacaoIndexRequest->get('filter', null)];
 
-        $conceitoAvaliacaoItens = $conceitoAvaliacao->items();
-
-        foreach($conceitoAvaliacaoItens as $itens) {
-            $quantidadeItens[] = sizeof($itens->itens_conceitos_avaliacao);
-        }
-        
-        // dd($quantidadeItens);
-
         return view('app.conceito-avaliacao.index', compact('conceitoAvaliacao', 'filters'));
     }
 }
