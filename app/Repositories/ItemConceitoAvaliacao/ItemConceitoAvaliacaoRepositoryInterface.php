@@ -8,4 +8,6 @@ use App\Models\ItemConceitoAvaliacao;
 interface ItemConceitoAvaliacaoRepositoryInterface
 {
     public function new(string $conceitoAvaliacaoUuid, array $itensConceitosAvaliacao): bool;
+
+    public function findItens(string $conceitoAvaliacaoUuid): array;
 }

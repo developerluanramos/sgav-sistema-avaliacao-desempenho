@@ -21,4 +21,9 @@ class ItemConceitoAvaliacaoEloquentRepository implements ItemConceitoAvaliacaoRe
 
         return true;
     }
+
+    public function findItens(string $conceitoAvaliacaoUuid): array
+    {
+        return $this->model->where('conceito_avaliacao_uuid', $conceitoAvaliacaoUuid);
+    }
 }
