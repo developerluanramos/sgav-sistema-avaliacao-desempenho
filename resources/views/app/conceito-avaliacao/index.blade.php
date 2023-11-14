@@ -1,8 +1,8 @@
 @extends('app.layouts.app')
 
-{{-- @section('breadcrumb')
-    {{ Breadcrumbs::render('cargo') }}
-@endsection --}}
+@section('breadcrumb')
+    {{ Breadcrumbs::render('conceito-avaliacao') }}
+@endsection
 
 @section('title', 'Conceitos de Avaliação')
 
