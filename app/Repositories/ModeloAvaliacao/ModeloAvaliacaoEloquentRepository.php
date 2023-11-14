@@ -10,10 +10,15 @@ use App\Repositories\Presenters\PaginationPresenter;
 
 class ModeloAvaliacaoEloquentRepository implements ModeloAvaliacaoRepositoryInterface
 {
-    
+
     public function __construct(protected ModeloAvaliacao $model)
     { }
-    
+
+    public function all(): array
+    {
+        return $this->model->all()->toArray();
+    }
+
     public function new(ModeloAvaliacaoStoreDTO $dto): ModeloAvaliacao
     {
         return $this->model->create((array)$dto);
