@@ -28,6 +28,6 @@ class ModeloAvaliacao extends Model
     ];
 
     function fatoresAvaliacao() {
-        return $this->hasMany(FatorAvaliacao::class, 'modelo_avaliacao_uuid', 'uuid');
+        return $this->belongsTo(FatorAvaliacao::class, 'modelo_avaliacao_uuid', 'uuid');
     }
 }
