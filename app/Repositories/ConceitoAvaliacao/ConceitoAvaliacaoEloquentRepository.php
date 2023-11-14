@@ -18,6 +18,13 @@ class ConceitoAvaliacaoEloquentRepository implements ConceitoAvaliacaoRepository
         return $this->model->create((array)$conceitoAvaliacaoStoreDTO);
     }
 
+    public function find(string $uuid): ConceitoAvaliacao
+    {
+        return $this->model
+            ->with('itensConceitosAvaliacao')
+            ->where('uuid', $uuid)->first();
+    }
+
     public function paginate(int $page = 1, int $totalPerPage = 10, string $filter = null): PaginationInterface
     {
         $query = $this->model->query()->with('itensConceitosAvaliacao');
