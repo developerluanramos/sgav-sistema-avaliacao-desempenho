@@ -27,7 +27,7 @@ class ConceitoAvaliacaoEditController extends Controller
         
         $conceitoAvaliacao = $this->editAction->exec(ConceitoAvaliacaoEditDTO::makeFromRequest($editRequest));
 
-        return view('app.conceitoAvaliacao.edit', [
+        return view('app.conceito-avaliacao.edit', [
             "conceitoAvaliacao" => $conceitoAvaliacao,
             "formData" => $formData
         ]);
