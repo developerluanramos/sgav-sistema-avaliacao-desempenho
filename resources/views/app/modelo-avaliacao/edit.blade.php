@@ -17,6 +17,6 @@
     @include('app.modelo-avaliacao.partials.form', ["modeloAvaliacao" => $modeloAvaliacao])
 </form>
 
-@include('app.fatores-avaliacao.create')
+@include('app.fator-avaliacao.create', ["modeloAvaliacao" => $modeloAvaliacao])
 
 @endsection
