@@ -9,5 +9,8 @@ interface ItemConceitoAvaliacaoRepositoryInterface
 {
     public function new(string $conceitoAvaliacaoUuid, array $itensConceitosAvaliacao): bool;
 
-    public function findItens(string $conceitoAvaliacaoUuid): array;
+    public function find(string $uuid): ItemConceitoAvaliacao;
+    
+    public function delete(string $uuid): void;
+
 }

@@ -2,9 +2,7 @@
 
 namespace App\Repositories\ItemConceitoAvaliacao;
 
-use App\DTO\ConceitoAvaliacao\ConceitoAvaliacaoStoreDTO;
 use App\Models\ItemConceitoAvaliacao;
-
 
 class ItemConceitoAvaliacaoEloquentRepository implements ItemConceitoAvaliacaoRepositoryInterface
 {
@@ -22,8 +20,15 @@ class ItemConceitoAvaliacaoEloquentRepository implements ItemConceitoAvaliacaoRe
         return true;
     }
 
-    public function findItens(string $conceitoAvaliacaoUuid): array
+    public function find(string $uuid): ItemConceitoAvaliacao
     {
-        return $this->model->where('conceito_avaliacao_uuid', $conceitoAvaliacaoUuid);
+        return $this->model->where('uuid', $uuid)->first();
+    }
+
+    public function delete(string $uuid): void
+    {
+        $item = $this->model->find($uuid);
+
+        dd($item);
     }
 }
