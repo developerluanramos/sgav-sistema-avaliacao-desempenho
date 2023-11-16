@@ -26,7 +26,9 @@ class ModeloAvaliacaoEloquentRepository implements ModeloAvaliacaoRepositoryInte
 
     public function find($uuid): ModeloAvaliacao
     {
-        return $this->model->where('uuid', $uuid)->first();
+        return $this->model
+            ->with('fatoresAvaliacao')
+            ->where('uuid', $uuid)->first();
     }
 
     public function paginate(int $page = 1, int $totalPerPage = 10, string $filter = null): PaginationInterface
