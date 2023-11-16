@@ -1,4 +1,4 @@
-<hr class="block mb-4 mt-4 border-t-2 border-gray-600">
+<hr class=" mb-4 mt-4">
 
 <div class="block uppercase tracking-wide text-s font-bold mb-2 mt-2" for="grid-city">
     Fatores Avaliação
@@ -19,5 +19,6 @@
         :data="$formData['conceitos']"
         :value="$fatorAvaliacao->conceito_avaliacao_uuid ?? old('conceito_avaliacao_uuid')"
     />
+    <x-layouts.buttons.submit-button text="Criar Fator"/>
 </div>
-<x-layouts.buttons.submit-button text="Criar Fator"/>
+

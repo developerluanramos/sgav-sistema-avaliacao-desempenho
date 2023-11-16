@@ -19,4 +19,6 @@
 
 @include('app.fator-avaliacao.create', ["modeloAvaliacao" => $modeloAvaliacao])
 
+@include('app.fator-avaliacao.partials.list', ["fatoresAvaliacao" => $modeloAvaliacao->fatoresAvaliacao])
+
 @endsection
