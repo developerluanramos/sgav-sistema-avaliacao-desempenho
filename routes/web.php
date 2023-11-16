@@ -60,4 +60,6 @@ Route::middleware(['auth.basic'])->group(function() {
     Route::get('conceito-avaliacao/{uuid}/show', [\App\Http\Controllers\App\ConceitoAvaliacao\ConceitoAvaliacaoShowController::class, 'show'])->name('conceito-avaliacao.show');
     Route::get('conceito-avaliacao/{uuid}/edit', [\App\Http\Controllers\App\ConceitoAvaliacao\ConceitoAvaliacaoEditController::class, 'edit'])->name('conceito-avaliacao.edit');
     Route::put('conceito-avaliacao/{uuid}/update', [\App\Http\Controllers\App\ConceitoAvaliacao\ConceitoAvaliacaoUpdateController::class, 'update'])->name('conceito-avaliacao.update');
+
+    Route::get('item-conceito-avaliacao/{uuid}', [\App\Http\Controllers\App\ItemConceitoAvaliacao\ItemConceitoAvaliacaoDeleteController::class, 'delete'])->name('item-conceito-avaliacao.delete');
 });

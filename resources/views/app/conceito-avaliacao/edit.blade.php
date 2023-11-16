@@ -24,7 +24,9 @@
                     text="Editar"
                     action="excluir"
                     color="danger"
-                    :route="''"
+                    :route="route('item-conceito-avaliacao.delete', [
+                        'uuid' => $item->uuid
+                    ])"
                 />
             </li>
         @endforeach
