@@ -1,27 +1,17 @@
-@foreach($fatoresAvaliacao as $index => $fatorAvaliacao)
-    <div class="flex mb-4 mt-4">
-        <label class=" w-2/12 uppercase text-s font-bold">
+<ul class="w-60 text-sm flex flex-col items-start font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+    @foreach($fatoresAvaliacao as $index => $fatorAvaliacao)
+        <li class="w-full flex px-4 py-2 uppercase font-bold border-b border-gray-200 rounded-t-lg dark:border-gray-600">
             {{ $fatorAvaliacao->nome }}
-        </label>
-        <form method="POST" action="/fator-avaliacao/{{ $fatorAvaliacao->uuid }}" class="w-1/12 uppercase text-s font-bold">
-            @csrf
-            @method('DELETE')
-            |
-            <x-layouts.buttons.action-button
-                text="Ver"
-                action="ver"
-                color="secondary"
-                :route="route('modelo-avaliacao.show', $modeloAvaliacao->uuid)"/>
-            <x-layouts.buttons.action-button
-                text="Editar"
-                action="editar"
-                color="primary"
-                :route="route('modelo-avaliacao.edit', $modeloAvaliacao->uuid)"/>
-            <x-layouts.buttons.action-button
-                text="Excluir"
-                action="excluir"
-                color="danger"/>
-        </form>
-    </div>
-@endforeach
-
+            <form method="POST" action="/fator-avaliacao/{{ $fatorAvaliacao->uuid }}" class="flex ml-auto items-center">
+                @csrf
+                @method('DELETE')
+                <x-layouts.buttons.edit-action-button
+                    color="primary"
+                    :route="'#'"/>
+                <div class="m-1"></div>
+                <x-layouts.buttons.submit-delete-button
+                    color="danger"/>
+            </form>
+        </li>
+    @endforeach
+</ul>
