@@ -2,9 +2,7 @@
 
 namespace App\Http\Requests\App\ConceitoAvaliacao;
 
-use App\Enums\SituacaoConceitoAvaliacaoEnum;
 use App\Repositories\ConceitoAvaliacao\ConceitoAvaliacaoRepositoryInterface;
-use Exception;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ConceitoAvaliacaoUpdateRequest extends FormRequest

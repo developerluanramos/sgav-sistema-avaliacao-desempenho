@@ -3,6 +3,7 @@
 namespace App\Repositories\ConceitoAvaliacao;
 
 use App\DTO\ConceitoAvaliacao\ConceitoAvaliacaoStoreDTO;
+use App\DTO\ConceitoAvaliacao\ConceitoAvaliacaoUpdateDTO;
 use App\Models\ConceitoAvaliacao;
 use App\Repositories\Interfaces\PaginationInterface;
 use App\Repositories\Presenters\PaginationPresenter;
@@ -38,5 +39,12 @@ class ConceitoAvaliacaoEloquentRepository implements ConceitoAvaliacaoRepository
         $result = $query->paginate($totalPerPage, ['*'], 'page', $page);
 
         return new PaginationPresenter($result);
+    }
+
+    public function update(ConceitoAvaliacaoUpdateDTO $dto): ConceitoAvaliacao
+    {
+        $this->model->where("uuid", $dto->uuid)->update((array)$dto);
+
+        return $this->find($dto->uuid);
     }
 }
