@@ -17,6 +17,6 @@ class ItemConceitoAvaliacaoDeleteController extends Controller
     {
         $this->deleteAction->exec(ItemConceitoAvaliacaoDeleteDTO::makeFromRequest($request));
 
-        return redirect()->route('conceito-avaliacao.index');
+        return redirect()->back();
     }
 }

@@ -117,3 +117,7 @@ Breadcrumbs::for('conceito-avaliacao.create', function (BreadcrumbTrail $trail) 
     $trail->parent('conceito-avaliacao');
     $trail->push('Novo Conceito Avaliação', route('conceito-avaliacao.create'));
 });
+Breadcrumbs::for('conceito-avaliacao.edit', function (BreadcrumbTrail $trail, $conceitoAvaliacao) {
+    $trail->parent('conceito-avaliacao');
+    $trail->push('Edição Conceito Avaliação', route('conceito-avaliacao.edit', $conceitoAvaliacao));
+});

@@ -20,15 +20,15 @@ class ItemConceitoAvaliacaoEloquentRepository implements ItemConceitoAvaliacaoRe
         return true;
     }
 
-    public function find(string $uuid): ItemConceitoAvaliacao
+    public function findByUuid(string $uuid): ItemConceitoAvaliacao
     {
         return $this->model->where('uuid', $uuid)->first();
     }
 
     public function delete(string $uuid): void
     {
-        $item = $this->model->find($uuid);
+        $item = $this->findByUuid($uuid);
 
-        dd($item);
+        $item->delete();
     }
 }
