@@ -108,3 +108,12 @@ Breadcrumbs::for('modelo-avaliacao.show', function (BreadcrumbTrail $trail) {
     $trail->parent('modelo-avaliacao');
     $trail->push('Modelo Avaliação', route('modelo-avaliacao.show'));
 });
+
+Breadcrumbs::for('conceito-avaliacao', function (BreadcrumbTrail $trail) {
+    $trail->parent('Dashboard' , route('dashboard.index'));
+    $trail->push('Conceito de Avaliação', route('conceito-avaliacao.index'));
+});
+Breadcrumbs::for('conceito-avaliacao.create', function (BreadcrumbTrail $trail) {
+    $trail->parent('conceito-avaliacao');
+    $trail->push('Novo Conceito Avaliação', route('conceito-avaliacao.create'));
+});
