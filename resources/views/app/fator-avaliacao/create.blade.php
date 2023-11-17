@@ -1,4 +1,6 @@
-<x-layouts.headers.edit-header :title="'Fatores Avaliação'"/>
+<div class="block uppercase tracking-wide text-s font-bold mb-2 mt-2" for="grid-city">
+    Fatores Avaliação
+</div>
 
 @include('components.alerts.form-errors')
 
