@@ -15,7 +15,7 @@ class ConceitoAvaliacaoEloquentRepository implements ConceitoAvaliacaoRepository
     ){ }
     
     public function new(ConceitoAvaliacaoStoreDTO $conceitoAvaliacaoStoreDTO): ConceitoAvaliacao
-    {
+    {   
         return $this->model->create((array)$conceitoAvaliacaoStoreDTO);
     }
 
@@ -43,8 +43,11 @@ class ConceitoAvaliacaoEloquentRepository implements ConceitoAvaliacaoRepository
 
     public function update(ConceitoAvaliacaoUpdateDTO $dto): ConceitoAvaliacao
     {
-        $this->model->where("uuid", $dto->uuid)->update((array)$dto);
-
+        $this->model->where("uuid", $dto->uuid)->update([
+            'uuid' => $dto->uuid,
+            'descricao' => $dto->descricao
+        ]);
+        
         return $this->find($dto->uuid);
     }
 }

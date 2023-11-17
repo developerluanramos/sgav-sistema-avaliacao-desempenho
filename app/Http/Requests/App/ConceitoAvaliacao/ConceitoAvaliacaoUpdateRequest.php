@@ -31,7 +31,6 @@ class ConceitoAvaliacaoUpdateRequest extends FormRequest
             "descricao" => [
                 "required", "min:5", "max:254"
             ],
-            "itens_conceitos_avaliacao" => ["required"]
         ];
     }
 

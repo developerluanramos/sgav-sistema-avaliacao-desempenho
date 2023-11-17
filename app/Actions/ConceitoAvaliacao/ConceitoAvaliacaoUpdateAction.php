@@ -3,19 +3,25 @@
 namespace App\Actions\ConceitoAvaliacao;
 
 use App\DTO\ConceitoAvaliacao\ConceitoAvaliacaoUpdateDTO;
-use App\Models\ConceitoAvaliacao;
 use App\Repositories\ConceitoAvaliacao\ConceitoAvaliacaoRepositoryInterface;
+use App\Repositories\ItemConceitoAvaliacao\ItemConceitoAvaliacaoRepositoryInterface;
 
 class ConceitoAvaliacaoUpdateAction {
 
     public function __construct(
-        protected ConceitoAvaliacaoRepositoryInterface $repository
+        protected ConceitoAvaliacaoRepositoryInterface $conceitoAvaliacaoRepository,
+        protected ItemConceitoAvaliacaoRepositoryInterface $itemConceitoAvaliacaoRepository,
     )
     { }
 
-    public function exec(ConceitoAvaliacaoUpdateDTO $dto): ConceitoAvaliacao 
+    public function exec(ConceitoAvaliacaoUpdateDTO $dto): array
     {
-        return $this->repository->update($dto);
+        $conceitoAvaliacao = $this->conceitoAvaliacaoRepository->update($dto);
+        $this->itemConceitoAvaliacaoRepository->new($conceitoAvaliacao->uuid, $dto->itens_conceitos_avaliacao);
+        
+        return [
+            "conceitoAvaliacao" => $conceitoAvaliacao,
+        ];
     }
 
 }
