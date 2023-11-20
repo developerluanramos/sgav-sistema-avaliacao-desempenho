@@ -17,6 +17,6 @@ class ConceitoAvaliacaoUpdateController extends Controller
     {
         $this->updateAction->exec(ConceitoAvaliacaoUpdateDTO::makeFromRequest($updateRequest));
 
-        return redirect()->route('conceito-avaliacao.index')->with('message', 'Registro atualizado');
+        return redirect()->back();
     }
 }
