@@ -8,7 +8,7 @@
                 @method('PUT')
                 <x-layouts.modals.simple-modal :titulo="'Edição'">
                     @section('modal-content')
-                            @include('app.fator-avaliacao.partials.form', ["fatorAvaliacao" => $fatorAvaliacao])
+                            @include('app.modelo-avaliacao.fator-avaliacao.partials.form', ["fatorAvaliacao" => $fatorAvaliacao])
                     @endsection
                 </x-layouts.modals.simple-modal>
                 <x-layouts.buttons.edit-action-button

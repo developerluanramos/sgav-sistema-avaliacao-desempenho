@@ -6,5 +6,5 @@
 
 <form action="{{route('fator-avaliacao.store', $modeloAvaliacao->uuid)}}" method="POST" id="fatorForm">
     @csrf
-    @include('app.fator-avaliacao.partials.form')
+    @include('app.modelo-avaliacao.fator-avaliacao.partials.form')
 </form>

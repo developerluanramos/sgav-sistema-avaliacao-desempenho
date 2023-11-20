@@ -19,8 +19,8 @@
 
 <hr class=" mb-4 mt-4">
 
-@include('app.fator-avaliacao.create', ["modeloAvaliacao" => $modeloAvaliacao])
+@include('app.modelo-avaliacao.fator-avaliacao.index', ["modeloAvaliacao" => $modeloAvaliacao])
 
-@include('app.fator-avaliacao.partials.list', ["fatoresAvaliacao" => $modeloAvaliacao->fatoresAvaliacao])
+@include('app.modelo-avaliacao.fator-avaliacao.partials.list', ["fatoresAvaliacao" => $modeloAvaliacao->fatoresAvaliacao])
 
 @endsection
