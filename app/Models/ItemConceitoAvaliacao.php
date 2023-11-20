@@ -26,6 +26,6 @@ class ItemConceitoAvaliacao extends Model
 
      public function conceitosAvaliacao()
      {
-         return $this->belongsTo(ConceitoAvaliacao::class, 'conceito_avaliacao_uuid', 'uuid');
+         return $this->belongsTo(ConceitoAvaliacao::class, 'uuid', 'conceito_avaliacao_uuid');
      }
 }
