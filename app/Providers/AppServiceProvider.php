@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Models\Cargo;
 use App\Models\ConceitoAvaliacao;
 use App\Models\Equipe;
+use App\Models\FatorAvaliacao;
 use App\Models\Fornecedor;
 use App\Models\ItemConceitoAvaliacao;
 use App\Models\ModeloAvaliacao;
@@ -13,6 +14,7 @@ use App\Observers\CargoObserver;
 use App\Models\User;
 use App\Observers\ConceitoAvaliacaoObserver;
 use App\Observers\EquipeObserver;
+use App\Observers\FatorAvaliacaoObserver;
 use App\Observers\FornecedorObserver;
 use App\Observers\ItemConceitoAvaliacaoObserver;
 use App\Observers\ModeloAvaliacaoObserver;
@@ -26,6 +28,8 @@ use App\Repositories\ItemConceitoAvaliacao\ItemConceitoAvaliacaoEloquentReposito
 use App\Repositories\ItemConceitoAvaliacao\ItemConceitoAvaliacaoRepositoryInterface;
 use App\Repositories\Equipe\EquipeEloquentRepository;
 use App\Repositories\Equipe\EquipeRepositoryInterface;
+use App\Repositories\FatorAvaliacao\FatorAvaliacaoEloquentRepository;
+use App\Repositories\FatorAvaliacao\FatorAvaliacaoRepositoryInterface;
 use App\Repositories\Fornecedor\FornecedorEloquentRepository;
 use App\Repositories\Fornecedor\FornecedorRepositoryInterface;
 use App\Repositories\ModeloAvaliacao\ModeloAvaliacaoEloquentRepository;
@@ -74,6 +78,9 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(
             ItemConceitoAvaliacaoRepositoryInterface::class, ItemConceitoAvaliacaoEloquentRepository::class
         );
+        $this->app->bind(
+            FatorAvaliacaoRepositoryInterface::class, FatorAvaliacaoEloquentRepository::class
+        );
     }
 
 
@@ -90,5 +97,6 @@ class AppServiceProvider extends ServiceProvider
         Equipe::observe(EquipeObserver::class);
         ConceitoAvaliacao::observe(ConceitoAvaliacaoObserver::class);
         ItemConceitoAvaliacao::observe(ItemConceitoAvaliacaoObserver::class);
+        FatorAvaliacao::observe(FatorAvaliacaoObserver::class);
     }
 }

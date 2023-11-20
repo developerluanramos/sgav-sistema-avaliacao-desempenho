@@ -25,4 +25,8 @@ class ConceitoAvaliacao extends Model
     function itensConceitosAvaliacao() {
         return $this->hasMany(ItemConceitoAvaliacao::class, 'conceito_avaliacao_uuid', 'uuid');
     }
+
+    function fatoresAvaliacao() {
+        return $this->hasMany(FatorAvaliacao::class, 'conceito_avaliacao_uuid', 'uuid');
+    }
 }

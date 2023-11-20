@@ -9,4 +9,6 @@ use App\Repositories\Interfaces\PaginationInterface;
 interface ConceitoAvaliacaoRepositoryInterface
 {
     public function new(ConceitoAvaliacaoStoreDTO $conceitoAvaliacaoStoreDTO): ConceitoAvaliacao;
+
+    public function all(): array;
 }
