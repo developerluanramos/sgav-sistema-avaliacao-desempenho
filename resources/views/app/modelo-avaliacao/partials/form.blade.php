@@ -6,7 +6,7 @@
         name="nome"
         lenght="8/12"
         :value="$modeloAvaliacao->nome ?? old('nome')"
-    />    
+    />
 </div>
     <x-layouts.inputs.input-switch
     label="Situação"

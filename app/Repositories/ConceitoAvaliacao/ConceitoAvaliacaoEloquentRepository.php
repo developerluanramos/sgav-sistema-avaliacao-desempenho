@@ -13,7 +13,7 @@ class ConceitoAvaliacaoEloquentRepository implements ConceitoAvaliacaoRepository
     public function __construct(
         protected ConceitoAvaliacao $model
     ){ }
-    
+
     public function new(ConceitoAvaliacaoStoreDTO $conceitoAvaliacaoStoreDTO): ConceitoAvaliacao
     {   
         return $this->model->create((array)$conceitoAvaliacaoStoreDTO);
@@ -49,5 +49,10 @@ class ConceitoAvaliacaoEloquentRepository implements ConceitoAvaliacaoRepository
         ]);
         
         return $this->find($dto->uuid);
+    }
+    
+    public function all(): array
+    {
+        return $this->model->all()->toArray();
     }
 }
