@@ -16,7 +16,7 @@
                 <td>{{ sizeof($conceitoAvaliacao->itens_conceitos_avaliacao) }}</td>
                 <td>{{$conceitoAvaliacao->created_at_for_humans}}</td>
                 <td>{{$conceitoAvaliacao->updated_at_for_humans}}</td>
-                <td class="text-left">
+                <td class="text-right">
                     <x-layouts.buttons.action-button
                     text="Ver"
                     action="ver"
