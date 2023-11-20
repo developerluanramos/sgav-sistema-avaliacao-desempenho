@@ -4,7 +4,6 @@
     {{ Breadcrumbs::render('conceito-avaliacao.create') }}
 @endsection
 
-
 @section('title', 'Novo Conceito')
 
 <x-layouts.headers.create-header :title="'Novo Conceito'"/>

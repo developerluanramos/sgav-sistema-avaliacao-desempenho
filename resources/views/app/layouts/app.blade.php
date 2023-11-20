@@ -123,6 +123,14 @@ data-te-navbar-ref>
         >
       </li>
       <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
+        <a
+          class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
+          href="{{route('conceito-avaliacao.index')}}"
+          data-te-nav-link-ref
+          >Conceitos de Avaliação</a
+          >
+      </li>
+      <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
         <label onclick="lighMode()" class="relative inline-flex items-center cursor-pointer">
             <input type="checkbox" value="" class="sr-only peer">
             <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
