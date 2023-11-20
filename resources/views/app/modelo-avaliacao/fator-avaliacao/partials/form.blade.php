@@ -13,6 +13,6 @@
         :data="$formData['conceitos']"
         :value="$fatorAvaliacao->conceito_avaliacao_uuid ?? old('conceito_avaliacao_uuid')"
     />
-    <x-layouts.buttons.submit-button class="w-full md:w-2/12" text="Salvar"/>
+    <x-layouts.buttons.submit-with-icon-button class="w-full md:w-2/12" text="Salvar"/>
 </div>
 
