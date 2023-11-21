@@ -23,6 +23,8 @@ class FatorAvaliacaoUpdateRequest extends FormRequest
     {
         return [
             "uuid" => ["uuid", "exists:fatores_avaliacaos,uuid"],
+            "nome" => ["required", "min:5", "max:254"],
+            "conceito_avaliacao_uuid" => ["required", "exists:conceitos_avaliacao,uuid"],
         ];
     }
 }
