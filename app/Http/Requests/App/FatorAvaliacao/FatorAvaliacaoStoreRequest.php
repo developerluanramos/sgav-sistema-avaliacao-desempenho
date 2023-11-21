@@ -22,6 +22,8 @@ class FatorAvaliacaoStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
+            "nome" => ["required", "min:5", "max:254"],
+            "conceito_avaliacao_uuid" => ["required", "exists:conceitos_avaliacao,uuid"],
         ];
     }
 }
