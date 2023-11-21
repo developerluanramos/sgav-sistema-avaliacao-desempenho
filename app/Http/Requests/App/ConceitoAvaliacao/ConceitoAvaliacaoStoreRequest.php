@@ -23,10 +23,18 @@ class ConceitoAvaliacaoStoreRequest extends FormRequest
     {
         return [
             "descricao" => [
-                "required", "min:3", "max:254"
+                "required", "min:5", "max:254"
             ],
             "itens_conceitos_avaliacao" => [
-                "required", "array"
+                "required",
+                "array",
+                "min:1",
+            ],
+            "itens_conceitos_avaliacao.*.nome" => [
+                "required"
+            ],
+            "itens_conceitos_avaliacao.*.pontuacao" => [
+                "required"
             ],
         ];
     }
