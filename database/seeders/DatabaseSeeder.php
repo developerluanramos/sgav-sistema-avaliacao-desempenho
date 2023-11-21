@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             EquipeSeeder::class,
             ServidorSeeder::class,
+            ModeloAvaliacaoSeeder::class,
         ]);
     }
 }
