@@ -38,6 +38,7 @@ use App\Repositories\Servidor\ServidorEloquentRepository;
 use App\Repositories\Servidor\ServidorRepositoryInterface;
 use App\Repositories\Usuario\UsuarioEloquentRepository;
 use App\Repositories\Usuario\UsuarioRepositoryInterface;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -98,5 +99,18 @@ class AppServiceProvider extends ServiceProvider
         ConceitoAvaliacao::observe(ConceitoAvaliacaoObserver::class);
         ItemConceitoAvaliacao::observe(ItemConceitoAvaliacaoObserver::class);
         FatorAvaliacao::observe(FatorAvaliacaoObserver::class);
+
+        Validator::extend('validarIdadeAdmissao', function ($attribute, $value, $parameters, $validator) {
+            $dataNascimento = $validator->getData()['data_nascimento'];
+            $dataAdmissao = $value;
+
+            $diffAnos = now()->parse($dataNascimento)->diffInYears(now()->parse($dataAdmissao));
+
+            return $diffAnos >= 16;
+        });
+
+        Validator::extend('notFutureDate', function ($attribute, $value, $parameters, $validator) {
+            return now()->gte(now()->parse($value));
+        });
     }
 }
