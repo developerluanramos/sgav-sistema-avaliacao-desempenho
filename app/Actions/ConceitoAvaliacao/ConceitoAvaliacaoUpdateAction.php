@@ -17,9 +17,9 @@ class ConceitoAvaliacaoUpdateAction {
     public function exec(ConceitoAvaliacaoUpdateDTO $dto): array
     {
         $conceitoAvaliacao = $this->conceitoAvaliacaoRepository->update($dto);
-        foreach($dto->itens_conceitos_avaliacao as $item) {
+        foreach($dto->itens_conceitos_avaliacao as $key => $item) {
             if (!is_null($item['nome']) && !is_null($item['pontuacao'])) {
-                $this->itemConceitoAvaliacaoRepository->new($conceitoAvaliacao->uuid, $dto->itens_conceitos_avaliacao);
+                $this->itemConceitoAvaliacaoRepository->new($conceitoAvaliacao->uuid, array_slice($dto->itens_conceitos_avaliacao, $key, 1));
             }
         }
         
