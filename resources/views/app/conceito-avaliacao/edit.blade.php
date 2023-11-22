@@ -20,6 +20,9 @@
         @foreach($conceitoAvaliacao->itensConceitosAvaliacao as $item)    
             <li class="w-full px-4 py-2 border-b border-gray-200 rounded-t-lg dark:border-gray-600">
                 {{ $item->nome }}
+                <x-layouts.buttons.edit-action-button
+                    color="primary"
+                />
                 <x-layouts.buttons.action-button
                     text="Editar"
                     action="excluir"
