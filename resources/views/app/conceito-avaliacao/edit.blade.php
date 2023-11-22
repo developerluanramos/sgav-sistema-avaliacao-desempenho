@@ -20,7 +20,9 @@
         @foreach($conceitoAvaliacao->itensConceitosAvaliacao as $item)    
             <li class="w-full px-4 py-2 border-b border-gray-200 rounded-t-lg dark:border-gray-600">
                 {{ $item->nome }}
+                {{ $item->pontuacao }}
                 <x-layouts.buttons.edit-action-button
+                    :identificador="'modalItemConceitoAvaliacao'"
                     color="primary"
                 />
                 <x-layouts.buttons.action-button
