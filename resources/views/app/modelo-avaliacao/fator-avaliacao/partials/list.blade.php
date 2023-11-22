@@ -2,7 +2,7 @@
     <ul class="w-full text-sm flex flex-col mb-4 items-start font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
         @foreach($fatoresAvaliacao as $index => $fatorAvaliacao)
             <li class="w-full flex px-4 py-2 uppercase font-bold border-b border-gray-200 rounded-t-lg dark:border-gray-600">
-                {{ $fatorAvaliacao->nome }}
+                <span class="mt-3">{{ $fatorAvaliacao->nome }}</span>
 
                 <form method="POST" action="{{route('fator-avaliacao.update', $fatorAvaliacao->uuid)}}" class="flex ml-auto items-center">
                     @csrf
