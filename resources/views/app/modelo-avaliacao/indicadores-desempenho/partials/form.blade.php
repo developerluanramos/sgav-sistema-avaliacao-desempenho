@@ -3,7 +3,7 @@
         label="Indicadores"
         name="nome"
         lenght="6/12"
-        :value="$fatorAvaliacao->nome ?? old('nome')"
+        :value="''"
     />
     <x-layouts.inputs.input-normal-select-array
         label="Conceitos"
@@ -11,7 +11,7 @@
         origin="conceito_avaliacao_uuid"
         lenght="4/12"
         :data="$formData['conceitos']"
-        :value="$fatorAvaliacao->conceito_avaliacao_uuid ?? old('conceito_avaliacao_uuid')"
+        :value="''"
     />
     <x-layouts.buttons.submit-with-icon-button class="w-full md:w-2/12" text="Salvar"/>
 </div>

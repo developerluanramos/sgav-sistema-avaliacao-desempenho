@@ -1,7 +1,7 @@
 @if($fatoresAvaliacao->count())
-    <ul class="w-full text-sm flex flex-col mb-4 items-start font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
-        @foreach($fatoresAvaliacao as $index => $fatorAvaliacao)
 
+        @foreach($fatoresAvaliacao as $index => $fatorAvaliacao)
+        <ul class="w-full text-sm flex flex-col mb-4 items-start font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
             <li class="w-full flex px-4 py-2 uppercase font-bold border-b border-gray-200 rounded-t-lg dark:border-gray-600">
 
                 <button type="button" class="w-full px-2 mr-2 font-medium text-left rtl:text-right border-gray-200 cursor-pointer hover:rounded-t-lg hover:bg-gray-100 hover:text-blue-700 focus:outline-none focus:text-blue-700 dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white" data-modal-target="modalIndicadoresDesempenho" data-modal-toggle="modalIndicadoresDesempenho">
@@ -32,11 +32,12 @@
                     <x-layouts.buttons.submit-delete-button
                         color="danger"/>
                 </form>
-
-                {{-- LISTAGEM DE INDICADORES --}}
             </li>
+            {{-- LISTAGEM DE INDICADORES --}}
+            @include('app.modelo-avaliacao.indicadores-desempenho.partials.list')
+        </ul>
         @endforeach
-    </ul>
+
 @endif
 
 
