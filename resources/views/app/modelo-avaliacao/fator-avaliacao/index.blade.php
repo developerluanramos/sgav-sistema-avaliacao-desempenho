@@ -2,8 +2,6 @@
     Fatores Avaliação
 </div>
 
-@include('components.alerts.form-errors')
-
 <form action="{{route('fator-avaliacao.store', $modeloAvaliacao->uuid)}}" method="POST" id="fatorForm">
     @csrf
     @include('app.modelo-avaliacao.fator-avaliacao.partials.form')

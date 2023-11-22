@@ -7,12 +7,6 @@
         lenght="10/12"
         :value="$conceitoAvaliacao->descricao ?? old('descricao')"
     />
-    <x-layouts.buttons.simple-button
-        text="Criar Item"
-        onclick="inputItem()"
-        color="success"
-        lenght="2/12"
-    />
 </div>
 
 <x-layouts.inputs.input-item/>
