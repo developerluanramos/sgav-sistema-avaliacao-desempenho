@@ -27,7 +27,7 @@ class ModeloAvaliacaoEloquentRepository implements ModeloAvaliacaoRepositoryInte
     public function find($uuid): ModeloAvaliacao
     {
         return $this->model
-            ->with('fatoresAvaliacao')
+            ->with('fatoresAvaliacao.conceitoAvaliacao')
             ->where('uuid', $uuid)->first();
     }
 

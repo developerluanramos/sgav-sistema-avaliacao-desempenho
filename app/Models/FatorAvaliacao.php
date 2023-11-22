@@ -18,11 +18,11 @@ class FatorAvaliacao extends Model
         'modelo_avaliacao_uuid'
     ];
 
-    function conceitosAvaliacao() {
+    function conceitoAvaliacao() {
         return $this->belongsTo(ConceitoAvaliacao::class, 'conceito_avaliacao_uuid', 'uuid');
     }
 
-    function modelosAvaliacao() {
+    function modeloAvaliacao() {
         return $this->belongsTo(ModeloAvaliacao::class, 'modelo_avaliacao_uuid', 'uuid');
     }
 
