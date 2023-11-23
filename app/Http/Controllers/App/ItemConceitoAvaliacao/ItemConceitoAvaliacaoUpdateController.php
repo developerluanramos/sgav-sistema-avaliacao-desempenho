@@ -13,7 +13,7 @@ class ItemConceitoAvaliacaoUpdateController extends Controller
         protected ItemConceitoAvaliacaoUpdateAction $updateAction,
     ) { }
 
-    public function delete(ItemConceitoAvaliacaoUpdateRequest $request)
+    public function update(ItemConceitoAvaliacaoUpdateRequest $request)
     {
         $this->updateAction->exec(ItemConceitoAvaliacaoUpdateDTO::makeFromRequest($request));
 
