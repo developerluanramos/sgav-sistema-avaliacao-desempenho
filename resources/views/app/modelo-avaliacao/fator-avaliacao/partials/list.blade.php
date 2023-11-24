@@ -1,22 +1,30 @@
 @if($fatoresAvaliacao->count())
     <ul class="w-full text-sm flex flex-col mb-4 items-start font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
         @foreach($fatoresAvaliacao as $index => $fatorAvaliacao)
-            <li class="w-full flex px-4 py-2 uppercase font-bold border-b border-gray-200 rounded-t-lg dark:border-gray-600">
-                <span class="mt-3">{{ $fatorAvaliacao->nome }}</span>
 
+            <li class="w-full flex px-4 py-2 uppercase font-bold border-b border-gray-200 rounded-t-lg dark:border-gray-600">
+
+                <button type="button" class="w-full px-2 mr-2 font-medium text-left rtl:text-right border-gray-200 cursor-pointer hover:rounded-t-lg hover:bg-gray-100 hover:text-blue-700 focus:outline-none focus:text-blue-700 dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white" data-modal-target="modalIndicadoresDesempenho" data-modal-toggle="modalIndicadoresDesempenho">
+                    {{ $fatorAvaliacao->nome }} - {{ $fatorAvaliacao->conceitoAvaliacao->descricao }}
+                </button>
+                @include('app.modelo-avaliacao.indicadores-desempenho.create', ["fatorAvaliacao" => $fatorAvaliacao])
+
+                {{-- MODAL DE EDIT --}}
                 <form method="POST" action="{{route('fator-avaliacao.update', $fatorAvaliacao->uuid)}}" class="flex ml-auto items-center">
                     @csrf
                     @method('PUT')
-                    <x-layouts.modals.simple-modal :titulo="'Edição'">
-                        @section('modal-content')
-                                @include('app.modelo-avaliacao.fator-avaliacao.partials.form', ["fatorAvaliacao" => $fatorAvaliacao])
+                    <x-layouts.modals.simple-modal :sessao="'modal-content-fator-avaliacao'" :titulo="'Edição'" :identificador="'modalFatorAvaliacao'">
+                        @section('modal-content-fator-avaliacao')
+                            @include('app.modelo-avaliacao.fator-avaliacao.partials.form', ["fatorAvaliacao" => $fatorAvaliacao])
                         @endsection
                     </x-layouts.modals.simple-modal>
                     <x-layouts.buttons.edit-action-button
                             color="primary"
+                            :identificador="'modalFatorAvaliacao'"
                     />
                 </form>
 
+                {{-- FORM DE DELETE --}}
                 <form method="POST" action="/fator-avaliacao/{{ $fatorAvaliacao->uuid }}" class="flex items-center">
                     @csrf
                     @method('DELETE')
@@ -24,6 +32,8 @@
                     <x-layouts.buttons.submit-delete-button
                         color="danger"/>
                 </form>
+
+                {{-- LISTAGEM DE INDICADORES --}}
             </li>
         @endforeach
     </ul>
