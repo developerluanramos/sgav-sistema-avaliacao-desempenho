@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->uuid('uuid')->unique();
             $table->string('descricao');
-            $table->foreignUuid('fatores_avaliacaos_uuid')->constrained('fatores_avaliacaos', 'uuid');
+            $table->foreignUuid('fator_avaliacao_uuid')->constrained('fatores_avaliacaos', 'uuid');
             $table->foreignUuid('conceito_avaliacao_uuid')->constrained('conceitos_avaliacao', 'uuid');
-            $table->foreignUuid('modelos_avaliacao_uuid')->constrained('modelos_avaliacao', 'uuid');
+            $table->foreignUuid('modelo_avaliacao_uuid')->constrained('modelos_avaliacao', 'uuid');
             $table->timestamps();
         });
     }
