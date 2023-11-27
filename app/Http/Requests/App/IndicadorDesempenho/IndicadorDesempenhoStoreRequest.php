@@ -22,6 +22,18 @@ class IndicadorDesempenhoStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
+            "descricao" => [
+                "required", "string", "min:3", "max:254"
+            ],
+            "fator_avaliacao_uuid" => [
+                "required", "uuid"
+            ],
+            "conceito_avaliacao_uuid" => [
+                "required", "uuid"
+            ],
+            "modelo_avaliacao_uuid" => [
+                "required", "uuid"
+            ],
         ];
     }
 }

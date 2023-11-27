@@ -1,11 +1,8 @@
-@php
-    $faker = Faker\Factory::create();
-@endphp
 
 <ul class="w-full px-4 py-2 space-y-1 text-gray-700 list-inside dark:text-gray-400">
-    @for($i = 0; $i < 5; $i++)
+    @foreach($indicadoresDesempenho as $indicadorDesempenho)
         <li class="flex items-center justify-between">
-            <span>{{ $faker->catchPhrase }}</span>
+            <span>{{ $indicadorDesempenho->descricao }}</span>
             <div class="flex items-center justify-end space-x-1">
                 <x-layouts.buttons.edit-action-button
                 color="primary"
@@ -16,5 +13,5 @@
                 />
             </div>
         </li>
-    @endfor
+    @endforeach
 </ul>
