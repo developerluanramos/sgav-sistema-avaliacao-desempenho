@@ -2,6 +2,7 @@
 
 namespace App\Repositories\ItemConceitoAvaliacao;
 
+use App\DTO\ItemConceitoAvaliacao\ItemConceitoAvaliacaoUpdateDTO;
 use App\Models\ItemConceitoAvaliacao;
 
 class ItemConceitoAvaliacaoEloquentRepository implements ItemConceitoAvaliacaoRepositoryInterface
@@ -30,5 +31,16 @@ class ItemConceitoAvaliacaoEloquentRepository implements ItemConceitoAvaliacaoRe
         $item = $this->findByUuid($uuid);
 
         $item->delete();
+    }
+
+    public function update(ItemConceitoAvaliacaoUpdateDTO $dto): ItemConceitoAvaliacao
+    {
+        $this->model->where("uuid", $dto->uuid)->update([
+            'uuid' => $dto->uuid,
+            'nome' => $dto->nome,
+            'pontuacao' => $dto->pontuacao,
+        ]);
+
+        return $this->findByUuid($dto->uuid);
     }
 }

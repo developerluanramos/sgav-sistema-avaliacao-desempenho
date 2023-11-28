@@ -21,6 +21,6 @@
 
 @include('app.modelo-avaliacao.fator-avaliacao.index', ["modeloAvaliacao" => $modeloAvaliacao])
 
-@include('app.modelo-avaliacao.fator-avaliacao.partials.list', ["fatoresAvaliacao" => $modeloAvaliacao->fatoresAvaliacao])
+@include('app.modelo-avaliacao.fator-avaliacao.partials.list', ["modeloAvaliacao" => $modeloAvaliacao])
 
 @endsection
