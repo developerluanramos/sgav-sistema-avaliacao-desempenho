@@ -28,6 +28,7 @@ class ModeloAvaliacaoEloquentRepository implements ModeloAvaliacaoRepositoryInte
     {
         return $this->model
             ->with('fatoresAvaliacao.conceitoAvaliacao')
+            ->with('fatoresAvaliacao.indicadoresDesempenho')
             ->where('uuid', $uuid)->first();
     }
 

@@ -5,28 +5,32 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class FatorAvaliacao extends Model
+class IndicadorDesempenho extends Model
 {
     use HasFactory;
 
-    protected $table = "fatores_avaliacaos";
+    protected $table = "indicadores_desempenho";
 
     protected $fillable = [
         'uuid',
-        'nome',
+        'descricao',
         'conceito_avaliacao_uuid',
-        'modelo_avaliacao_uuid'
+        'modelo_avaliacao_uuid',
+        'fator_avaliacao_uuid'
     ];
 
-    function conceitoAvaliacao() {
+    function conceitoAvaliacao()
+    {
         return $this->belongsTo(ConceitoAvaliacao::class, 'conceito_avaliacao_uuid', 'uuid');
     }
 
-    function modeloAvaliacao() {
+    function modeloAvaliacao()
+    {
         return $this->belongsTo(ModeloAvaliacao::class, 'modelo_avaliacao_uuid', 'uuid');
     }
 
-    function indicadoresDesempenho() {
-        return $this->hasMany(IndicadorDesempenho::class, 'fator_avaliacao_uuid', 'uuid');
+    function fatorAvaliacao()
+    {
+        return $this->belongsTo(FatorAvaliacao::class, 'fator_avaliacao_uuid', 'uuid');
     }
 }

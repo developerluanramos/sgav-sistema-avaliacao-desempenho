@@ -7,6 +7,7 @@ use App\Models\ConceitoAvaliacao;
 use App\Models\Equipe;
 use App\Models\FatorAvaliacao;
 use App\Models\Fornecedor;
+use App\Models\IndicadorDesempenho;
 use App\Models\ItemConceitoAvaliacao;
 use App\Models\ModeloAvaliacao;
 use App\Models\Servidor;
@@ -16,6 +17,7 @@ use App\Observers\ConceitoAvaliacaoObserver;
 use App\Observers\EquipeObserver;
 use App\Observers\FatorAvaliacaoObserver;
 use App\Observers\FornecedorObserver;
+use App\Observers\IndicadorDesempenhoObserver;
 use App\Observers\ItemConceitoAvaliacaoObserver;
 use App\Observers\ModeloAvaliacaoObserver;
 use App\Observers\ServidorObserver;
@@ -32,6 +34,8 @@ use App\Repositories\FatorAvaliacao\FatorAvaliacaoEloquentRepository;
 use App\Repositories\FatorAvaliacao\FatorAvaliacaoRepositoryInterface;
 use App\Repositories\Fornecedor\FornecedorEloquentRepository;
 use App\Repositories\Fornecedor\FornecedorRepositoryInterface;
+use App\Repositories\IndicadorDesempenho\IndicadorDesempenhoEloquentRepository;
+use App\Repositories\IndicadorDesempenho\IndicadorDesempenhoRepositoryInterface;
 use App\Repositories\ModeloAvaliacao\ModeloAvaliacaoEloquentRepository;
 use App\Repositories\ModeloAvaliacao\ModeloAvaliacaoRepositoryInterface;
 use App\Repositories\Servidor\ServidorEloquentRepository;
@@ -82,6 +86,9 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(
             FatorAvaliacaoRepositoryInterface::class, FatorAvaliacaoEloquentRepository::class
         );
+        $this->app->bind(
+            IndicadorDesempenhoRepositoryInterface::class, IndicadorDesempenhoEloquentRepository::class
+        );
     }
 
 
@@ -99,6 +106,7 @@ class AppServiceProvider extends ServiceProvider
         ConceitoAvaliacao::observe(ConceitoAvaliacaoObserver::class);
         ItemConceitoAvaliacao::observe(ItemConceitoAvaliacaoObserver::class);
         FatorAvaliacao::observe(FatorAvaliacaoObserver::class);
+        IndicadorDesempenho::observe(IndicadorDesempenhoObserver::class);
 
         Validator::extend('validarIdadeAdmissao', function ($attribute, $value, $parameters, $validator) {
             $dataNascimento = $validator->getData()['data_nascimento'];

@@ -72,4 +72,5 @@ Route::middleware(['auth.basic'])->group(function() {
     Route::put('fator-avaliacao/{uuid}/update', [\App\Http\Controllers\App\FatorAvaliacao\FatorAvaliacaoUpdateController::class, 'update'])->name('fator-avaliacao.update');
     Route::delete('fator-avaliacao/{uuid}', [\App\Http\Controllers\App\FatorAvaliacao\FatorAvaliacaoStoreController::class, 'destroy'])->name('fator-avaliacao.destroy');
 
+    Route::post('indicador-desempenho/', [\App\Http\Controllers\App\IndicadorDesempenho\IndicadorDesempenhoStoreController::class, 'store'])->name('indicador-desempenho.store');
 });
