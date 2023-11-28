@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             ServidorSeeder::class,
             ModeloAvaliacaoSeeder::class,
             ConceitoAvaliacaoSeeder::class,
+            ItemConceitoAvaliacaoSeeder::class,
         ]);
     }
 }
