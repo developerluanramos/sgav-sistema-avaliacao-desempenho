@@ -65,6 +65,21 @@ services:
         networks:
             - sgp_network
 
+    db_sgp_test:
+        image: mysql
+        platform: linux/arm64/v8
+        restart: unless-stopped
+        expose:
+            - 3306
+        environment:
+            MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+            MYSQL_DATABASE: ${DB_DATABASE}
+        volumes:
+            - /var/lib/mysql
+        ports:
+            - 3310:3306
+        networks:
+            - sgp_network
     #redis_shorts
     redis_sgp:
         image: redis:latest
