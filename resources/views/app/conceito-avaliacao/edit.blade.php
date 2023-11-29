@@ -44,6 +44,7 @@
                 text="Excluir"
                 action="excluir"
                 color="danger"
+                :identificador="'drawer-delete-confirmacao'.$item->uuid"
                 :route="route('item-conceito-avaliacao.delete', [
                     'uuid' => $item->uuid
                 ])"
