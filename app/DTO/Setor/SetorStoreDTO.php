@@ -1,8 +1,8 @@
 <?php
 
-namespace App\DTO\PostoTrabalho;
+namespace App\DTO\Setor;
 
-class PostoTrabalhoStoreDTO
+class SetorStoreDTO
 {
 
 }
