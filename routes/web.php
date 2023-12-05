@@ -73,4 +73,6 @@ Route::middleware(['auth.basic'])->group(function() {
     Route::delete('fator-avaliacao/{uuid}', [\App\Http\Controllers\App\FatorAvaliacao\FatorAvaliacaoStoreController::class, 'destroy'])->name('fator-avaliacao.destroy');
 
     Route::post('indicador-desempenho/', [\App\Http\Controllers\App\IndicadorDesempenho\IndicadorDesempenhoStoreController::class, 'store'])->name('indicador-desempenho.store');
+
+    Route::get('setor/create', [\App\Http\Controllers\App\Setor\SetorCreateController::class, 'create'])->name('setor.create'); 
 });
