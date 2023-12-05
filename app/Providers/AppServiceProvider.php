@@ -42,6 +42,8 @@ use App\Repositories\PostoTrabalho\PostoTrabalhoEloquentRepository;
 use App\Repositories\PostoTrabalho\PostoTrabalhoRepositoryInterface;
 use App\Repositories\Servidor\ServidorEloquentRepository;
 use App\Repositories\Servidor\ServidorRepositoryInterface;
+use App\Repositories\Setor\SetorEloquentRepository;
+use App\Repositories\Setor\SetorRepositoryInterface;
 use App\Repositories\Usuario\UsuarioEloquentRepository;
 use App\Repositories\Usuario\UsuarioRepositoryInterface;
 use Illuminate\Support\Facades\Validator;
@@ -91,6 +93,9 @@ class AppServiceProvider extends ServiceProvider
         );
         $this->app->bind(
             PostoTrabalhoRepositoryInterface::class, PostoTrabalhoEloquentRepository::class
+        );
+        $this->app->bind(
+            SetorRepositoryInterface::class, SetorEloquentRepository::class
         );
     }
 
