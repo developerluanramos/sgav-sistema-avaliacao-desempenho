@@ -75,4 +75,5 @@ Route::middleware(['auth.basic'])->group(function() {
     Route::post('indicador-desempenho/', [\App\Http\Controllers\App\IndicadorDesempenho\IndicadorDesempenhoStoreController::class, 'store'])->name('indicador-desempenho.store');
 
     Route::get('setor/create', [\App\Http\Controllers\App\Setor\SetorCreateController::class, 'create'])->name('setor.create'); 
+    Route::post('setor', [\App\Http\Controllers\App\Setor\SetorStoreController::class, 'store'])->name('setor.store'); 
 });

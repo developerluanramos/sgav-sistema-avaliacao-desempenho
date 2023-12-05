@@ -12,11 +12,10 @@
 
 @include('components.alerts.form-errors')
 
-<form  method="POST">
+<form action="{{ route('setor.store') }}" method="POST">
     @csrf
     @include('app.setor.partials.form')
 </form>
 
 @endsection
 
-{{-- action="{{ route('cargo.store') }}" --}}
