@@ -38,6 +38,8 @@ use App\Repositories\IndicadorDesempenho\IndicadorDesempenhoEloquentRepository;
 use App\Repositories\IndicadorDesempenho\IndicadorDesempenhoRepositoryInterface;
 use App\Repositories\ModeloAvaliacao\ModeloAvaliacaoEloquentRepository;
 use App\Repositories\ModeloAvaliacao\ModeloAvaliacaoRepositoryInterface;
+use App\Repositories\PostoTrabalho\PostoTrabalhoEloquentRepository;
+use App\Repositories\PostoTrabalho\PostoTrabalhoRepositoryInterface;
 use App\Repositories\Servidor\ServidorEloquentRepository;
 use App\Repositories\Servidor\ServidorRepositoryInterface;
 use App\Repositories\Usuario\UsuarioEloquentRepository;
@@ -60,31 +62,24 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(
             ServidorRepositoryInterface::class, ServidorEloquentRepository::class
         );
-
         $this->app->bind(
             FornecedorRepositoryInterface::class, FornecedorEloquentRepository::class
         );
-
         $this->app->bind(
             CargoRepositoryInterface::class, CargoEloquentRepository::class
         );
-
         $this->app->bind(
             UsuarioRepositoryInterface::class, UsuarioEloquentRepository::class
         );
-
         $this->app->bind(
             ModeloAvaliacaoRepositoryInterface::class, ModeloAvaliacaoEloquentRepository::class
         );
-
         $this->app->bind(
             EquipeRepositoryInterface::class, EquipeEloquentRepository::class
         );
-
         $this->app->bind(
             ConceitoAvaliacaoRepositoryInterface::class, ConceitoAvaliacaoEloquentRepository::class
         );
-
         $this->app->bind(
             ItemConceitoAvaliacaoRepositoryInterface::class, ItemConceitoAvaliacaoEloquentRepository::class
         );
@@ -93,6 +88,9 @@ class AppServiceProvider extends ServiceProvider
         );
         $this->app->bind(
             IndicadorDesempenhoRepositoryInterface::class, IndicadorDesempenhoEloquentRepository::class
+        );
+        $this->app->bind(
+            PostoTrabalhoRepositoryInterface::class, PostoTrabalhoEloquentRepository::class
         );
     }
 
