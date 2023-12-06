@@ -15,4 +15,3 @@
     />
     <x-layouts.buttons.submit-with-icon-button class="w-full md:w-2/12" text="Salvar"/>
 </div>
-

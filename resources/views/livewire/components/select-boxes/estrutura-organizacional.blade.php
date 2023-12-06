@@ -6,7 +6,7 @@
                 Postos de Trabalho
             </label>
             <div class="relative">
-                <select wire:change="selecionaPostoTrabalho" wire:model="postoTrabalhoUuid" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-black py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="postoTrabalhoUuid" name="postoTrabalhoUuid">
+                <select wire:change="selecionaPostoTrabalho" wire:model="postoTrabalhoUuid" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-black py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="postos_trabalho_uuid" name="postos_trabalho_uuid">
                     <option value="">Escolha um posto e trabalho</option>
                     @foreach($postosTrabalho as $postoTrabalho)
                         @if (isset($postoTrabalhoUUid) && !is_null($postoTrabalhoUUid))

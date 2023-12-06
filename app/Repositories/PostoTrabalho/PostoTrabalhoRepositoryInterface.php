@@ -18,4 +18,5 @@ interface PostoTrabalhoRepositoryInterface
     public function update(PostoTrabalhoUpdateDTO $dto): PostoTrabalho;
 
     public function all(): array;
+    
 }

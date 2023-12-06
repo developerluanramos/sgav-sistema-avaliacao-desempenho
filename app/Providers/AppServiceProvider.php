@@ -12,6 +12,7 @@ use App\Models\ItemConceitoAvaliacao;
 use App\Models\ModeloAvaliacao;
 use App\Models\PostoTrabalho;
 use App\Models\Servidor;
+use App\Models\Setor;
 use App\Observers\CargoObserver;
 use App\Models\User;
 use App\Observers\ConceitoAvaliacaoObserver;
@@ -23,6 +24,7 @@ use App\Observers\ItemConceitoAvaliacaoObserver;
 use App\Observers\ModeloAvaliacaoObserver;
 use App\Observers\PostoTrabalhoObserver;
 use App\Observers\ServidorObserver;
+use App\Observers\SetorObserver;
 use App\Observers\UsuarioObserver;
 use App\Repositories\Cargo\CargoEloquentRepository;
 use App\Repositories\Cargo\CargoRepositoryInterface;
@@ -122,6 +124,7 @@ class AppServiceProvider extends ServiceProvider
         ItemConceitoAvaliacao::observe(ItemConceitoAvaliacaoObserver::class);
         FatorAvaliacao::observe(FatorAvaliacaoObserver::class);
         IndicadorDesempenho::observe(IndicadorDesempenhoObserver::class);
+        Setor::observe(SetorObserver::class);
         PostoTrabalho::observe(PostoTrabalhoObserver::class);
 
         Validator::extend('validarIdadeAdmissao', function ($attribute, $value, $parameters, $validator) {
