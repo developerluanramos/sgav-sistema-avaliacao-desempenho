@@ -72,9 +72,9 @@ Breadcrumbs::for('cargo.edit', function (BreadcrumbTrail $trail, $cargo) {
     $trail->parent('cargo');
     $trail->push('Edição de Cargo', route('cargo.edit', $cargo));
 });
-Breadcrumbs::for('cargo.show', function (BreadcrumbTrail $trail) {
-    $trail->parent('cargo');
-    $trail->push('Cargo', route('cargo.show'));
+Breadcrumbs::for('posto-trabalho.show', function (BreadcrumbTrail $trail) {
+    $trail->parent('posto-trabalho');
+    $trail->push('Cargo', route('posto-trabalho.show'));
 });
 
 Breadcrumbs::for('equipe', function (BreadcrumbTrail $trail) {
@@ -120,4 +120,13 @@ Breadcrumbs::for('conceito-avaliacao.create', function (BreadcrumbTrail $trail) 
 Breadcrumbs::for('conceito-avaliacao.edit', function (BreadcrumbTrail $trail, $conceitoAvaliacao) {
     $trail->parent('conceito-avaliacao');
     $trail->push('Edição Conceito Avaliação', route('conceito-avaliacao.edit', $conceitoAvaliacao));
+});
+
+Breadcrumbs::for('posto-trabalho', function (BreadcrumbTrail $trail) {
+    $trail->parent('Dashboard' , route('dashboard.index'));
+    $trail->push('Postos Trabalho', route('posto-trabalho.index'));
+});
+Breadcrumbs::for('posto-trabalho.create', function (BreadcrumbTrail $trail) {
+    $trail->parent('posto-trabalho');
+    $trail->push('Novo Posto Trabalho', route('posto-trabalho.create'));
 });
