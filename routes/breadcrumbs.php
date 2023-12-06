@@ -122,6 +122,16 @@ Breadcrumbs::for('conceito-avaliacao.edit', function (BreadcrumbTrail $trail, $c
     $trail->push('Edição Conceito Avaliação', route('conceito-avaliacao.edit', $conceitoAvaliacao));
 });
 
+Breadcrumbs::for('setor', function (BreadcrumbTrail $trail) {
+    $trail->parent('Dashboard' , route('dashboard.index'));
+    $trail->push('Setores', route('setor.index'));
+});
+Breadcrumbs::for('setor.create', function (BreadcrumbTrail $trail) {
+    $trail->parent('setor');
+    $trail->push('Novo Setor', route('setor.create'));
+});
+
+
 Breadcrumbs::for('posto-trabalho', function (BreadcrumbTrail $trail) {
     $trail->parent('Dashboard' , route('dashboard.index'));
     $trail->push('Postos Trabalho', route('posto-trabalho.index'));
