@@ -10,6 +10,7 @@ use App\Models\Fornecedor;
 use App\Models\IndicadorDesempenho;
 use App\Models\ItemConceitoAvaliacao;
 use App\Models\ModeloAvaliacao;
+use App\Models\PostoTrabalho;
 use App\Models\Servidor;
 use App\Observers\CargoObserver;
 use App\Models\User;
@@ -20,12 +21,15 @@ use App\Observers\FornecedorObserver;
 use App\Observers\IndicadorDesempenhoObserver;
 use App\Observers\ItemConceitoAvaliacaoObserver;
 use App\Observers\ModeloAvaliacaoObserver;
+use App\Observers\PostoTrabalhoObserver;
 use App\Observers\ServidorObserver;
 use App\Observers\UsuarioObserver;
 use App\Repositories\Cargo\CargoEloquentRepository;
 use App\Repositories\Cargo\CargoRepositoryInterface;
 use App\Repositories\ConceitoAvaliacao\ConceitoAvaliacaoEloquentRepository;
 use App\Repositories\ConceitoAvaliacao\ConceitoAvaliacaoRepositoryInterface;
+use App\Repositories\Departamento\DepartamentoEloquentRepository;
+use App\Repositories\Departamento\DepartamentoRepositoryInterface;
 use App\Repositories\ItemConceitoAvaliacao\ItemConceitoAvaliacaoEloquentRepository;
 use App\Repositories\ItemConceitoAvaliacao\ItemConceitoAvaliacaoRepositoryInterface;
 use App\Repositories\Equipe\EquipeEloquentRepository;
@@ -97,6 +101,9 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(
             SetorRepositoryInterface::class, SetorEloquentRepository::class
         );
+        $this->app->bind(
+            DepartamentoRepositoryInterface::class, DepartamentoEloquentRepository::class
+        );
     }
 
 
@@ -115,6 +122,7 @@ class AppServiceProvider extends ServiceProvider
         ItemConceitoAvaliacao::observe(ItemConceitoAvaliacaoObserver::class);
         FatorAvaliacao::observe(FatorAvaliacaoObserver::class);
         IndicadorDesempenho::observe(IndicadorDesempenhoObserver::class);
+        PostoTrabalho::observe(PostoTrabalhoObserver::class);
 
         Validator::extend('validarIdadeAdmissao', function ($attribute, $value, $parameters, $validator) {
             $dataNascimento = $validator->getData()['data_nascimento'];

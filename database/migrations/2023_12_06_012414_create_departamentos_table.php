@@ -11,11 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('setores', function (Blueprint $table) {
+        Schema::create('departamentos', function (Blueprint $table) {
             $table->id();
-            $table->string('nome');
             $table->uuid('uuid')->unique();
-            $table->foreignUuid('postos_trabalho_uuid')->constrained('postos_trabalho', 'uuid');;
+            $table->string('nome');
+            $table->foreignUuid('postos_trabalho_uuid')->constrained('postos_trabalho', 'uuid');
+            $table->foreignUuid('setores_uuid')->constrained('setores', 'uuid');
             $table->timestamps();
         });
     }
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('setores');
+        Schema::dropIfExists('departamentos');
     }
 };

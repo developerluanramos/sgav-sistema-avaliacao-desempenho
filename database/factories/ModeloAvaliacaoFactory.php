@@ -15,7 +15,7 @@ class ModeloAvaliacaoFactory extends Factory
     {
         return [
             'uuid' => fake()->uuid(),
-            'nome' => fake()->name(),
+            'nome' => fake()->text('70'),
             'situacao' => SituacaoModeloAvaliacaoEnum::ATIVO,
             'finalidade' => fake()->randomElement(FinalidadeModeloAvaliacaoEnum::getValues()),
         ];

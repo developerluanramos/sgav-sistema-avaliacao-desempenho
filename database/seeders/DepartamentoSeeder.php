@@ -2,17 +2,17 @@
 
 namespace Database\Seeders;
 
-use App\Models\Setor;
+use App\Models\Departamento;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class SetorSeeder extends Seeder
+class DepartamentoSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        Setor::factory(15)->create();
+        Departamento::factory(50)->create();
     }
 }
