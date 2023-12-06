@@ -10,6 +10,7 @@ use App\Models\Fornecedor;
 use App\Models\IndicadorDesempenho;
 use App\Models\ItemConceitoAvaliacao;
 use App\Models\ModeloAvaliacao;
+use App\Models\PostoTrabalho;
 use App\Models\Servidor;
 use App\Observers\CargoObserver;
 use App\Models\User;
@@ -20,6 +21,7 @@ use App\Observers\FornecedorObserver;
 use App\Observers\IndicadorDesempenhoObserver;
 use App\Observers\ItemConceitoAvaliacaoObserver;
 use App\Observers\ModeloAvaliacaoObserver;
+use App\Observers\PostoTrabalhoObserver;
 use App\Observers\ServidorObserver;
 use App\Observers\UsuarioObserver;
 use App\Repositories\Cargo\CargoEloquentRepository;
@@ -120,6 +122,7 @@ class AppServiceProvider extends ServiceProvider
         ItemConceitoAvaliacao::observe(ItemConceitoAvaliacaoObserver::class);
         FatorAvaliacao::observe(FatorAvaliacaoObserver::class);
         IndicadorDesempenho::observe(IndicadorDesempenhoObserver::class);
+        PostoTrabalho::observe(PostoTrabalhoObserver::class);
 
         Validator::extend('validarIdadeAdmissao', function ($attribute, $value, $parameters, $validator) {
             $dataNascimento = $validator->getData()['data_nascimento'];

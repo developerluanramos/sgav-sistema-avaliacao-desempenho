@@ -73,4 +73,8 @@ Route::middleware(['auth.basic'])->group(function() {
     Route::delete('fator-avaliacao/{uuid}', [\App\Http\Controllers\App\FatorAvaliacao\FatorAvaliacaoStoreController::class, 'destroy'])->name('fator-avaliacao.destroy');
 
     Route::post('indicador-desempenho/', [\App\Http\Controllers\App\IndicadorDesempenho\IndicadorDesempenhoStoreController::class, 'store'])->name('indicador-desempenho.store');
+
+    Route::get('posto-trabalho/create', [\App\Http\Controllers\App\PostoTrabalho\PostoTrabalhoCreateController::class, 'create'])->name('posto-trabalho.create');
+    Route::post('posto-trabalho/', [\App\Http\Controllers\App\PostoTrabalho\PostoTrabalhoStoreController::class, 'store'])->name('posto-trabalho.store');
+
 });
