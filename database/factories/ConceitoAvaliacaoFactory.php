@@ -13,7 +13,7 @@ class ConceitoAvaliacaoFactory extends Factory
     {
         return [
             'uuid' => fake()->uuid(),
-            'descricao' => fake()->name(),
+            'descricao' => fake()->text(50),
         ];
     }
 }

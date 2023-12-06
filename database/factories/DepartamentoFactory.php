@@ -20,7 +20,7 @@ class DepartamentoFactory extends Factory
     {
         return [
             'uuid' => fake()->uuid,
-            'nome' => fake()->company,
+            'nome' => 'Departamento '.fake()->company,
             'postos_trabalho_uuid' => PostoTrabalho::inRandomOrder()->first()->uuid,
             'setores_uuid' => Setor::inRandomOrder()->first()->uuid
         ];

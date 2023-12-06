@@ -18,7 +18,7 @@ class SetorFactory extends Factory
     public function definition(): array
     {
         return [
-            'nome' => fake()->company,
+            'nome' => 'Setor '.fake()->company,
             'uuid' => fake()->uuid,
             'postos_trabalho_uuid' => PostoTrabalho::inRandomOrder()->first()->uuid,
         ];

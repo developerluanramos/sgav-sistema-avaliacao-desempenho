@@ -14,7 +14,7 @@ class ItemConceitoAvaliacaoFactory extends Factory
     {
         return [
             'uuid' => fake()->uuid(),
-            'nome' => fake()->name(),
+            'nome' => fake()->text(50),
             'pontuacao' => fake()->numberBetween(1, 10),
             'conceito_avaliacao_uuid' => ConceitoAvaliacao::inRandomOrder()->first()->uuid,
         ];

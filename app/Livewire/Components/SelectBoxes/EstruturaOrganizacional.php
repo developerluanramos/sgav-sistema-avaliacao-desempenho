@@ -2,8 +2,10 @@
 
 namespace App\Livewire\Components\SelectBoxes;
 
+use App\Models\Departamento;
 use App\Models\PostoTrabalho;
 use App\Models\Setor;
+use App\Repositories\Departamento\DepartamentoEloquentRepository;
 use App\Repositories\PostoTrabalho\PostoTrabalhoEloquentRepository;
 use App\Repositories\Setor\SetorEloquentRepository;
 use Livewire\Component;
@@ -56,8 +58,8 @@ class EstruturaOrganizacional extends Component
     {
         $this->departamentos = [];
         if(!empty($this->setorUuid)) {
-            $setorRespoitory = new SetorEloquentRepository(new Setor());
-            $this->departamentos = $setorRespoitory->allByPostoTrabalho($this->postoTrabalhoUuid);
+            $departamentoRepository = new DepartamentoEloquentRepository(new Departamento());
+            $this->departamentos = $departamentoRepository->allBySetor($this->setorUuid);
         }
     }
 }

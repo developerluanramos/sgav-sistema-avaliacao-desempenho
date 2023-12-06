@@ -24,6 +24,11 @@ class DepartamentoEloquentRepository implements DepartamentoRepositoryInterface
         return $this->model->where('postos_trabalho_uuid', $postoTrabalhoUuid)->get()->toArray();
     }
 
+    public function allBySetor(string $setorUuid): array
+    {
+        return $this->model->where('setores_uuid', $setorUuid)->get()->toArray();
+    }
+
     public function new(DepartamentoStoreDTO $dto): Departamento
     {
         return $this->model->create((array)$dto);
