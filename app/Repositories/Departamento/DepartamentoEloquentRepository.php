@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Repositories\Setor;
+namespace App\Repositories\Departamento;
 
-use App\DTO\Setor\SetorStoreDTO;
-use App\DTO\Setor\SetorUpdateDTO;
-use App\Models\Setor;
+use App\DTO\Departamento\DepartamentoStoreDTO;
+use App\DTO\Departamento\DepartamentoUpdateDTO;
+use App\Models\Departamento;
 use App\Repositories\Interfaces\PaginationInterface;
 use App\Repositories\Presenters\PaginationPresenter;
 
-class SetorEloquentRepository implements SetorRepositoryInterface
+class DepartamentoEloquentRepository implements DepartamentoRepositoryInterface
 {
 
-    public function __construct(protected Setor $model)
+    public function __construct(protected Departamento $model)
     { }
 
     public function all(): array
@@ -24,12 +24,12 @@ class SetorEloquentRepository implements SetorRepositoryInterface
         return $this->model->where('postos_trabalho_uuid', $postoTrabalhoUuid)->get()->toArray();
     }
 
-    public function new(SetorStoreDTO $dto): Setor
+    public function new(DepartamentoStoreDTO $dto): Departamento
     {
         return $this->model->create((array)$dto);
     }
 
-    public function find($uuid): Setor
+    public function find($uuid): Departamento
     {
         return $this->model
             ->with('postoTrabalho')
@@ -51,7 +51,7 @@ class SetorEloquentRepository implements SetorRepositoryInterface
         return new PaginationPresenter($result);
     }
 
-    public function update(SetorUpdateDTO $dto): Setor
+    public function update(DepartamentoUpdateDTO $dto): Departamento
     {
         $this->model->where("uuid", $dto->uuid)->update((array) $dto);
 

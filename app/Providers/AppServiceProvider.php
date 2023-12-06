@@ -26,6 +26,8 @@ use App\Repositories\Cargo\CargoEloquentRepository;
 use App\Repositories\Cargo\CargoRepositoryInterface;
 use App\Repositories\ConceitoAvaliacao\ConceitoAvaliacaoEloquentRepository;
 use App\Repositories\ConceitoAvaliacao\ConceitoAvaliacaoRepositoryInterface;
+use App\Repositories\Departamento\DepartamentoEloquentRepository;
+use App\Repositories\Departamento\DepartamentoRepositoryInterface;
 use App\Repositories\ItemConceitoAvaliacao\ItemConceitoAvaliacaoEloquentRepository;
 use App\Repositories\ItemConceitoAvaliacao\ItemConceitoAvaliacaoRepositoryInterface;
 use App\Repositories\Equipe\EquipeEloquentRepository;
@@ -96,6 +98,9 @@ class AppServiceProvider extends ServiceProvider
         );
         $this->app->bind(
             SetorRepositoryInterface::class, SetorEloquentRepository::class
+        );
+        $this->app->bind(
+            DepartamentoRepositoryInterface::class, DepartamentoEloquentRepository::class
         );
     }
 
