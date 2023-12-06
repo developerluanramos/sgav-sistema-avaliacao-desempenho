@@ -7,14 +7,9 @@
         lenght="6/12"
         :value="$setor->nome ?? old('nome')"
     />
-    {{-- <x-layouts.inputs.input-normal-select-array
-        label="Posto de Trabalho"
-        name="postos_trabalho_uuid"
-        origin="postos_trabalho_uuid"
-        lenght="4/12"
-        :data="$formData['postosTrabalho']"
-        :value="$setor->postos_trabalho_uuid ?? old('postos_trabaho_uuid')"
-    />   --}}
 </div>
+@livewire('components.select-boxes.estrutura-organizacional', [
+    'components' => ['postos_trabalho']
+])
     
 <x-layouts.buttons.submit-button text="Salvar"/>
