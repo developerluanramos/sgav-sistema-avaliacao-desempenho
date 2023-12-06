@@ -26,8 +26,9 @@ class PostoTrabalhoEloquentRepository implements PostoTrabalhoRepositoryInterfac
 
     public function find($uuid): PostoTrabalho
     {
+
         return $this->model
-            ->with('setores')
+            // ->with('setores')
             ->where('uuid', $uuid)->first();
     }
 
@@ -51,6 +52,13 @@ class PostoTrabalhoEloquentRepository implements PostoTrabalhoRepositoryInterfac
         $this->model->where("uuid", $dto->uuid)->update((array) $dto);
 
         return $this->find($dto->uuid);
+    }
+
+    public function delete(string $uuid): void
+    {
+        $postoTrabalho = $this->find($uuid);
+
+        $postoTrabalho->delete();
     }
 
 }

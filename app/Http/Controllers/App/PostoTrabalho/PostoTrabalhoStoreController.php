@@ -16,6 +16,6 @@ class PostoTrabalhoStoreController extends Controller
     public function store(PostoTrabalhoStoreRequest $storeRequest)
     {
         $this->storeAction->exec(PostoTrabalhoStoreDTO::makeFromRequest($storeRequest));
-        return redirect()->route('posto-trabalho.create');
+        return redirect()->route('posto-trabalho.index')->with('message', 'Registro criado');
     }
 }

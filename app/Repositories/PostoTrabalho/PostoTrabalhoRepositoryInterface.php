@@ -17,5 +17,7 @@ interface PostoTrabalhoRepositoryInterface
 
     public function update(PostoTrabalhoUpdateDTO $dto): PostoTrabalho;
 
+    public function delete(string $uuid): void;
+
     public function all(): array;
 }
