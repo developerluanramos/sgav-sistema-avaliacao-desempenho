@@ -19,6 +19,4 @@ interface PostoTrabalhoRepositoryInterface
 
     public function all(): array;
     
-    public function getAll();
-
 }

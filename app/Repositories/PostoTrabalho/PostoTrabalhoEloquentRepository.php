@@ -53,9 +53,4 @@ class PostoTrabalhoEloquentRepository implements PostoTrabalhoRepositoryInterfac
         return $this->find($dto->uuid);
     }
 
-    public function getAll()
-    {
-        return $this->model->all();
-    }
-
 }

@@ -12,7 +12,7 @@ class SetorCreateAction
 
     public function exec(): array
     {
-        $postosTrabalho = $this->repository->getAll();
+        $postosTrabalho = $this->repository->all();
 
         return [
             "postosTrabalho" => $postosTrabalho
