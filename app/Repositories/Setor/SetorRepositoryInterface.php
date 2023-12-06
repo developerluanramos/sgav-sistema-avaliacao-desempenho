@@ -18,4 +18,6 @@ interface SetorRepositoryInterface
     public function update(SetorUpdateDTO $dto): Setor;
 
     public function all(): array;
+
+    public function allByPostoTrabalho(string $postoTrabalhoUuid): array;
 }

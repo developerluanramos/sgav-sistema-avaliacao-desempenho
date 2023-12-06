@@ -3,12 +3,13 @@
 namespace Database\Factories;
 
 use App\Models\PostoTrabalho;
+use App\Models\Setor;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Setor>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Departamento>
  */
-class SetorFactory extends Factory
+class DepartamentoFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,9 +19,10 @@ class SetorFactory extends Factory
     public function definition(): array
     {
         return [
-            'nome' => 'Setor '.fake()->company,
             'uuid' => fake()->uuid,
+            'nome' => 'Departamento '.fake()->company,
             'postos_trabalho_uuid' => PostoTrabalho::inRandomOrder()->first()->uuid,
+            'setores_uuid' => Setor::inRandomOrder()->first()->uuid
         ];
     }
 }

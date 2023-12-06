@@ -17,7 +17,7 @@ class PostoTrabalhoFactory extends Factory
     public function definition(): array
     {
         return [
-            'nome' => fake()->company,
+            'nome' => 'Posto de Trabalho '.fake()->company,
             'uuid' => fake()->uuid,
         ];
     }
