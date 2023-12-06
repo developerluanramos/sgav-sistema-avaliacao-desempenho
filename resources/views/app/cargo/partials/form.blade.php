@@ -6,12 +6,14 @@
         name="nome"
         lenght="8/12"
         :value="$cargo->nome ?? old('nome')"
-    />    
+    />
 </div>
     <x-layouts.inputs.input-switch
         label="Situação"
         name="situacao"
         :value="$cargo->situacao ?? old('situacao')"
 />
-
+@livewire('components.select-boxes.estrutura-organizacional', [
+    'components' => ['postos_trabalho', 'setores', 'departamentos']
+])
 <x-layouts.buttons.submit-button text="Salvar"/>
