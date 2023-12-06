@@ -11,10 +11,14 @@
                 <td>{{ $postoTrabalho->nome }}</td>
                 <td class="text-right">
                     <x-layouts.buttons.action-button
-                        text="Ver"
-                        action="ver"
-                        color="secondary"
-                        :route="'#'"/>
+                        text="Excluir"
+                        action="excluir"
+                        color="danger"
+                        :identificador="'drawer-delete-confirmacao'.$postoTrabalho->uuid"
+                        :route="route('posto-trabalho.delete', [
+                            'uuid' => $postoTrabalho->uuid
+                        ])"
+                    />
                     <x-layouts.buttons.action-button
                         text="Editar"
                         action="editar"
