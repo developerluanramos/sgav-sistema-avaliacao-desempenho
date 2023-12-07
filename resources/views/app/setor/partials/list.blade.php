@@ -25,7 +25,7 @@
                         text="Editar"
                         action="editar"
                         color="primary"
-                        :route="route('cargo.edit', $setor->uuid)"/>
+                        :route="route('setor.edit', $setor->uuid)"/>
                 </td>
             </tr>
         @endforeach
