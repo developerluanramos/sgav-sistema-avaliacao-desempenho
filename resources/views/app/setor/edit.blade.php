@@ -12,7 +12,7 @@
 
 @include('components.alerts.form-errors')
 
-<form method="POST">
+<form action="{{ route('setor.update', $setor->uuid) }}" method="POST">
     @csrf
     @method('PUT')
     @include('app.setor.partials.form')
@@ -20,4 +20,3 @@
 
 @endsection
 
-{{-- action="{{ route('posto-trabalho.update', $postoTrabalho->uuid) }}" --}}

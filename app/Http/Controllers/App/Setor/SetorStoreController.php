@@ -17,6 +17,6 @@ class SetorStoreController extends Controller
     {
         $this->storeAction->exec(SetorStoreDTO::makeFromRequest($storeRequest));
 
-        return redirect()->route('servidor.index')->with('message', 'Registro criado');
+        return redirect()->route('setor.index')->with('message', 'Registro criado');
     }
 }
