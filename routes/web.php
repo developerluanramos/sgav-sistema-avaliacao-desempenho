@@ -74,12 +74,14 @@ Route::middleware(['auth.basic'])->group(function() {
 
     Route::post('indicador-desempenho/', [\App\Http\Controllers\App\IndicadorDesempenho\IndicadorDesempenhoStoreController::class, 'store'])->name('indicador-desempenho.store');
 
-    Route::get('setor/create', [\App\Http\Controllers\App\Setor\SetorCreateController::class, 'create'])->name('setor.create'); 
-    Route::post('setor', [\App\Http\Controllers\App\Setor\SetorStoreController::class, 'store'])->name('setor.store'); 
-    Route::get('setor', [\App\Http\Controllers\App\Setor\SetorIndexController::class, 'index'])->name('setor.index'); 
-    
+    Route::get('setor/create', [\App\Http\Controllers\App\Setor\SetorCreateController::class, 'create'])->name('setor.create');
+    Route::post('setor', [\App\Http\Controllers\App\Setor\SetorStoreController::class, 'store'])->name('setor.store');
+    Route::get('setor', [\App\Http\Controllers\App\Setor\SetorIndexController::class, 'index'])->name('setor.index');
+
     Route::get('posto-trabalho/create', [\App\Http\Controllers\App\PostoTrabalho\PostoTrabalhoCreateController::class, 'create'])->name('posto-trabalho.create');
     Route::post('posto-trabalho/', [\App\Http\Controllers\App\PostoTrabalho\PostoTrabalhoStoreController::class, 'store'])->name('posto-trabalho.store');
     Route::get('posto-trabalho/', [\App\Http\Controllers\App\PostoTrabalho\PostoTrabalhoIndexController::class, 'index'])->name('posto-trabalho.index');
     Route::delete('posto-trabalho/{uuid}', [\App\Http\Controllers\App\PostoTrabalho\PostoTrabalhoDeleteController::class, 'delete'])->name('posto-trabalho.delete');
+    Route::get('posto-trabalho/{uuid}/edit', [\App\Http\Controllers\App\PostoTrabalho\PostoTrabalhoEditController::class, 'edit'])->name('posto-trabalho.edit');
+    Route::put('posto-trabalho/{uuid}/update', [\App\Http\Controllers\App\PostoTrabalho\PostoTrabalhoUpdateController::class, 'update'])->name('posto-trabalho.update');
 });
