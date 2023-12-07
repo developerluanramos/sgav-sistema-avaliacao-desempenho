@@ -59,4 +59,11 @@ class SetorEloquentRepository implements SetorRepositoryInterface
         return $this->find($dto->uuid);
     }
 
+    public function delete(string $uuid): void
+    {
+        $setor = $this->find($uuid);
+
+        $setor->delete();
+    }
+
 }
