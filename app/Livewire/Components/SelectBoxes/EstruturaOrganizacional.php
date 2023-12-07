@@ -23,38 +23,39 @@ class EstruturaOrganizacional extends Component
     public $loading = true;
 
 
-    public function mount($postoTrabalhoUuid = null, $setorUuid = null)
+    public function mount(
+        string $postoTrabalhoUuid = null,
+        string $setorUuid = null,
+        string $departamentoUuid = null) : void
     {
         $this->postoTrabalhoUuid = $postoTrabalhoUuid;
         $this->setorUuid = $setorUuid;
+        $this->departamentoUuid = $departamentoUuid;
     }
 
     public function render()
     {
         $postoTrabalhoRepository = new PostoTrabalhoEloquentRepository(new PostoTrabalho());
+        if(!is_null($this->postoTrabalhoUuid)) {
+            $this->selecionaPostoTrabalho();
+            $this->selecionaSetor();
+        }
         return view('livewire.components.select-boxes.estrutura-organizacional', [
             'postosTrabalho' => $postoTrabalhoRepository->all(),
         ]);
     }
 
-    public function clearVars()
+    public function selecionaPostoTrabalho() : void
     {
-        $this->setorUuid = null;
-        $this->departamentoUuid = null;
         $this->setores = [];
         $this->departamentos = [];
-    }
-
-    public function selecionaPostoTrabalho()
-    {
-        $this->clearVars();
         if(!empty($this->postoTrabalhoUuid)) {
             $setorRespoitory = new SetorEloquentRepository(new Setor());
             $this->setores = $setorRespoitory->allByPostoTrabalho($this->postoTrabalhoUuid);
         }
     }
 
-    public function selecionaSetor()
+    public function selecionaSetor() : void
     {
         $this->departamentos = [];
         if(!empty($this->setorUuid)) {
