@@ -208,10 +208,10 @@ MENU PRINCIPAL
                 </button>
                 <ul id="dropdown-estrutura-organizacional" class="hidden py-2 space-y-2" style="font-size: 13px">
                     <li>
-                        <a href="" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Postos de Trabalho</a>
+                        <a href="{{route('posto-trabalho.index')}}" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Postos de Trabalho</a>
                     </li>
                     <li>
-                        <a href="" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Setores</a>
+                        <a href="{{route('setor.index')}}" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Setores</a>
                     </li>
                     <li>
                         <a href="" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Departamentos</a>
