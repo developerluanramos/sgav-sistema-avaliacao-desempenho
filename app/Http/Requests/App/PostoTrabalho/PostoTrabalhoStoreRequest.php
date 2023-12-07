@@ -22,7 +22,9 @@ class PostoTrabalhoStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            // Defina as regras de validação aqui
+            "nome" => [
+                "required", "min:4", "max:254",
+            ]
         ];
     }
 }
