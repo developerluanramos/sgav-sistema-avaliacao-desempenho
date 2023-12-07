@@ -78,6 +78,7 @@ Route::middleware(['auth.basic'])->group(function() {
     Route::post('setor', [\App\Http\Controllers\App\Setor\SetorStoreController::class, 'store'])->name('setor.store');
     Route::get('setor', [\App\Http\Controllers\App\Setor\SetorIndexController::class, 'index'])->name('setor.index');
     Route::delete('setor/{uuid}', [\App\Http\Controllers\App\Setor\SetorDeleteController::class, 'delete'])->name('setor.delete');
+    Route::get('setor/{uuid}', [\App\Http\Controllers\App\Setor\SetorEditController::class, 'edit'])->name('setor.edit');
 
     Route::get('posto-trabalho/create', [\App\Http\Controllers\App\PostoTrabalho\PostoTrabalhoCreateController::class, 'create'])->name('posto-trabalho.create');
     Route::post('posto-trabalho/', [\App\Http\Controllers\App\PostoTrabalho\PostoTrabalhoStoreController::class, 'store'])->name('posto-trabalho.store');
