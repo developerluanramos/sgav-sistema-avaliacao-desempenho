@@ -8,9 +8,9 @@
 
 <x-layouts.headers.create-header :title="'Novo Posto de Trabalho'"/>
 
-@include('components.alerts.form-errors')
-
 @section('content')
+
+@include('components.alerts.form-errors')
 
 <form action="{{ route('posto-trabalho.store') }}" method="POST">
     @csrf
