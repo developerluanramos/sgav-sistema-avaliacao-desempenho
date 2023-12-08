@@ -131,6 +131,10 @@ Breadcrumbs::for('setor.create', function (BreadcrumbTrail $trail) {
     $trail->push('Novo Setor', route('setor.create'));
 });
 
+Breadcrumbs::for('setor.edit', function (BreadcrumbTrail $trail, $setor) {
+    $trail->parent('setor');
+    $trail->push('Edição de Setor', route('setor.edit', $setor));
+});
 
 Breadcrumbs::for('posto-trabalho', function (BreadcrumbTrail $trail) {
     $trail->parent('Dashboard' , route('dashboard.index'));
