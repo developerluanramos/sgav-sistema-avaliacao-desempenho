@@ -10,7 +10,7 @@
 </div>
 @livewire('components.select-boxes.estrutura-organizacional', [
     'components' => ['postos_trabalho'],
-    'postoTrabalhoUuid' => $setor->postos_trabalho_uuid
+    'postoTrabalhoUuid' => $setor->postos_trabalho_uuid ?? old('nome')
 ])
-    
+
 <x-layouts.buttons.submit-button text="Salvar"/>

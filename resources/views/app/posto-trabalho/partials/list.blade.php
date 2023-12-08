@@ -1,6 +1,7 @@
 <x-layouts.tables.simple-table
     :headers="[
         'Nome',
+        ''
     ]"
     :paginator="$postosTrabalho"
     :appends="$filters"

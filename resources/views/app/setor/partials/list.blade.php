@@ -2,6 +2,7 @@
     :headers="[
         'Nome',
         'Posto de Trabalho',
+        ''
     ]"
     :paginator="$setores"
     :appends="$filters"
