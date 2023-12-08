@@ -87,4 +87,7 @@ Route::middleware(['auth.basic'])->group(function() {
     Route::delete('posto-trabalho/{uuid}', [\App\Http\Controllers\App\PostoTrabalho\PostoTrabalhoDeleteController::class, 'delete'])->name('posto-trabalho.delete');
     Route::get('posto-trabalho/{uuid}/edit', [\App\Http\Controllers\App\PostoTrabalho\PostoTrabalhoEditController::class, 'edit'])->name('posto-trabalho.edit');
     Route::put('posto-trabalho/{uuid}/update', [\App\Http\Controllers\App\PostoTrabalho\PostoTrabalhoUpdateController::class, 'update'])->name('posto-trabalho.update');
+
+    Route::get('departamento/create', [\App\Http\Controllers\App\Departamento\DepartamentoCreateController::class, 'create'])->name('departamento.create');
+    Route::post('departamento/', [\App\Http\Controllers\App\Departamento\DepartamentoStoreController::class, 'store'])->name('departamento.store');
 });
