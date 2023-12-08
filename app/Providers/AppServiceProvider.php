@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\Cargo;
 use App\Models\ConceitoAvaliacao;
+use App\Models\Departamento;
 use App\Models\Equipe;
 use App\Models\FatorAvaliacao;
 use App\Models\Fornecedor;
@@ -16,6 +17,7 @@ use App\Models\Setor;
 use App\Observers\CargoObserver;
 use App\Models\User;
 use App\Observers\ConceitoAvaliacaoObserver;
+use App\Observers\DepartamentoObserver;
 use App\Observers\EquipeObserver;
 use App\Observers\FatorAvaliacaoObserver;
 use App\Observers\FornecedorObserver;
@@ -126,6 +128,7 @@ class AppServiceProvider extends ServiceProvider
         IndicadorDesempenho::observe(IndicadorDesempenhoObserver::class);
         Setor::observe(SetorObserver::class);
         PostoTrabalho::observe(PostoTrabalhoObserver::class);
+        Departamento::observe(DepartamentoObserver::class);
 
         Validator::extend('validarIdadeAdmissao', function ($attribute, $value, $parameters, $validator) {
             $dataNascimento = $validator->getData()['data_nascimento'];

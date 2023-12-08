@@ -28,7 +28,7 @@ class DepartamentoStoreRequest extends FormRequest
             "postos_trabalho_uuid" => [
                 "required", "exists:postos_trabalho,uuid"
             ],
-            "setor_uuid" => [
+            "setores_uuid" => [
                 "required", "exists:setores,uuid"
             ],
         ];
