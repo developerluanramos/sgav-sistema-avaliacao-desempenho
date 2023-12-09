@@ -43,7 +43,9 @@ class DepartamentoEloquentRepository implements DepartamentoRepositoryInterface
 
     public function paginate(int $page = 1, int $totalPerPage = 10, string $filter = null): PaginationInterface
     {
-        $query = $this->model->query();
+        $query = $this->model->query()
+            ->with('setor')
+            ->with('postoTrabalho');
 
         if(!is_null($filter)) {
             $query->where("nome", "like", "%".$filter."%");

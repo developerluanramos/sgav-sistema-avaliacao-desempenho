@@ -21,4 +21,9 @@ class Setor extends Model
     {
         return $this->hasOne(PostoTrabalho::class, 'uuid', 'postos_trabalho_uuid');
     }
+
+    public function departamentos()
+    {
+        return $this->hasMany(Departamento::class, 'postos_trabalho_uuid', 'uuid');
+    }
 }

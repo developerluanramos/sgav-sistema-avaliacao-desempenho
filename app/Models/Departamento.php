@@ -17,4 +17,14 @@ class Departamento extends Model
         'setores_uuid',
         'nome'
     ];
+
+    public function setor()
+    {
+        return $this->belongsTo(Setor::class, 'setores_uuid', 'uuid');
+    }
+
+    public function postoTrabalho()
+    {
+        return $this->belongsTo(PostoTrabalho::class, 'postos_trabalho_uuid', 'uuid');
+    }
 }

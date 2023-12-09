@@ -18,6 +18,11 @@ class PostoTrabalho extends Model
 
     public function setores()
     {
-        $this->hasMany(Setor::class, 'postos_trabalho_uuid');
+        return $this->hasMany(Setor::class, 'postos_trabalho_uuid');
+    }
+
+    public function departamentos()
+    {
+        return $this->hasMany(Departamento::class, 'setores_uuid', 'uuid');
     }
 }
