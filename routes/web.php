@@ -90,4 +90,5 @@ Route::middleware(['auth.basic'])->group(function() {
 
     Route::get('departamento/create', [\App\Http\Controllers\App\Departamento\DepartamentoCreateController::class, 'create'])->name('departamento.create');
     Route::post('departamento/', [\App\Http\Controllers\App\Departamento\DepartamentoStoreController::class, 'store'])->name('departamento.store');
+    Route::get('departamento/', [\App\Http\Controllers\App\Departamento\DepartamentoIndexController::class, 'index'])->name('departamento.index');
 });
