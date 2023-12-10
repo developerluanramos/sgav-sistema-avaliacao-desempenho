@@ -94,15 +94,38 @@ Route::middleware(['auth.basic'])->group(function() {
 
     Route::prefix('ciclo-avaliativo')->group(function () {
         Route::get('', [\App\Http\Controllers\App\CicloAvaliativo\CicloAvaliativoIndexController::class, 'index'])->name('ciclo-avaliativo.index');
-        Route::get('create', [\App\Http\Controllers\App\CicloAvaliativo\CicloAvaliativoCreateController::class, 'create'])->name('ciclo-avaliativo.create');
+
+        Route::get('periodicidade/create', function() {
+            return view('app.ciclo-avaliativo.periodicidade.create');
+        })->name('ciclo-avaliativo.periodicidade.create');
 
         Route::post('periodicidade/store', function() {
-            return view('app.ciclo-avaliativo.create', ['step' => \App\Enums\CicloAvaliativoStepsEnum::INCIDENCIA]);
+            return redirect()->route('ciclo-avaliativo.incidencia.create');
         })->name('ciclo-avaliativo.periodicidade.store');
 
+        Route::get('incidencia/create', function() {
+            return view('app.ciclo-avaliativo.incidencia.create');
+        })->name('ciclo-avaliativo.incidencia.create');
+
         Route::post('incidencia/store', function() {
-            return view('app.ciclo-avaliativo.create', ['step' => \App\Enums\CicloAvaliativoStepsEnum::TEMPLATE]);
+            return redirect()->route('ciclo-avaliativo.template.create');
         })->name('ciclo-avaliativo.incidencia.store');
+
+        Route::get('template/create', function() {
+            return view('app.ciclo-avaliativo.template.create');
+        })->name('ciclo-avaliativo.template.create');
+
+        Route::post('template/store', function() {
+            return redirect()->route('ciclo-avaliativo.dependencia.create');
+        })->name('ciclo-avaliativo.template.store');
+
+        Route::get('dependencia/create', function() {
+            return view('app.ciclo-avaliativo.dependencia.create');
+        })->name('ciclo-avaliativo.dependencia.create');
+
+        Route::post('dependencia/store', function() {
+            return redirect()->route('ciclo-avaliativo.index');
+        })->name('ciclo-avaliativo.dependencia.store');
     });
 
 });
