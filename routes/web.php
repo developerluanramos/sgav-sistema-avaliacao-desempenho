@@ -91,4 +91,18 @@ Route::middleware(['auth.basic'])->group(function() {
     Route::get('departamento/create', [\App\Http\Controllers\App\Departamento\DepartamentoCreateController::class, 'create'])->name('departamento.create');
     Route::post('departamento/', [\App\Http\Controllers\App\Departamento\DepartamentoStoreController::class, 'store'])->name('departamento.store');
     Route::get('departamento/', [\App\Http\Controllers\App\Departamento\DepartamentoIndexController::class, 'index'])->name('departamento.index');
+
+    Route::prefix('ciclo-avaliativo')->group(function () {
+        Route::get('', [\App\Http\Controllers\App\CicloAvaliativo\CicloAvaliativoIndexController::class, 'index'])->name('ciclo-avaliativo.index');
+        Route::get('create', [\App\Http\Controllers\App\CicloAvaliativo\CicloAvaliativoCreateController::class, 'create'])->name('ciclo-avaliativo.create');
+
+        Route::post('periodicidade/store', function() {
+            return view('app.ciclo-avaliativo.create', ['step' => \App\Enums\CicloAvaliativoStepsEnum::INCIDENCIA]);
+        })->name('ciclo-avaliativo.periodicidade.store');
+
+        Route::post('incidencia/store', function() {
+            return view('app.ciclo-avaliativo.create', ['step' => \App\Enums\CicloAvaliativoStepsEnum::TEMPLATE]);
+        })->name('ciclo-avaliativo.incidencia.store');
+    });
+
 });
