@@ -5,3 +5,4 @@ Route::post('departamento/', [\App\Http\Controllers\App\Departamento\Departament
 Route::get('departamento/', [\App\Http\Controllers\App\Departamento\DepartamentoIndexController::class, 'index'])->name('departamento.index');
 Route::delete('departamento/{uuid}', [\App\Http\Controllers\App\Departamento\DepartamentoDeleteController::class, 'delete'])->name('departamento.delete');
 Route::get('departamento/{uuid}/edit', [\App\Http\Controllers\App\Departamento\DepartamentoEditController::class, 'edit'])->name('departamento.edit');
+Route::put('departamento/{uuid}/update', [\App\Http\Controllers\App\Departamento\DepartamentoUpdateController::class, 'update'])->name('departamento.update');
