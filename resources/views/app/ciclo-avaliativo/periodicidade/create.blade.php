@@ -10,6 +10,7 @@
 
 @section('content')
     @include('app.ciclo-avaliativo.partials.stepper', ['step' => \App\Enums\CicloAvaliativoStepsEnum::PERIODICIDADE])
+{{--    @include('components.alerts.form-errors')--}}
     <form class="mt-6" method="POST" action="{{route('ciclo-avaliativo.periodicidade.store')}}">
         @csrf
         <div class="flex flex-wrap -mx-3 mb-2">
@@ -27,11 +28,11 @@
                 lenght="3/12"
                 :value="$peridodicidade->iniciado_em ?? old('iniciado_em')"
             />
-            <x-layouts.inputs.input-normal-select-array
+            <x-layouts.inputs.input-normal-select-enum
                 label="Unidade do ciclo"
-                name="iniciado_em"
+                name="unidade_ciclo"
                 lenght="3/12"
-                :data="[]"
+                :data="$formData['unidadesPeriodicidade']"
                 :value="$peridodicidade->iniciado_em ?? old('iniciado_em')"
             />
             <x-layouts.inputs.input-normal-number
@@ -40,11 +41,11 @@
                 lenght="3/12"
                 :value="$peridodicidade->iniciado_em ?? old('iniciado_em')"
             />
-            <x-layouts.inputs.input-normal-select-array
+            <x-layouts.inputs.input-normal-select-enum
                 label="Unidade do período"
-                name="iniciado_em"
+                name="unidade_periodo"
                 lenght="3/12"
-                :data="[]"
+                :data="$formData['unidadesPeriodicidade']"
                 :value="$peridodicidade->iniciado_em ?? old('iniciado_em')"
             />
         </div>
@@ -74,7 +75,9 @@
                 :value="$peridodicidade->iniciado_em ?? old('iniciado_em')"
             />
         </div>
-        <x-layouts.buttons.submit-button text="Salvar"/>
+        <div class="flex items-end align-content-end align-items-end">
+            <x-layouts.buttons.submit-button text="Prosseguir"/>
+        </div>
     </form>
 @endsection
 

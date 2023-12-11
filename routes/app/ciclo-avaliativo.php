@@ -1,15 +1,19 @@
 <?php
+use App\Http\Controllers\App\CicloAvaliativoPeriodicidade\PeriodicidadeCreateController;
+use App\Http\Controllers\App\CicloAvaliativoPeriodicidade\PeriodicidadeStoreController;
 
 Route::prefix('ciclo-avaliativo')->group(function () {
     Route::get('', [\App\Http\Controllers\App\CicloAvaliativo\CicloAvaliativoIndexController::class, 'index'])->name('ciclo-avaliativo.index');
 
-    Route::get('periodicidade/create', function() {
-        return view('app.ciclo-avaliativo.periodicidade.create');
-    })->name('ciclo-avaliativo.periodicidade.create');
-
-    Route::post('periodicidade/store', function() {
-        return redirect()->route('ciclo-avaliativo.incidencia.create');
-    })->name('ciclo-avaliativo.periodicidade.store');
+    Route::get('periodicidade/create', [PeriodicidadeCreateController::class, 'create'])->name('ciclo-avaliativo.periodicidade.create');
+    Route::post('periodicidade/store', [PeriodicidadeStoreController::class, 'store'])->name('ciclo-avaliativo.periodicidade.store');
+//    Route::get('periodicidade/create', function() {
+//        return view('app.ciclo-avaliativo.periodicidade.create');
+//    })->name('ciclo-avaliativo.periodicidade.create');
+//
+//    Route::post('periodicidade/store', function() {
+//        return redirect()->route('ciclo-avaliativo.incidencia.create');
+//    })->name('ciclo-avaliativo.periodicidade.store');
 
     Route::get('incidencia/create', function() {
         return view('app.ciclo-avaliativo.incidencia.create');

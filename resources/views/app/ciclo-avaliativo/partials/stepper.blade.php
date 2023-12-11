@@ -9,7 +9,7 @@
                     <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
                 </svg>
             @endif
-            Periodicidade
+            <b>Periodicidade</b>
         </span>
     </li>
     <li class="{{$step != \App\Enums\CicloAvaliativoStepsEnum::INCIDENCIA && $step != \App\Enums\CicloAvaliativoStepsEnum::PERIODICIDADE  ? 'text-green-600' : null}}
@@ -23,7 +23,7 @@
             @else
                 <span class="me-2">2</span>
             @endif
-            Incidência
+            <b>Incidência</b>
         </span>
     </li>
     <li class="{{$step != \App\Enums\CicloAvaliativoStepsEnum::INCIDENCIA && $step != \App\Enums\CicloAvaliativoStepsEnum::PERIODICIDADE && $step !=  \App\Enums\CicloAvaliativoStepsEnum::TEMPLATE  ? 'text-green-600' : null}}
@@ -37,12 +37,12 @@
             @else
                 <span class="me-2">3</span>
             @endif
-            Templates
+            <b>Templates</b>
         </span>
     </li>
     <li class="{{$step === \App\Enums\CicloAvaliativoStepsEnum::DEPENDENCIA ? 'text-blue-600' : null}} flex items-center">
         <span class="me-2">4</span>
-        Dependências
+        <b>Conclusão</b>
     </li>
 </ol>
 
