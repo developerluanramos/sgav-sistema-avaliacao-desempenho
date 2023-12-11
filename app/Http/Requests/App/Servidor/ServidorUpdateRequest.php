@@ -30,7 +30,7 @@ class ServidorUpdateRequest extends FormRequest
                 "required", "date", "validarIdadeAdmissao", "notFutureDate"
             ],
             "cargo_uuid" => [
-                "required", "exists:cargos", "uuid",
+                "required", "exists:cargos,uuid",
             ],
             "equipe_uuid" => [
                 "required", "exists:equipes,uuid",
