@@ -19,7 +19,9 @@
                         action="excluir"
                         color="danger"
                         :identificador="'drawer-delete-confirmacao'"
-                        :route="'#'"
+                        :route="route('departamento.delete', [
+                            'uuid' => $departamento->uuid
+                        ])"
                     />
                     <x-layouts.buttons.action-button
                         text="Editar"

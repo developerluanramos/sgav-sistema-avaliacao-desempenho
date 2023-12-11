@@ -91,6 +91,7 @@ Route::middleware(['auth.basic'])->group(function() {
     Route::get('departamento/create', [\App\Http\Controllers\App\Departamento\DepartamentoCreateController::class, 'create'])->name('departamento.create');
     Route::post('departamento/', [\App\Http\Controllers\App\Departamento\DepartamentoStoreController::class, 'store'])->name('departamento.store');
     Route::get('departamento/', [\App\Http\Controllers\App\Departamento\DepartamentoIndexController::class, 'index'])->name('departamento.index');
+    Route::delete('departamento/{uuid}', [\App\Http\Controllers\App\Departamento\DepartamentoDeleteController::class, 'delete'])->name('departamento.delete');
 
     Route::prefix('ciclo-avaliativo')->group(function () {
         Route::get('', [\App\Http\Controllers\App\CicloAvaliativo\CicloAvaliativoIndexController::class, 'index'])->name('ciclo-avaliativo.index');
@@ -127,5 +128,4 @@ Route::middleware(['auth.basic'])->group(function() {
             return redirect()->route('ciclo-avaliativo.index');
         })->name('ciclo-avaliativo.dependencia.store');
     });
-
 });
