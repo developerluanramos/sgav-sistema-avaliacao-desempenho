@@ -27,7 +27,9 @@
                         text="Editar"
                         action="editar"
                         color="primary"
-                        :route="'#'"/>
+                        :route="route('departamento.edit', [
+                            'uuid' => $departamento->uuid
+                        ])"/>
                 </td>
             </tr>
         @endforeach

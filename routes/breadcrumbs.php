@@ -148,3 +148,12 @@ Breadcrumbs::for('posto-trabalho.edit', function (BreadcrumbTrail $trail, $cargo
     $trail->parent('posto-trabalho');
     $trail->push('Edição de Posto Trabalho', route('posto-trabalho.edit', $cargo));
 });
+
+Breadcrumbs::for('departamento', function (BreadcrumbTrail $trail) {
+    $trail->parent('Dashboard', route('dashboard.index'));
+    $trail->push('Departamentos', route('departamento.index'));
+});
+Breadcrumbs::for('departamento.edit', function (BreadcrumbTrail $trail, $departamento) {
+    $trail->parent('departamento');
+    $trail->push('Edição de Departamento', route('departamento.edit', $departamento));
+});
