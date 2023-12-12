@@ -2,19 +2,28 @@
 
 namespace Tests\Feature\App\PostoTrabalho;
 
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class PostoTrabalhoStoreTest extends TestCase
 {
+    use RefreshDatabase;
+
     /**
      * A basic feature test example.
      */
-    public function test_example(): void
+    public function test_if_store_is_working_with_correct_params(): void
     {
-        $response = $this->get('/');
+        $user = User::factory()->create();
 
-        $response->assertStatus(200);
+        $response = $this->actingAs($user)->post(route('posto_trabalho.store'), [
+            'nome' => 'Posto de Trabalho '.fake()->company,
+            'uuid' => fake()->uuid,
+        ]);
+
+        $response->assertStatus(302); // redirected
+        $response->assertRedirectToRoute('posto_trabalho.index');
     }
 }
