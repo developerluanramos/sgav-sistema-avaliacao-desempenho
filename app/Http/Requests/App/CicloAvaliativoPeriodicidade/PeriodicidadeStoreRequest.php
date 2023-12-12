@@ -22,15 +22,17 @@ class PeriodicidadeStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-//            'iniciado_em' => ['required', 'date'],
-//            'quantidade_ciclo' => ['required', 'number'],
-//            'unidade_ciclo' => ['required'],
-//            'quantidade_periodo' => ['required', 'number'],
-//            'unidade_periodo' => ['required'],
-//            'tolerancia_inicio_ciclo' => ['required', 'number'],
-//            'tolerancia_final_ciclo' => ['required', 'number'],
-//            'tolerancia_inicio_periodo' => ['required', 'number'],
-//            'tolerancia_final_periodo' => ['required', 'number']
+           'iniciado_em' => ['required', 'date'],
+           'quantidade_ciclos' => ['required', 'integer'],
+           'quantidade_unidade_ciclos' => ['required', 'integer'],
+           'unidade_ciclos' => ['required'],
+           'quantidade_periodos' => ['required', 'integer'],
+           'quantidade_unidade_periodos' => ['required', 'integer'],
+           'unidade_periodos' => ['required'],
+           'tolerancia_abertura_ciclo' => ['required', 'integer'],
+           'tolerancia_encerramento_ciclo' => ['required', 'integer'],
+           'tolerancia_abertura_periodo' => ['required', 'integer'],
+           'tolerancia_encerramento_periodo' => ['required', 'integer']
         ];
     }
 }
