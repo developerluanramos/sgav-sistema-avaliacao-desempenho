@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class CicloAvaliativo extends Model
 {
     use HasFactory;
+
+    protected $table = "periodicidades";
+
+    protected $fillable = [
+        "uuid",
+        "status"
+    ];
 }
