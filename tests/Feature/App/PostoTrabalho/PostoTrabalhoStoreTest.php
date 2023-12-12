@@ -18,12 +18,12 @@ class PostoTrabalhoStoreTest extends TestCase
     {
         $user = User::factory()->create();
 
-        $response = $this->actingAs($user)->post(route('posto_trabalho.store'), [
+        $response = $this->actingAs($user)->post(route('posto-trabalho.store'), [
             'nome' => 'Posto de Trabalho '.fake()->company,
             'uuid' => fake()->uuid,
         ]);
 
         $response->assertStatus(302); // redirected
-        $response->assertRedirectToRoute('posto_trabalho.index');
+        $response->assertRedirectToRoute('posto-trabalho.index');
     }
 }

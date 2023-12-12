@@ -20,13 +20,13 @@ class PostoTrabalhoUpdateTest extends TestCase
         $user = User::factory()->create();
         $postoTrabalho = PostoTrabalho::factory()->create();
 
-        $response = $this->actingAs($user)->put(route('posto_trabalho.update', [
+        $response = $this->actingAs($user)->put(route('posto-trabalho.update', [
             'uuid' => $postoTrabalho->uuid
         ]), [
             'nome' => 'Posto de Trabalho '.fake()->company,
         ]);
 
         $response->assertStatus(302); // redirected
-        $response->assertRedirectToRoute('posto_trabalho.index');
+        $response->assertRedirectToRoute('posto-trabalho.index');
     }
 }
