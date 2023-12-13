@@ -16,27 +16,47 @@
                 <td>{{$ciclo->uuid}}</td>
                 <td>{{$ciclo->periodicidade['iniciado_em']}}</td>
                 <td>{{$ciclo->updated_at}}</td>
-                <td>
-                    <x-layouts.badges.step-ciclo-avaliativo
-                        :step="$ciclo->step"
-                    />
-                </td>
-                <td>
-                    <x-layouts.badges.status-ciclo-avaliativo
-                        :status="$ciclo->status"
-                    />
-                </td>
+                <td><x-layouts.badges.step-ciclo-avaliativo :step="$ciclo->step" /></td>
+                <td><x-layouts.badges.status-ciclo-avaliativo :status="$ciclo->status"/></td>
                 <td class="text-right">
                     <x-layouts.buttons.action-button
                         text="Ver"
                         action="ver"
                         color="secondary"
-                        :route="''"/>
-                    <x-layouts.buttons.action-button
-                        text="Editar"
-                        action="editar"
-                        color="primary"
-                        :route="''"/>
+                        :route="''"
+                    />
+                    @if($ciclo->step == \App\Enums\CicloAvaliativoStepsEnum::PERIODICIDADE)
+                        <x-layouts.buttons.action-button
+                            text="Editar"
+                            action="editar"
+                            color="primary"
+                            :route="route('ciclo-avaliativo.periodicidade.create')"
+                        />
+                    @endif
+                    @if($ciclo->step == \App\Enums\CicloAvaliativoStepsEnum::INCIDENCIA)
+                        <x-layouts.buttons.action-button
+                            text="Editar"
+                            action="editar"
+                            color="primary"
+                            :route="route('ciclo-avaliativo.incidencia.create')"
+                        />
+                    @endif
+                    @if($ciclo->step == \App\Enums\CicloAvaliativoStepsEnum::TEMPLATE)
+                        <x-layouts.buttons.action-button
+                            text="Editar"
+                            action="editar"
+                            color="primary"
+                            :route="route('ciclo-avaliativo.template.create')"
+                        />
+                    @endif
+                    @if($ciclo->step == \App\Enums\CicloAvaliativoStepsEnum::DEPENDENCIA)
+                        <x-layouts.buttons.action-button
+                            text="Editar"
+                            action="editar"
+                            color="primary"
+                            :route="''"
+                        />
+                    @endif
                 </td>
             </tr>
         @endforeach
