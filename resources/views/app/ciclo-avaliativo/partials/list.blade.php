@@ -1,8 +1,9 @@
 <x-layouts.tables.simple-table
     :headers="[
         'Código Controle',
-        'Criado em',
+        'Iniciado em',
         'Última atualização',
+        'Fase',
         'Status',
         'Ações'
     ]"
@@ -10,14 +11,19 @@
     :appends="[]"
 >
     @section('table-content')
-        @foreach($ciclosAvaliativos->items() as $index => $cargo)
+        @foreach($ciclosAvaliativos->items() as $index => $ciclo)
             <tr>
-                <td>{{$cargo->uuid}}</td>
-                <td>{{$cargo->created_at}}}</td>
-                <td>{{$cargo->updated_at}}</td>
+                <td>{{$ciclo->uuid}}</td>
+                <td>{{$ciclo->periodicidade['iniciado_em']}}</td>
+                <td>{{$ciclo->updated_at}}</td>
+                <td>
+                    <x-layouts.badges.step-ciclo-avaliativo
+                        :step="$ciclo->step"
+                    />
+                </td>
                 <td>
                     <x-layouts.badges.status-ciclo-avaliativo
-                        :status="$cargo->status"
+                        :status="$ciclo->status"
                     />
                 </td>
                 <td class="text-right">

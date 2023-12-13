@@ -3,6 +3,7 @@
 namespace App\Actions\CicloAvaliativoPeriodicidade;
 
 use App\DTO\CicloAvaliativoPeriodicidade\PeriodicidadeStoreDTO;
+use App\Enums\CicloAvaliativoStepsEnum;
 use App\Models\Periodicidade;
 use App\Repositories\CicloAvaliativo\CicloAvaliativoRepositoryInterface;
 use App\Repositories\CicloAvaliativoPeriodicidade\PeriodicidadeRepositoryInterface;
@@ -19,8 +20,10 @@ class PeriodicidadeStoreAction
     {
         DB::beginTransaction();
 
-        // -- cria um ciclo avaliativo rascunho
-        $cicloAvaliativo = $this->cicloAvaliativoRepository->new([]);
+        $cicloAvaliativo = $this->cicloAvaliativoRepository->new([
+            'step' => CicloAvaliativoStepsEnum::INCIDENCIA
+        ]);
+
         $periodicidade = $this->periodicidadeRepository->new($cicloAvaliativo->uuid, $dto);
 
         DB::commit();

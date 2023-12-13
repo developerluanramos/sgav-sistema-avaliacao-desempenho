@@ -11,7 +11,7 @@ use BenSampo\Enum\Enum;
  */
 final class CicloAvaliativoStatusEnum extends Enum
 {
-    const ATIVO = 'ativo';
-    const INATIVO = 'inativo';
+    const INICIADO = 'iniciado';
+    const ENCERRADO = 'encerrado';
     const RASCUNHO = 'rascunho';
 }

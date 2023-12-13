@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Enums\CicloAvaliativoStatusEnum;
+use App\Enums\CicloAvaliativoStepsEnum;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -19,6 +20,7 @@ class CicloAvaliativoFactory extends Factory
     {
         return [
             "uuid" => fake()->uuid(),
+            "step" => CicloAvaliativoStepsEnum::PERIODICIDADE,
             "status" => CicloAvaliativoStatusEnum::RASCUNHO
         ];
     }
