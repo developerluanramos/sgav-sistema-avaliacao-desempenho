@@ -5,6 +5,7 @@ ARG user
 ARG uid
 
 # Install system dependencies
+RUN apt-get update && apt-get install build-essential
 RUN apt-get update && apt-get install -y \
     git \
     curl \

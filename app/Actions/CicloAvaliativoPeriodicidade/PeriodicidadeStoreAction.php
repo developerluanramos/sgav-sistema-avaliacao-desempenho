@@ -3,13 +3,28 @@
 namespace App\Actions\CicloAvaliativoPeriodicidade;
 
 use App\DTO\CicloAvaliativoPeriodicidade\PeriodicidadeStoreDTO;
+use App\Models\Periodicidade;
+use App\Repositories\CicloAvaliativo\CicloAvaliativoRepositoryInterface;
+use App\Repositories\CicloAvaliativoPeriodicidade\PeriodicidadeRepositoryInterface;
+use Illuminate\Support\Facades\DB;
 
 class PeriodicidadeStoreAction
 {
-    public function __construct() { }
+    public function __construct(
+        protected CicloAvaliativoRepositoryInterface $cicloAvaliativoRepository,
+        protected PeriodicidadeRepositoryInterface $periodicidadeRepository
+    ) { }
 
-    public function exec(PeriodicidadeStoreDTO $dto) : array
+    public function exec(PeriodicidadeStoreDTO $dto) : Periodicidade
     {
-        return (array) $dto;
+        DB::beginTransaction();
+
+        // -- cria um ciclo avaliativo rascunho
+        $cicloAvaliativo = $this->cicloAvaliativoRepository->new([]);
+        $periodicidade = $this->periodicidadeRepository->new($cicloAvaliativo->uuid, $dto);
+
+        DB::commit();
+
+        return $periodicidade;
     }
 }

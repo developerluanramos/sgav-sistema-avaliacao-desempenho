@@ -9,7 +9,7 @@ class CicloAvaliativo extends Model
 {
     use HasFactory;
 
-    protected $table = "periodicidades";
+    protected $table = "ciclos_avaliativos";
 
     protected $fillable = [
         "uuid",
