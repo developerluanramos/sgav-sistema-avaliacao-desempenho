@@ -157,3 +157,8 @@ Breadcrumbs::for('departamento.edit', function (BreadcrumbTrail $trail, $departa
     $trail->parent('departamento');
     $trail->push('Edição de Departamento', route('departamento.edit', $departamento));
 });
+
+Breadcrumbs::for('ciclos-avaliativos', function (BreadcrumbTrail $trail) {
+    $trail->parent('Dashboard' , route('dashboard.index'));
+    $trail->push('Ciclos Avaliativos', route('ciclo-avaliativo.index'));
+});

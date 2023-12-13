@@ -3,6 +3,8 @@
 namespace App\Repositories\CicloAvaliativo;
 
 use App\Models\CicloAvaliativo;
+use App\Repositories\Interfaces\PaginationInterface;
+use App\Repositories\Presenters\PaginationPresenter;
 
 class CicloAvaliativoEloquentRepository implements CicloAvaliativoRepositoryInterface
 {
@@ -20,6 +22,22 @@ class CicloAvaliativoEloquentRepository implements CicloAvaliativoRepositoryInte
 
     public function totalQuantity() : int {
         return $this->model->count();
+    }
+
+    public function paginate(int $page = 1, int $totalPerPage = 10, string $filter = null): PaginationInterface
+    {
+        $query = $this->model->query();
+
+//        if(!is_null($filter)) {
+//            $query->where("nome", "like", "%".$filter."%");
+//            $query->orWhere("situacao", "like", "%".$filter."%");
+//        }
+
+        $query->orderBy('updated_at', 'desc');
+
+        $result = $query->paginate($totalPerPage, ['*'], 'page', $page);
+
+        return new PaginationPresenter($result);
     }
 
     public function find(string $uuid): CicloAvaliativo
