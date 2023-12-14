@@ -21,7 +21,7 @@ class Vinculo extends Model
         'servidor_uuid',
         'postos_trabalho_uuid',
         'setores_uuid',
-        'departamento_uuid',
+        'departamentos_uuid',
     ];
 
     public function cargo()
@@ -51,6 +51,6 @@ class Vinculo extends Model
 
     public function departamento()
     {
-        return $this->belongsTo(Departamento::class, 'departamento_uuid', 'uuid');
+        return $this->belongsTo(Departamento::class, 'departamentos_uuid', 'uuid');
     }
 }

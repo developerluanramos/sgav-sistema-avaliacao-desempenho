@@ -11,7 +11,10 @@
 
 <div>
     @livewire('components.select-boxes.estrutura-organizacional', [
-    'components' => ['postos_trabalho', 'setores', 'departamentos']
+        'components' => ['departamentos', 'setores', 'postos_trabalho'],
+            'departamentoUuid' => $vinculo->departamentos_uuid ?? old('departamentoUuid'),
+            'setorUuid' => $vinculo->setores_uuid ?? old('setorUuid'),
+            'postoTrabalhoUuid' => $vinculo->postos_trabalho_uuid ?? old('postoTrabalhoUuid'),
     ])
 </div>
 
@@ -57,3 +60,5 @@
         :value="$vinculo->matricula ?? old('matricula')"
     />
 </div>
+
+<x-layouts.buttons.submit-button text="Salvar"/>
