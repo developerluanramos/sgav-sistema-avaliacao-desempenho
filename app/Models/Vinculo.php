@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -23,6 +24,8 @@ class Vinculo extends Model
         'setores_uuid',
         'departamentos_uuid',
     ];
+
+    protected $appends = ['formatted_data_admissao'];
 
     public function cargo()
     {
@@ -52,5 +55,10 @@ class Vinculo extends Model
     public function departamento()
     {
         return $this->belongsTo(Departamento::class, 'departamentos_uuid', 'uuid');
+    }
+
+    public function getFormattedDataAdmissaoAttribute()
+    {
+        return Carbon::parse($this->attributes['data_admissao'])->format('d-m-Y');
     }
 }
