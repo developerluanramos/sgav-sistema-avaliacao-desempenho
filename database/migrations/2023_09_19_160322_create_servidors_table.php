@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('servidores', function (Blueprint $table) {
             $table->id();
-            $table->uuid();
+            $table->uuid('uuid')->unique();
             $table->string('name');
             $table->string('email')->unique();
             $table->date('data_nascimento');
