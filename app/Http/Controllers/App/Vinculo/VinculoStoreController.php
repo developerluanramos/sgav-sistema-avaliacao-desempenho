@@ -17,6 +17,6 @@ class VinculoStoreController extends Controller
     {
         $this->storeAction->exec(VinculoStoreDTO::makeFromRequest($storeRequest));
 
-        return redirect()->route('vinculo.create');
+        return redirect()->route('vinculo.index')->with('message', 'Vinculo Criado Com Sucesso!');
     }
 }

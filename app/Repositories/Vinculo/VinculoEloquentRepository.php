@@ -4,6 +4,8 @@ namespace App\Repositories\Vinculo;
 
 use App\DTO\Vinculo\VinculoStoreDTO;
 use App\Models\Vinculo;
+use App\Repositories\Interfaces\PaginationInterface;
+use App\Repositories\Presenters\PaginationPresenter;
 
 class VinculoEloquentRepository implements VinculoRepositoryInterface
 {
@@ -14,5 +16,36 @@ class VinculoEloquentRepository implements VinculoRepositoryInterface
     public function new(VinculoStoreDTO $vinculoStoreDTO): Vinculo
     {
         return $this->model->create((array)$vinculoStoreDTO);
+    }
+
+    public function paginate(int $page = 1, int $totalPerPage = 10, string $filter = null): PaginationInterface
+    {
+        $query = $this->model->query()
+            ->with('equipe')
+            ->with('cargo')
+            ->with('servidor')
+            ->with('postoTrabalho')
+            ->with('setor')
+            ->with('departamento');
+
+
+        if (!is_null($filter)) {
+            $query->where(function ($subquery) use ($filter) {
+                $subquery->where("nome", "like", "%{$filter}%")
+                    ->orWhere("email", "like", "%{$filter}%")
+                    ->orWhereHas('cargo', function ($cargoQuery) use ($filter) {
+                        $cargoQuery->where("nome", "like", "%{$filter}%");
+                    })
+                    ->orWhere("data_nascimento", "like", "%{$filter}%")
+                    ->orWhere("data_admissao", "like", "%{$filter}%")
+                    ->orWhere("matricula", "like", "%{$filter}%");
+            });
+        }
+
+        $query->orderBy('updated_at', 'desc');
+
+        $result = $query->paginate($totalPerPage, ['*'], 'page', $page);
+
+        return new PaginationPresenter($result);
     }
 }

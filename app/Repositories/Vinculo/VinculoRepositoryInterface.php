@@ -4,8 +4,11 @@ namespace App\Repositories\Vinculo;
 
 use App\DTO\Vinculo\VinculoStoreDTO;
 use App\Models\Vinculo;
+use App\Repositories\Interfaces\PaginationInterface;
 
 interface VinculoRepositoryInterface
 {
     public function new(VinculoStoreDTO $vinculoStoreDTO): Vinculo;
+
+    public function paginate(int $page = 1, int $totalPerPage = 10, string $filter = null): PaginationInterface;
 }
