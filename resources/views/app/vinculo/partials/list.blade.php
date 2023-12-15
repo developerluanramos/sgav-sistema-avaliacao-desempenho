@@ -27,7 +27,7 @@
                     text="Editar"
                     action="editar"
                     color="primary"
-                    :route="'#'"/>
+                    :route="route('vinculo.edit', $vinculo->uuid)"/>
             </td>
         </tr>
     @endforeach

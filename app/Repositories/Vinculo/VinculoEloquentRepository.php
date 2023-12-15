@@ -18,6 +18,13 @@ class VinculoEloquentRepository implements VinculoRepositoryInterface
         return $this->model->create((array)$vinculoStoreDTO);
     }
 
+    public function find(string $uuid): Vinculo
+    {
+        return $this->model
+            ->with('servidor')
+            ->where("uuid", $uuid)->first();
+    }
+
     public function paginate(int $page = 1, int $totalPerPage = 10, string $filter = null): PaginationInterface
     {
         $query = $this->model->query()

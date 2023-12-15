@@ -10,5 +10,7 @@ interface VinculoRepositoryInterface
 {
     public function new(VinculoStoreDTO $vinculoStoreDTO): Vinculo;
 
+    public function find(string $uuid): Vinculo;
+
     public function paginate(int $page = 1, int $totalPerPage = 10, string $filter = null): PaginationInterface;
 }
