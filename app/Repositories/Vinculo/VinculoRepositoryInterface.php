@@ -16,4 +16,6 @@ interface VinculoRepositoryInterface
     public function paginate(int $page = 1, int $totalPerPage = 10, string $filter = null): PaginationInterface;
 
     public function update(VinculoUpdateDTO $dto): Vinculo;
+
+    public function delete(string $uuid): void;
 }

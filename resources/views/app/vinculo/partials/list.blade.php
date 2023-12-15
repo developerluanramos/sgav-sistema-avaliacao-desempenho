@@ -19,10 +19,14 @@
             <td>{{ $vinculo->matricula }}</td>
             <td class="text-right">
                 <x-layouts.buttons.action-button
-                    text="Ver"
-                    action="ver"
-                    color="secondary"
-                    :route="'#'"/>
+                    text="Excluir"
+                    action="excluir"
+                    color="danger"
+                    :identificador="'drawer-delete-confirmacao'"
+                    :route="route('vinculo.delete', [
+                            'uuid' => $vinculo->uuid
+                        ])"
+                />
                 <x-layouts.buttons.action-button
                     text="Editar"
                     action="editar"

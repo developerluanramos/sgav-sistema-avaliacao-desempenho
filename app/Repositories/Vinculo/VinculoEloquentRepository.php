@@ -63,4 +63,11 @@ class VinculoEloquentRepository implements VinculoRepositoryInterface
 
         return $this->find($dto->uuid);
     }
+
+    public function delete(string $uuid): void
+    {
+        $vinculo = $this->find($uuid);
+
+        $vinculo->delete();
+    }
 }
