@@ -1,5 +1,9 @@
 @extends('app.layouts.app')
 
+@section('breadcrumb')
+    {{ Breadcrumbs::render('vinculo.edit', $vinculo) }}
+@endsection
+
 @section('title', 'Edição Vinculo')
 
 <x-layouts.headers.edit-header :title="$vinculo->uuid.' - '.$vinculo->servidor['nome']"/>

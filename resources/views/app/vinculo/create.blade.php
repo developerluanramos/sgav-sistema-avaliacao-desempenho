@@ -1,5 +1,9 @@
 @extends('app.layouts.app')
 
+@section('breadcrumb')
+    {{ Breadcrumbs::render('vinculo.create') }}
+@endsection
+
 @section('title', 'Novo Vinculo')
 
 <x-layouts.headers.create-header :title="'Novo Vinculo'"/>
