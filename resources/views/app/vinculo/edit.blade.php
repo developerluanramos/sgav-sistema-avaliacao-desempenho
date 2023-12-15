@@ -10,7 +10,7 @@
 @include('components.alerts.form-errors')
 
 
-<form action="#" method="POST">
+<form action="{{ route('vinculo.update', $vinculo->uuid) }}" method="POST">
     @csrf
     @method('PUT')
     @include('app.vinculo.partials.form')
