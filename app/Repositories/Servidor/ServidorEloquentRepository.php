@@ -15,7 +15,7 @@ class ServidorEloquentRepository implements ServidorRepositoryInterface
         protected Servidor $model
     ){ }
 
-    public function all(array $filters): array
+    public function all(): array
     {
         return $this->model->all()->toArray();
     }

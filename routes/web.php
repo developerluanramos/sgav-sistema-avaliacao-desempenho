@@ -5,4 +5,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth.basic'])->group(function() {
     Route::get('/dashboard', [DashboardIndexController::class, 'index'])->name('dashboard.index');
+    Route::get('vinculo/create', [\App\Http\Controllers\App\Vinculo\VinculoCreateController::class, 'create'])->name('vinculo.create');
+    Route::post('vinculo/', [App\Http\Controllers\App\Vinculo\VinculoStoreController::class, 'store'])->name('vinculo.store');
 });

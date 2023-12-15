@@ -16,6 +16,7 @@ use App\Models\Periodicidade;
 use App\Models\PostoTrabalho;
 use App\Models\Servidor;
 use App\Models\Setor;
+use App\Models\Vinculo;
 use App\Observers\CargoObserver;
 use App\Models\User;
 use App\Observers\CicloAvaliativoObserver;
@@ -32,6 +33,7 @@ use App\Observers\PostoTrabalhoObserver;
 use App\Observers\ServidorObserver;
 use App\Observers\SetorObserver;
 use App\Observers\UsuarioObserver;
+use App\Observers\VinculoObserver;
 use App\Repositories\Cargo\CargoEloquentRepository;
 use App\Repositories\Cargo\CargoRepositoryInterface;
 use App\Repositories\CicloAvaliativo\CicloAvaliativoEloquentRepository;
@@ -62,6 +64,8 @@ use App\Repositories\Setor\SetorEloquentRepository;
 use App\Repositories\Setor\SetorRepositoryInterface;
 use App\Repositories\Usuario\UsuarioEloquentRepository;
 use App\Repositories\Usuario\UsuarioRepositoryInterface;
+use App\Repositories\Vinculo\VinculoEloquentRepository;
+use App\Repositories\Vinculo\VinculoRepositoryInterface;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
 
@@ -122,6 +126,9 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(
             PeriodicidadeRepositoryInterface::class, PeriodicidadeEloquentRepository::class
         );
+        $this->app->bind(
+            VinculoRepositoryInterface::class, VinculoEloquentRepository::class
+        );
     }
 
 
@@ -145,6 +152,7 @@ class AppServiceProvider extends ServiceProvider
         Departamento::observe(DepartamentoObserver::class);
         CicloAvaliativo::observe(CicloAvaliativoObserver::class);
         Periodicidade::observe(PeriodicidadeObserver::class);
+        Vinculo::observe(VinculoObserver::class);
 
         Validator::extend('validarIdadeAdmissao', function ($attribute, $value, $parameters, $validator) {
             $dataNascimento = $validator->getData()['data_nascimento'];
