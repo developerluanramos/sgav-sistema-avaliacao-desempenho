@@ -14,12 +14,8 @@ return new class extends Migration
         Schema::create('servidores', function (Blueprint $table) {
             $table->id();
             $table->uuid('uuid')->unique();
-            $table->string('name');
-            $table->string('email')->unique();
+            $table->string('nome');
             $table->date('data_nascimento');
-            $table->date('data_admissao');
-            $table->foreignUuid('cargo_uuid')->constrained('cargos', 'uuid');
-            $table->string('matricula')->unique();
             $table->timestamps();
         });
     }
