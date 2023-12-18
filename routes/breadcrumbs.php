@@ -162,3 +162,20 @@ Breadcrumbs::for('ciclos-avaliativos', function (BreadcrumbTrail $trail) {
     $trail->parent('Dashboard' , route('dashboard.index'));
     $trail->push('Ciclos Avaliativos', route('ciclo-avaliativo.index'));
 });
+
+Breadcrumbs::for('vinculo', function (BreadcrumbTrail $trail) {
+    $trail->parent('Dashboard' , route('dashboard.index'));
+    $trail->push('Vinculos', route('vinculo.index'));
+});
+
+Breadcrumbs::for('vinculo.create', function ($trail) {
+    $trail->parent('vinculo');
+    $trail->push('Nova Vinculo', route('vinculo.create'));
+});
+
+Breadcrumbs::for('vinculo.edit', function ($trail, $vinculo) {
+    $trail->parent('vinculo');
+    $trail->push('Edição de Vinculo', route('vinculo.edit', $vinculo));
+});
+
+

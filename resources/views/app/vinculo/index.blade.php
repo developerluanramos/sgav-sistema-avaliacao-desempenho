@@ -1,5 +1,9 @@
 @extends('app.layouts.app')
 
+@section('breadcrumb')
+    {{ Breadcrumbs::render('vinculo') }}
+@endsection
+
 @section('title', 'Vinculos')
 
 @section('content')

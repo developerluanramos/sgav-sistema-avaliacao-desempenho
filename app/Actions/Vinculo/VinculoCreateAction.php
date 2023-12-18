@@ -25,17 +25,11 @@ class VinculoCreateAction
     {
         $cargos = $this->cargoRepository->Ativos();
         $equipes = $this->equipeRepository->Ativos();
-        $departamentos = $this->departamentoRepository->all();
-        $setores = $this->setorRepository->all();
-        $postosTrabalho = $this->postoTrabalhoRepository->all();
         $servidores = $this->servidorRepository->all();
 
         return [
             "cargos" => $cargos,
             "equipes" => $equipes,
-            "departamentos" => $departamentos,
-            "setores" => $setores,
-            "postosTrabalho" => $postosTrabalho,
             "servidores" => $servidores
         ];
     }

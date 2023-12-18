@@ -3,6 +3,7 @@
 namespace App\Repositories\Vinculo;
 
 use App\DTO\Vinculo\VinculoStoreDTO;
+use App\DTO\Vinculo\VinculoUpdateDTO;
 use App\Models\Vinculo;
 use App\Repositories\Interfaces\PaginationInterface;
 use App\Repositories\Presenters\PaginationPresenter;
@@ -16,6 +17,13 @@ class VinculoEloquentRepository implements VinculoRepositoryInterface
     public function new(VinculoStoreDTO $vinculoStoreDTO): Vinculo
     {
         return $this->model->create((array)$vinculoStoreDTO);
+    }
+
+    public function find(string $uuid): Vinculo
+    {
+        return $this->model
+            ->with('servidor')
+            ->where("uuid", $uuid)->first();
     }
 
     public function paginate(int $page = 1, int $totalPerPage = 10, string $filter = null): PaginationInterface
@@ -47,5 +55,12 @@ class VinculoEloquentRepository implements VinculoRepositoryInterface
         $result = $query->paginate($totalPerPage, ['*'], 'page', $page);
 
         return new PaginationPresenter($result);
+    }
+
+    public function update(VinculoUpdateDTO $dto): Vinculo
+    {
+        $this->model->where("uuid", $dto->uuid)->update((array) $dto);
+
+        return $this->find($dto->uuid);
     }
 }
