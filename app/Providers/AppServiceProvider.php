@@ -9,6 +9,7 @@ use App\Models\Departamento;
 use App\Models\Equipe;
 use App\Models\FatorAvaliacao;
 use App\Models\Fornecedor;
+use App\Models\Incidencia;
 use App\Models\IndicadorDesempenho;
 use App\Models\ItemConceitoAvaliacao;
 use App\Models\ModeloAvaliacao;
@@ -25,6 +26,7 @@ use App\Observers\DepartamentoObserver;
 use App\Observers\EquipeObserver;
 use App\Observers\FatorAvaliacaoObserver;
 use App\Observers\FornecedorObserver;
+use App\Observers\IncidenciaObserver;
 use App\Observers\IndicadorDesempenhoObserver;
 use App\Observers\ItemConceitoAvaliacaoObserver;
 use App\Observers\ModeloAvaliacaoObserver;
@@ -38,6 +40,8 @@ use App\Repositories\Cargo\CargoEloquentRepository;
 use App\Repositories\Cargo\CargoRepositoryInterface;
 use App\Repositories\CicloAvaliativo\CicloAvaliativoEloquentRepository;
 use App\Repositories\CicloAvaliativo\CicloAvaliativoRepositoryInterface;
+use App\Repositories\CicloAvaliativoIncidencia\IncidenciaEloquentRepository;
+use App\Repositories\CicloAvaliativoIncidencia\IncidenciaRepositoryInterface;
 use App\Repositories\CicloAvaliativoPeriodicidade\PeriodicidadeEloquentRepository;
 use App\Repositories\CicloAvaliativoPeriodicidade\PeriodicidadeRepositoryInterface;
 use App\Repositories\ConceitoAvaliacao\ConceitoAvaliacaoEloquentRepository;
@@ -129,6 +133,9 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(
             VinculoRepositoryInterface::class, VinculoEloquentRepository::class
         );
+        $this->app->bind(
+            IncidenciaRepositoryInterface::class, IncidenciaEloquentRepository::class
+        );
     }
 
 
@@ -152,6 +159,7 @@ class AppServiceProvider extends ServiceProvider
         Departamento::observe(DepartamentoObserver::class);
         CicloAvaliativo::observe(CicloAvaliativoObserver::class);
         Periodicidade::observe(PeriodicidadeObserver::class);
+        Incidencia::observe(IncidenciaObserver::class);
         Vinculo::observe(VinculoObserver::class);
 
         Validator::extend('validarIdadeAdmissao', function ($attribute, $value, $parameters, $validator) {

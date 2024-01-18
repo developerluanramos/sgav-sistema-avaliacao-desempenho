@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('incidencias', function (Blueprint $table) {
             $table->id();
+            $table->uuid('uuid')->unique();
+            $table->foreignUuid('ciclos_avaliativos_uuid')->constrained('ciclos_avaliativos', 'uuid');
+            $table->foreignUuid('cargo_uuid')->constrained('cargos', 'uuid');
+            $table->foreignUuid('equipe_uuid')->constrained('equipes', 'uuid');
+            $table->foreignUuid('postos_trabalho_uuid')->constrained('postos_trabalho', 'uuid');
+            $table->foreignUuid('setores_uuid')->constrained('setores', 'uuid');
+            $table->foreignUuid('departamentos_uuid')->constrained('departamentos', 'uuid');
             $table->timestamps();
         });
     }

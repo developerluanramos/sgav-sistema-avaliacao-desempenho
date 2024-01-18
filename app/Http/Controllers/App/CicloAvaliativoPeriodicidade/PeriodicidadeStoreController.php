@@ -13,6 +13,6 @@ class PeriodicidadeStoreController extends Controller
     {
         $periodicidade = $periodicidadeStoreAction->exec(PeriodicidadeStoreDTO::makeFromRequest($storeRequest));
 
-        return redirect()->route('ciclo-avaliativo.incidencia.create');
+        return redirect()->route('ciclo-avaliativo.incidencia.create', ['ciclosAvaliativosUuid' => $periodicidade->ciclos_avaliativos_uuid]);
     }
 }

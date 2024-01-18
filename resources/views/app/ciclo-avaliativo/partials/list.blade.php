@@ -2,7 +2,7 @@
     :headers="[
         'Código Controle',
         'Iniciado em',
-        'Última atualização',
+        'Progresso',
         'Fase',
         'Status',
         'Ações'
@@ -15,8 +15,19 @@
             <tr>
                 <td>{{$ciclo->uuid}}</td>
                 <td>{{$ciclo->periodicidade['iniciado_em']}}</td>
-                <td>{{$ciclo->updated_at}}</td>
-                <td><x-layouts.badges.step-ciclo-avaliativo :step="$ciclo->step" /></td>
+                <td class="p-3">
+                    <div class="w-full bg-gray-200 rounded-full dark:bg-gray-700">
+                        @php
+                            $percent = random_int(25, 87);
+                        @endphp
+                        <div class="bg-blue-600 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-full" style="width: {{$percent}}%">
+                            {{$percent}}%
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <x-layouts.badges.step-ciclo-avaliativo :step="$ciclo->step" />
+                </td>
                 <td><x-layouts.badges.status-ciclo-avaliativo :status="$ciclo->status"/></td>
                 <td class="text-right">
                     <x-layouts.buttons.action-button
@@ -38,7 +49,7 @@
                             text="Editar"
                             action="editar"
                             color="primary"
-                            :route="route('ciclo-avaliativo.incidencia.create')"
+                            :route="route('ciclo-avaliativo.incidencia.create', ['ciclosAvaliativosUuid' => $ciclo->uuid])"
                         />
                     @endif
                     @if($ciclo->step == \App\Enums\CicloAvaliativoStepsEnum::TEMPLATE)
@@ -46,7 +57,7 @@
                             text="Editar"
                             action="editar"
                             color="primary"
-                            :route="route('ciclo-avaliativo.template.create')"
+                            :route="route('ciclo-avaliativo.template.create', ['ciclosAvaliativosUuid' => $ciclo->uuid])"
                         />
                     @endif
                     @if($ciclo->step == \App\Enums\CicloAvaliativoStepsEnum::DEPENDENCIA)
@@ -54,7 +65,7 @@
                             text="Editar"
                             action="editar"
                             color="primary"
-                            :route="''"
+                            :route="route('ciclo-avaliativo.dependencia.create', ['ciclosAvaliativosUuid' => $ciclo->uuid])"
                         />
                     @endif
                 </td>
