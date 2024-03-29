@@ -58,4 +58,11 @@ class CicloAvaliativoEloquentRepository implements CicloAvaliativoRepositoryInte
 
         return $this->find($uuid);
     }
+
+    public function show(string $uuid): CicloAvaliativo
+    {
+        return $this->model
+            ->with('periodicidade', 'incidencia', 'modelos')
+            ->where('uuid', $uuid)->first();
+    }
 }

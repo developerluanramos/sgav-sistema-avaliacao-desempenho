@@ -32,6 +32,11 @@ class CicloAvaliativo extends Model
         return $this->hasMany(Template::class, 'ciclos_avaliativos_uuid', 'uuid');
     }
 
+    public function modelos()
+    {
+        return $this->hasMany(CicloAvaliativoModelo::class, 'ciclos_avaliativos_uuid', 'uuid');
+    }
+
     public function dependencias()
     {
         return $this->hasMany(Dependencia::class, 'ciclos_avaliativos_uuid', 'uuid');

@@ -60,12 +60,12 @@
                             :route="route('ciclo-avaliativo.template.create', ['ciclosAvaliativosUuid' => $ciclo->uuid])"
                         />
                     @endif
-                    @if($ciclo->step == \App\Enums\CicloAvaliativoStepsEnum::DEPENDENCIA)
+                    @if($ciclo->step == \App\Enums\CicloAvaliativoStepsEnum::CONCLUSAO)
                         <x-layouts.buttons.action-button
                             text="Editar"
                             action="editar"
                             color="primary"
-                            :route="route('ciclo-avaliativo.dependencia.create', ['ciclosAvaliativosUuid' => $ciclo->uuid])"
+                            :route="route('ciclo-avaliativo.conclusao.create', ['ciclosAvaliativosUuid' => $ciclo->uuid])"
                         />
                     @endif
                 </td>

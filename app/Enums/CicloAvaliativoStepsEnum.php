@@ -14,5 +14,5 @@ final class CicloAvaliativoStepsEnum extends Enum
     const PERIODICIDADE = 'periodicidade';
     const INCIDENCIA = 'incidencia';
     const TEMPLATE = 'template';
-    const DEPENDENCIA = 'dependencia';
+    const CONCLUSAO = 'conclusao';
 }

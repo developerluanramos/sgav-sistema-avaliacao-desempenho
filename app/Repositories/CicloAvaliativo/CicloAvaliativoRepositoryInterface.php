@@ -19,4 +19,6 @@ interface CicloAvaliativoRepositoryInterface
     public function new(array $data): CicloAvaliativo;
 
     public function update(string $uuid, array $data): CicloAvaliativo;
+
+    public function show(string $uuid): CicloAvaliativo;
 }

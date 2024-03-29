@@ -40,7 +40,7 @@
             <b>Templates</b>
         </span>
     </li>
-    <li class="{{$step === \App\Enums\CicloAvaliativoStepsEnum::DEPENDENCIA ? 'text-blue-600' : null}} flex items-center">
+    <li class="{{$step === \App\Enums\CicloAvaliativoStepsEnum::CONCLUSAO ? 'text-blue-600' : null}} flex items-center">
         <span class="me-2">4</span>
         <b>Conclusão</b>
     </li>
